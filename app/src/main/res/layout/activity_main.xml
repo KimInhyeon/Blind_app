@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <Button android:id="@+id/btn1"
+    <Button
+        android:id="@+id/btn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Connection Test"
-        />
+        android:text="Connection Test" />
+
     <TextView
         android:id="@+id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:text="" />
 
     <Button
         android:id="@+id/join"
@@ -29,5 +30,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ログインSample Pageへ" />
+
+    <Button
+        android:id="@+id/annual_income_rank_calculator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="年棒等数計算機 Sample Pageへ" />
 
 </LinearLayout>

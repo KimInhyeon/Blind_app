@@ -106,8 +106,7 @@ public class HttpClient {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-        }
+            }        }
 
     }
 
