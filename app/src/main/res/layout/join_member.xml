@@ -77,10 +77,10 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="10dp"
+                android:autofillHints="E-Mail"
                 android:background="#FFFFFF"
                 android:ems="10"
                 android:hint="E-Mail"
-                android:autofillHints="E-Mail"
                 android:inputType="textPersonName"
                 android:maxLength="50"
                 android:paddingLeft="10dp"
@@ -134,46 +134,46 @@
             <RadioGroup
                 android:id="@+id/role"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
-            <RadioButton
-                android:id="@+id/normalMemRb"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:ems="10"
-                android:paddingLeft="10dp"
-                android:text="一般会員"
-                android:textColor="#000000" />
+                <RadioButton
+                    android:id="@+id/normalMemRb"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#FFFFFF"
+                    android:ems="10"
+                    android:paddingLeft="10dp"
+                    android:text="一般会員"
+                    android:textColor="#000000" />
 
-            <RadioButton
-                android:id="@+id/regularMemRb"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:ems="10"
-                android:paddingLeft="10dp"
-                android:text="正会員"
-                android:textColor="#000000" />
+                <RadioButton
+                    android:id="@+id/regularMemRb"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#FFFFFF"
+                    android:ems="10"
+                    android:paddingLeft="10dp"
+                    android:text="正会員"
+                    android:textColor="#000000" />
 
-            <RadioButton
-                android:id="@+id/amdinMemRb"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:ems="10"
-                android:paddingLeft="10dp"
-                android:text="管理者"
-                android:textColor="#000000" />
+                <RadioButton
+                    android:id="@+id/amdinMemRb"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#FFFFFF"
+                    android:ems="10"
+                    android:paddingLeft="10dp"
+                    android:text="管理者"
+                    android:textColor="#000000" />
 
             </RadioGroup>
 
@@ -186,6 +186,18 @@
                 android:layout_marginRight="30dp"
                 android:background="#323151"
                 android:text="Sign In"
+                android:textColor="#FFFFFF" />
+
+
+            <Button
+                android:id="@+id/accessByBrowser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="accessByBrowser"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>

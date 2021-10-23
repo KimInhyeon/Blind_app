@@ -1,5 +1,7 @@
 package com.ksinfo.blind.member;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +30,18 @@ public class MemberJoinActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join_member);
+
+
+        Button accessByBrowser = (Button)findViewById(R.id.accessByBrowser);
+
+        accessByBrowser.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.0.6:8282//blind"));
+                startActivity(myIntent);
+            }
+        });
+
 
         Button signIn = (Button)findViewById(R.id.signBtn);
 
@@ -64,6 +78,8 @@ public class MemberJoinActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void joinMember(HashMap<String, String> params) {
 

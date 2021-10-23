@@ -3,6 +3,7 @@ package com.ksinfo.blind;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -90,7 +91,8 @@ public class MainActivity extends AppCompatActivity {
         //onPreExecute(task 시작 전 실행될 코드 여기에 작성)
         backgroundTask = Observable.fromCallable(() -> { //자바5 Callable 인터페이스(동시성 API)f를 활용하여 비동기 실행 후 결과를 리턴. 람다식을 활용하여 표현됨. (참고 : https://zzandoli.tistory.com/31)
             //doInBackground(task에서 실행할 코드 여기에 작성)
-            return HttpClientAccessor.accessByPost("testAndroidAccess", params); //testAndroidAccess : [추정] HttpClientAccessor.java의 accessByPost메소드에서 실행된 다음 리턴되는 data>)
+            return HttpClientAccessor.accessByPost("", params); //testAndroidAccess : [추정] HttpClientAccessor.java의 accessByPost메소드에서 실행된 다음 리턴되는 data>)
+            //return HttpClientAccessor.accessByPost("testAndroidAccess", params); //testAndroidAccess : [추정] HttpClientAccessor.java의 accessByPost메소드에서 실행된 다음 리턴되는 data>)
 
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<HashMap<String, String>>() {
             @Override
@@ -101,5 +103,10 @@ public class MainActivity extends AppCompatActivity {
                 backgroundTask.dispose(); //현재의 frame만 종료시킵니다. (참고 : https://modesty101.tistory.com/173)
             }
         });
+    }
+
+    public void onButton2Clicked(View v) {
+        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.0.6:8282//blind"));
+        startActivity(myIntent);
     }
 }

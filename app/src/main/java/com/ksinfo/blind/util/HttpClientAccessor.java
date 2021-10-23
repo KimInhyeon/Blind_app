@@ -5,11 +5,10 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 
 public class HttpClientAccessor extends HttpClient {
-    private static final String ip = "192.168.111.4";
+    private static final String ip = "192.168.0.6";  //서버의 주소. 시뮬레이터에서는 localhost의 주소로 실시.
 
     public static HashMap<String, String> accessByPost(String url, HashMap<String, String> params) throws Exception {
-        Builder http = new Builder
-                ("POST", "http://" + ip + ":8282/blind/" + url);
+        Builder http = new Builder("POST", "http://" + ip + ":8282/blind/" + url);
 
         // Parameter Setting
         http.addAllParameters(params);
@@ -19,7 +18,7 @@ public class HttpClientAccessor extends HttpClient {
 
         int statusCode = post.getHttpStatusCode();
 
-        if (statusCode > 400) {
+        if (statusCode > 400) {                 //400이상은 에러코드므로 예외처리
             throw new Exception(new Throwable());
         }
 
@@ -30,6 +29,7 @@ public class HttpClientAccessor extends HttpClient {
         return data;
     }
 
+    //accessByPost : 요청방식이 POST인 경우 활용하는 메소드로 추정
     public static HashMap<String, String> accessByPost(String url) throws Exception {
         Builder http = new Builder
                 ("POST", "http://" + ip + ":8282/blind/" + url);
@@ -45,7 +45,7 @@ public class HttpClientAccessor extends HttpClient {
 
         String body = post.getBody();
         Gson gson = new Gson();
-        HashMap<String, String> data = gson.fromJson(body, HashMap.class);
+        HashMap<String, String> data = gson.fromJson(body, HashMap.class);  //자바에서
 
         return data;
     }
