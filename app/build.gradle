@@ -29,8 +29,12 @@ android {
 }
 
 dependencies {
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.7'
+    //서버로부터 데이터를 수신하기 위한 API
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'//수신할 값이 (1)단순String, (2)1,2,3같은 단순숫자값 (3)true/false 값
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0' //수신할 값이 JSON형태인 경우
+    implementation 'com.google.code.gson:gson:2.8.5'
+
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'

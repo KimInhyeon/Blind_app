@@ -66,7 +66,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
-                android:text="XXXXXサービスにようこそ！"
+                android:text="XXXXXサービスにようこそ！(loginPage)"
                 android:textColor="#000000" />
 
             <EditText
@@ -112,6 +112,44 @@
                 android:text="Login"
                 android:textColor="#FFFFFF" />
 
+            <Button
+                android:id="@+id/join"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="join"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/passBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="pass(noLogin/only_Test)"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/annualIncomeCalculatorBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="annualIncomeAccess"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/topicMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="トピックメイン PAGEへ" />
         </LinearLayout>
 
     </ScrollView>

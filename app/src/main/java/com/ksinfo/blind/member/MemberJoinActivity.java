@@ -1,28 +1,31 @@
 package com.ksinfo.blind.member;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.blind.R;
-import com.ksinfo.blind.util.HttpClientAccessor;
+import com.ksinfo.blind.annualincome.AnnualIncomeRankCalculatorActivity;
+import com.ksinfo.blind.member.api.MemberApi;
+import com.ksinfo.blind.util.RetrofitFactory;
 
 import java.util.HashMap;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MemberJoinActivity extends AppCompatActivity {
-    Disposable backgroundTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,10 @@ public class MemberJoinActivity extends AppCompatActivity {
         Button signIn = (Button)findViewById(R.id.signBtn);
 
         signIn.setOnClickListener(new View.OnClickListener(){
+
             @Override
             public void onClick(View view) {
+
                 try{
                     HashMap<String, String> params = new HashMap<>();
 
@@ -45,7 +50,7 @@ public class MemberJoinActivity extends AppCompatActivity {
                     RadioButton selectedRole = (RadioButton) findViewById(selectedId);
 
                     params.put("username", email.getText().toString());
-                    params.put("nickName", nick.getText().toString());
+                    params.put("userNickname", nick.getText().toString());
                     params.put("password", password.getText().toString());
 
                     if (selectedRole.getText().toString().equals("一般会員")) {
@@ -63,24 +68,32 @@ public class MemberJoinActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     private void joinMember(HashMap<String, String> params) {
+        MemberApi memberApi = RetrofitFactory.createJsonRetrofit().create(MemberApi.class);
 
-        //onPreExecute(task 시작 전 실행될 코드 여기에 작성)
-        backgroundTask = Observable.fromCallable(() -> {
-            //doInBackground(task에서 실행할 코드 여기에 작성)
-
-            return HttpClientAccessor.accessByPost("registMemberApp", params);
-
-        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<HashMap<String, String>>() {
+        memberApi.registMemberApp(params).enqueue(new Callback<HashMap<String, String>>() {
             @Override
-            public void accept(HashMap<String, String> map) {
-                //onPostExecute(task 끝난 후 실행될 코드 여기에 작성)
-                setContentView(R.layout.join_member);
-                TextView textView = (TextView)findViewById(R.id.messageArea);
-                textView.setText(map.get("message"));
-                backgroundTask.dispose();
+            public void onResponse(@NonNull Call<HashMap<String, String>> call, Response<HashMap<String, String>> response) {
+                HashMap<String, String> message = response.body();
+                if (response.isSuccessful()) {
+                    Log.d("message", message.toString());
+                    if (message.get("code").equals("BLIND_SCS_MSG_001")) {
+                        Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Log.d("fail", "fail");
+                    }
+                } else {
+                    Log.d("fail", message.get("code"));
+                }
+            }
+            @Override
+            public void onFailure(Call<HashMap<String, String>> call, Throwable t) {
+                t.printStackTrace();
             }
         });
     }

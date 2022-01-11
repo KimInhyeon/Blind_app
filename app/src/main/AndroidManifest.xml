@@ -20,6 +20,10 @@
         </activity>
         <activity android:name=".member.MemberJoinActivity"/>
         <activity android:name=".member.LoginActivity"/>
+        <activity android:name=".home.Home"/>
+        <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivity"/>
+        <activity android:name=".mypage.Mypage"/>
+        <activity android:name=".board.TopicMainActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
