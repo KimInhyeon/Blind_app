@@ -17,6 +17,7 @@ import com.ksinfo.blind.annualincome.AnnualIncomeRankCalculatorActivity;
 import com.ksinfo.blind.board.TopicMainActivity;
 import com.ksinfo.blind.home.Home;
 import com.ksinfo.blind.member.api.MemberApi;
+import com.ksinfo.blind.mypage.Mypage;
 import com.ksinfo.blind.util.RetrofitFactory;
 
 import java.util.HashMap;
@@ -52,6 +53,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button move_mypageMain = (Button)findViewById(R.id.myPageMain);
+        move_mypageMain.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Mypage.class);
+                startActivity(intent);
+            }
+        });
+
 
         Button passAccess = (Button)findViewById(R.id.passBtn);
         passAccess.setOnClickListener(new View.OnClickListener(){
