@@ -18,6 +18,7 @@ public class Mypage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mypage);
 
+        /*
         Button move_annualIncome = (Button)findViewById(R.id.annualIncomeBtn);
         move_annualIncome.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -26,5 +27,6 @@ public class Mypage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        */
     }
 }
