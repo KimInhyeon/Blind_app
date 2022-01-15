@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.Blind">
+
+        //[推定]最初に始める画面を設定。
         <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -18,13 +20,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".member.MemberJoinActivity"/>
-        <activity android:name=".member.LoginActivity"/>
-        <activity android:name=".home.Home"/>
-        <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivity"/>
-        <activity android:name=".mypage.Mypage"/>
-        <activity android:name=".board.TopicMainActivity"/>
+
+        //使うactivityを宣言。
+            //activity宣言_1_年俸（給料）
+            <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivity"/>
+            <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivityShowUserRank"/>
+
+            //activity宣言_2_ユーザー関連機能。（会員登録、ログイン、メール認証）
+            <activity android:name=".member.MemberJoinActivity"/>
+            <activity android:name=".member.LoginActivity"/>
+            <activity android:name=".member.certificationActivity"/>
+
+            //activity宣言_3_最初に始まる画面。（slidetypeの画面）
+            <activity android:name=".home.Home"/>
+
+            //activity宣言_４_マイページ関連機能。
+            <activity android:name=".mypage.Mypage"/>
+
+            //activity宣言_5_トピック関連機能。
+            <activity android:name=".board.TopicMainActivity"/>
+
     </application>
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
