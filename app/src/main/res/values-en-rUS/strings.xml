@@ -8,4 +8,10 @@
     <string name="c_desc">CONNECT</string><!--コネクト-->
     <string name="d_desc">EXITING</string><!--趣味-->
     <string name="e_desc">FRIENDS</string>
+    <string name="title_mypage">MyPage</string>
+    <string name="tvHeading">IDEA</string>
+    <string name="update_user_data">Update</string>
+    <string name="user_nickname">nickname</string>
+    <string name="mypage_introduce_certification1">if update your grade</string>
+    <string name="mypage_introduce_certification2">you can use all services!</string>
 </resources>

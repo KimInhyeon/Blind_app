@@ -12,11 +12,10 @@
         android:theme="@style/Theme.Blind">
 
         //[推定]最初に始める画面を設定。
-        <activity android:name=".MainActivity"
+        <activity android:name="MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
