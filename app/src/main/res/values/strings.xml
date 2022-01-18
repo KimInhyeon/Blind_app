@@ -22,7 +22,13 @@
     <string name="mypage_introduce_certification4">企業のレビューを読む</string>
     <string name="mypage_introduce_certification5">企業のレビューを書く</string>
     <string name="mypage_introduce_certification6">給料のランクに給料登録や確認。</string>
-    <string name="move_certification_btn">正会員認証を始める</string>
+    <string name="move_certification_btn1">正会員認証を始める</string>
+    <string name="move_certification_btn2">企業メールを認証する</string>
+    <string name="move_annual_income_calculator">私の年齢ランキング</string>
+    <string name="mypage_button_group1">アカウントの情報更新</string>
+    <string name="mypage_button_group2">招待、Webログイン</string>
+    <string name="move_invite">招待する</string>
+    <string name="move_web_login">Webブラウザーログイン</string>
 
     <!--マイページ_正会員認証ページ。（00）-->
 

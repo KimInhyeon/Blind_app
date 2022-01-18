@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.blind.R;
 import com.ksinfo.blind.annualincome.AnnualIncomeRankCalculatorActivity;
+import com.ksinfo.blind.member.CertificationActivity;
 
 
 public class Mypage extends AppCompatActivity {
@@ -19,19 +20,6 @@ public class Mypage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mypage);
-
-
-
-        /*
-        Button move_annualIncome = (Button)findViewById(R.id.annualIncomeBtn);
-        move_annualIncome.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
-                startActivity(intent);
-            }
-        });
-        */
 
 
         ImageButton logout = findViewById(R.id.logoutBtn);
@@ -46,6 +34,33 @@ public class Mypage extends AppCompatActivity {
                 builder.create().show();
             }
         });
+
+        Button move_certification_btn1 = (Button)findViewById(R.id.move_certification_btn1);
+        move_certification_btn1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CertificationActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button move_certification_btn2 = (Button)findViewById(R.id.move_certification_btn2);
+        move_certification_btn2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CertificationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button move_annualIncomeCalculator = (Button)findViewById(R.id.move_annual_incomeCalculator_Btn2);
+        move_annualIncomeCalculator.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
