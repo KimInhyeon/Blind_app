@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        /*
         Button move_annualIncomeCalculator = (Button)findViewById(R.id.annualIncomeCalculatorBtn);
         move_annualIncomeCalculator.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        */
         Button move_mypageMain = (Button)findViewById(R.id.myPageMain);
         move_mypageMain.setOnClickListener(new View.OnClickListener(){
             @Override

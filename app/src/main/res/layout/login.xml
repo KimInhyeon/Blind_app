@@ -133,7 +133,7 @@
                 android:background="#323151"
                 android:text="pass(noLogin/only_Test)"
                 android:textColor="#FFFFFF" />
-
+            <!--
             <Button
                 android:id="@+id/annualIncomeCalculatorBtn"
                 android:layout_width="match_parent"
@@ -144,6 +144,7 @@
                 android:background="#323151"
                 android:text="annualIncomeAccess"
                 android:textColor="#FFFFFF" />
+            -->
 
             <Button
                 android:id="@+id/topicMain"
