@@ -28,7 +28,7 @@
             //activity宣言_2_ユーザー関連機能。（会員登録、ログイン、メール認証）
             <activity android:name=".member.MemberJoinActivity"/>
             <activity android:name=".member.LoginActivity"/>
-            <activity android:name=".member.certificationActivity"/>
+            <activity android:name=".member.CertificationActivity"/>
 
             //activity宣言_3_最初に始まる画面。（slidetypeの画面）
             <activity android:name=".home.Home"/>

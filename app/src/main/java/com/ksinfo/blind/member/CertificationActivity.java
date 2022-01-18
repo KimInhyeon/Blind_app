@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.blind.R;
 
-public class certificationActivity extends AppCompatActivity {
+public class CertificationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
