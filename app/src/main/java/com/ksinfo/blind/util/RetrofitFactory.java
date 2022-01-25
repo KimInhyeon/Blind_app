@@ -5,7 +5,8 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public final class RetrofitFactory {
-	private static final String BASE_URL = "http://192.168.50.93:8282/blind/";
+	//自分のPCのIPアドレス。
+	private static final String BASE_URL = "http://192.168.0.102:8282/blind/";
 
 	public static Retrofit createJsonRetrofit() {
 		return new Retrofit.Builder()

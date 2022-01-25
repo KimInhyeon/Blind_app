@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Blind">
 
         //[推定]最初に始める画面を設定。
-        <activity android:name="MainActivity"
+        <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,23 +21,23 @@
         </activity>
 
         //使うactivityを宣言。
-            //activity宣言_1_年俸（給料）
-            <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivity"/>
-            <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivityShowUserRank"/>
+        //activity宣言_1_年俸（給料）
+        <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivity"/>
+        <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivityShowUserRank"/>
 
-            //activity宣言_2_ユーザー関連機能。（会員登録、ログイン、メール認証）
-            <activity android:name=".member.MemberJoinActivity"/>
-            <activity android:name=".member.LoginActivity"/>
-            <activity android:name=".member.CertificationActivity"/>
+        //activity宣言_2_ユーザー関連機能。（会員登録、ログイン、メール認証）
+        <activity android:name=".member.MemberJoinActivity"/>
+        <activity android:name=".member.LoginActivity"/>
+        <activity android:name=".member.CertificationActivity"/>
 
-            //activity宣言_3_最初に始まる画面。（slidetypeの画面）
-            <activity android:name=".home.Home"/>
+        //activity宣言_3_最初に始まる画面。（slidetypeの画面）
+        <activity android:name=".home.Home"/>
 
-            //activity宣言_４_マイページ関連機能。
-            <activity android:name=".mypage.Mypage"/>
+        //activity宣言_４_マイページ関連機能。
+        <activity android:name=".mypage.Mypage"/>
 
-            //activity宣言_5_トピック関連機能。
-            <activity android:name=".board.TopicMainActivity"/>
+        //activity宣言_5_トピック関連機能。
+        <activity android:name=".board.TopicMainActivity"/>
 
     </application>
 
