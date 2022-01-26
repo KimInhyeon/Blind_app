@@ -33,6 +33,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'//수신할 값이 (1)단순String, (2)1,2,3같은 단순숫자값 (3)true/false 값
     implementation 'com.squareup.retrofit2:converter-jackson:2.9.0' //수신할 값이 JSON형태인 경우
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
     implementation 'com.google.code.gson:gson:2.8.5'
 
     implementation 'com.google.code.gson:gson:2.8.5'
@@ -43,5 +45,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
 }
 

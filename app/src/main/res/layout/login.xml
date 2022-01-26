@@ -144,12 +144,25 @@
                 android:background="#323151"
                 android:text="annualIncomeAccess"
                 android:textColor="#FFFFFF" />
+            <Button
+                android:id="@+id/reviewWrite"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="reviewwrite"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/topicMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="トピックメイン PAGEへ" />
+
+
+
         </LinearLayout>
 
     </ScrollView>

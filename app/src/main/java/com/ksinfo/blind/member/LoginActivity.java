@@ -1,13 +1,11 @@
 package com.ksinfo.blind.member;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ksinfo.blind.R;
 import com.ksinfo.blind.annualincome.AnnualIncomeRankCalculatorActivity;
 import com.ksinfo.blind.board.TopicMainActivity;
+import com.ksinfo.blind.company.CompanyReviewActivity;
 import com.ksinfo.blind.home.Home;
 import com.ksinfo.blind.member.api.MemberApi;
 import com.ksinfo.blind.util.RetrofitFactory;
@@ -53,6 +52,19 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+        Button review_write = (Button)findViewById(R.id.reviewWrite);
+        review_write.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CompanyReviewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
         Button passAccess = (Button)findViewById(R.id.passBtn);
         passAccess.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -70,6 +82,13 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+
+
+
+
 
         HashMap<String, String> params = new HashMap<>();
 
