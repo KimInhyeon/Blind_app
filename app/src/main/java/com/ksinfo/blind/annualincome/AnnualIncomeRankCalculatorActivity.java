@@ -99,8 +99,6 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
                         }
                     });
 
-
-
                     spinnerWorkPeriod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -134,7 +132,6 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
         });
 
 
-
         //「ランキング計算」ボタンを押すと、
         // (1) サーバーに給料データーを送信。
         // (2)　AnnualIncomeRankCalculatorActivityShowUserRank.xmlに移動する。
@@ -143,6 +140,24 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+                    // CompanyJobGroupApi companyJobGroupApi = RetrofitFactory.createJsonRetrofit().create(CompanyJobGroupApi.class);
+                    String testSendString = "Hello!";
+                    //Call<Void> sendCall = companyJobGroupApi.requestSample999(testSendString);
+                    companyJobGroupApi.requestSample999(testSendString).enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            System.out.println("server send start");
+                            if(response.isSuccessful()){
+                                System.out.println("server send success");
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            System.out.println("server send fail");
+                        }
+                    });
+
                     Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivityShowUserRank.class);
                     startActivity(intent);
                 } catch (Exception e) {
@@ -150,6 +165,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
                 }
             }
         });
+
         /*
         Button move_calculateRank = (Button) findViewById(R.id.buttonCalculateRank);
         move_calculateRank.setOnClickListener(new View.OnClickListener() {
