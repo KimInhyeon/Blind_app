@@ -39,6 +39,9 @@
         //activity宣言_5_トピック関連機能。
         <activity android:name=".board.TopicMainActivity"/>
 
+        //activity宣言_6_公知事項
+        <activity android:name=".mypage.NoticeActivity"/>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
