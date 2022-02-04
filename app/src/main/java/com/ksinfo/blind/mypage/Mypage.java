@@ -61,7 +61,14 @@ public class Mypage extends AppCompatActivity {
             }
         });
 
-
+        Button move_notice = (Button)findViewById(R.id.move_notice);
+        move_notice.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NoticeActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
