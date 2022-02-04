@@ -14,6 +14,7 @@
             android:id="@+id/title2"
             android:layout_width="400dp"
             android:layout_height="40dp"
+            android:layout_marginTop="16dp"
             android:layout_weight="1"
             android:clickable="false"
             android:fitsSystemWindows="false"
@@ -30,8 +31,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textView6"
@@ -66,10 +67,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image_lock" />
+            app:srcCompat="@drawable/image_lock"
+            />
+
+        <shape android:shape="rectangle">
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            <stroke android:drawable="@drawable/layout1111"
+                android:width="1dp"/>
+        </shape>
 
 
-        <ImageView
+
+
+     <ImageView
             android:id="@+id/imageView7"
             android:layout_width="50dp"
             android:layout_height="50dp"
