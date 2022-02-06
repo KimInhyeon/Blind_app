@@ -31,6 +31,12 @@
     <string name="move_web_login">Webブラウザーログイン</string>
 
     <!--マイページ_正会員認証ページ。（00）-->
+    <string name="certification_title">正会員認証ページ</string>
+    <string name="certification_explain_postread">トピックのポストを読む</string>
+    <string name="certification_explain_postwrite">トピックにポストを書く</string>
+    <string name="certification_explain_componyreviewread">企業のレビューを読む</string>
+    <string name="certification_explain_componyreview_write">企業のレビューを書く</string>
+    <string name="certification_explain_salary_rank_useable">給料のランク確認</string>
 
 
 </resources>

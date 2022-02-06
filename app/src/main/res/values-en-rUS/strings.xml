@@ -14,4 +14,6 @@
     <string name="user_nickname">nickname</string>
     <string name="mypage_introduce_certification1">if update your grade</string>
     <string name="mypage_introduce_certification2">you can use all services!</string>
+    <string name="certification_title">certification mail</string>
+    <string name="certification_explain_postwrite">right of post writeables</string>
 </resources>

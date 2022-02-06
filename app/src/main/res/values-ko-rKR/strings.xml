@@ -13,4 +13,5 @@
     <string name="user_nickname">유저의닉네임</string>
     <string name="mypage_introduce_certification1">기업메일로 인증하여 정회원이 되시면</string>
     <string name="mypage_introduce_certification2">모든 기능들을 사용하실 수 있습니다.</string>
+    <string name="certification_title">정회원인증</string>
 </resources>
