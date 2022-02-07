@@ -7,17 +7,15 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ksinfo.blind.R;
 import com.ksinfo.blind.mypage.api.NoticeApi;
+import com.ksinfo.blind.mypage.util.NoticeRecyclerViewAdapter;
 import com.ksinfo.blind.mypage.vo.NoticeVO;
 import com.ksinfo.blind.util.RetrofitFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,23 +27,36 @@ public class NoticeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notice);
+        setContentView(R.layout.notice_recycleview);
 
         NoticeApi noticeApi = RetrofitFactory.createJsonRetrofit().create(NoticeApi.class);
-
         noticeApi.getNoticeList().enqueue(new Callback<List<NoticeVO>>() {
             @Override
             public void onResponse(@NonNull Call<List<NoticeVO>> call, Response<List<NoticeVO>> response) {
-                System.out.println("start getNoticeList-onResponse.");
+                System.out.println("start NoticeActivity-getNoticeList-onResponse.");
+
+                //메모 RecyclerViewer단계1 어답터 변수 생성.
+                NoticeRecyclerViewAdapter adapter = new NoticeRecyclerViewAdapter();
+
                 if (response.isSuccessful()) {
                     List<NoticeVO> noticeList = response.body();
-                    Log.d("received noticeLists :", noticeList.toString());
+                    Log.d("NoticeAct-noticeLists", noticeList.toString());
 
-                    ArrayList<String>list = new ArrayList<>();
                     for (NoticeVO vo : noticeList) {
-                        list.add(vo.getNoticeTitle());
+                        adapter.addItem(vo);
                     }
 
+                    //메모 1단계 : RecyclerView 변수 생성 및 xml R객체와 연결.
+                    RecyclerView recyclerView = findViewById(R.id.recyclerViewOfNoticeList);
+
+
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(NoticeActivity.this);
+                    recyclerView.setLayoutManager(linearLayoutManager);
+
+                    //adapter = new RecyclerVierAdapter();
+                    recyclerView.setAdapter(adapter);
+
+                    //----------------------------------------------------------------------------------------------------------------------------
                     final String[] listOfNotice = new String[noticeList.size()];
                     int arrCount = 0;
 
@@ -60,10 +71,8 @@ public class NoticeActivity extends AppCompatActivity {
                     Spinner spinnerTest;
                     spinnerTest = (Spinner) findViewById(R.id.spinnerTest);
                     spinnerTest.setAdapter(adapter1);
+                    //-----------------------------------------------------------------------------
 
-                    //메모 - Recyleview 출력
-                    //ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-                    //viewPager.setAdapter(new simpleAdapter(getSupportFragmentManager()));
 
 
                 } else {
@@ -78,22 +87,6 @@ public class NoticeActivity extends AppCompatActivity {
             }
         });
     }
-    /*
-    private class simpleAdapter extends FragmentPagerAdapter {
-        public simpleAdapter(FragmentManager fm) {
-            super(fm);
-        }
 
-        @Override
-        public int getCount() {
-            return 0;
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return new NoticeRecyleViewFragment();
-        }
-    }
-    */
 }
 
