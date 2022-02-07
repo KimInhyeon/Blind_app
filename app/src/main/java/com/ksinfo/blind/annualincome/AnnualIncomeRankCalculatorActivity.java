@@ -18,7 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.blind.R;
 import com.ksinfo.blind.annualincome.api.CompanyJobGroupApi;
+import com.ksinfo.blind.annualincome.api.CompanyWorktypeApi;
 import com.ksinfo.blind.annualincome.vo.CompanyJobGroupVO;
+import com.ksinfo.blind.annualincome.vo.CompanyWorkTypeVO;
 import com.ksinfo.blind.mypage.Mypage;
 import com.ksinfo.blind.util.RetrofitFactory;
 
@@ -35,21 +37,81 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.annual_income_rank_calculator);
 
-        CompanyJobGroupApi companyJobGroupApi = RetrofitFactory.createJsonRetrofit().create(CompanyJobGroupApi.class);
+        TextView textView;
+        EditText editText;
 
+
+        final String[] ListOfWorkPeriod = {"1年未満", "1年", "2年", "3年", "4年", "5年", "6年", "7年", "8年", "9年", "10年", "11年", "12年",
+                "13年", "14年", "15年", "16年", "17年", "18年", "19年", "20年", "21年", "22年", "23年", "24年",
+                "25年", "26年", "27年", "28年", "29年", "30年", "30年以上"};
+
+        //annual_income_rank_calculator.xml画面を構成する要素とコネクト。
+        textView = (TextView) findViewById(R.id.title);      //テキスト’契約年俸’
+        textView = (TextView) findViewById(R.id.textView1);  //テキスト’年棒等数計算機’
+        textView = (TextView) findViewById(R.id.textView2);  //テキスト’賞与金’
+        textView = (TextView) findViewById(R.id.textView3);  //テキスト’職群’
+        textView = (TextView) findViewById(R.id.textView4);  //テキスト’総キャリア’
+        textView = (TextView) findViewById(R.id.textView5);  //テキスト’雇用タイプ’
+        textView = (TextView) findViewById(R.id.textView9);  //テキスト’円’。
+        textView = (TextView) findViewById(R.id.textView10); //テキスト’円’。
+
+        editText = (EditText) findViewById(R.id.editTextAnnualIncome);//inputData：年俸（給料）
+        editText = (EditText) findViewById(R.id.editTextbonus);       //inputData：賞与金
+
+
+        CompanyWorktypeApi companyWorktypeApi = RetrofitFactory.createJsonRetrofit().create(CompanyWorktypeApi.class);
+        companyWorktypeApi.getWorkTypeAll().enqueue(new Callback<List<CompanyWorkTypeVO>>() {
+            @Override
+            public void onResponse(Call<List<CompanyWorkTypeVO>> call, Response<List<CompanyWorkTypeVO>> response) {
+
+                List<CompanyWorkTypeVO> getWorkTypeAll = response.body();
+                Log.d("WorkTypeAll", getWorkTypeAll.toString());
+
+                final String[] listOfEmploymentType = new String[getWorkTypeAll.size()];
+                int arrCount = 0;
+
+                for (CompanyWorkTypeVO vo : getWorkTypeAll) {
+                    listOfEmploymentType[arrCount] = vo.getWorkTypeName();
+                    arrCount++;
+                }
+                Spinner spinnerEmployeeType;
+                spinnerEmployeeType = (Spinner) findViewById(R.id.spinnerOfEmploymentType);    //inputData：ユーザの雇用タイプ（ラヂオボソンと同じ）。
+
+                ArrayAdapter adapter3 = new ArrayAdapter(AnnualIncomeRankCalculatorActivity.this, android.R.layout.simple_spinner_item, listOfEmploymentType);
+                adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                spinnerEmployeeType.setAdapter(adapter3);
+
+                spinnerEmployeeType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        Toast.makeText(getApplicationContext(), "Selected employeeType.", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<List<CompanyWorkTypeVO>> call, Throwable t) {
+
+            }
+        });
+
+        CompanyJobGroupApi companyJobGroupApi = RetrofitFactory.createJsonRetrofit().create(CompanyJobGroupApi.class);
         companyJobGroupApi.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupVO>>(){
             @Override
             public void onResponse(@NonNull Call<List<CompanyJobGroupVO>> call, Response<List<CompanyJobGroupVO>> response) {
                 if (response.isSuccessful()) {
                     List<CompanyJobGroupVO> getJobGroupListAll = response.body();
                     Log.d("JobGroupListAll", getJobGroupListAll.toString());
-                    TextView textView;
-                    EditText editText;
 
                     TextView button_clear_input;
                     button_clear_input = findViewById(R.id.buttonAllInputClear);
 
-                    Spinner spinnerJob, spinnerWorkPeriod, spinnerEmployeeType;
+                    Spinner spinnerJob, spinnerWorkPeriod;
 
                     final String[] listOfJob = new String[getJobGroupListAll.size()];
                     int arrCount = 0;
@@ -58,11 +120,6 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
                         listOfJob[arrCount] = vo.getJobGroupName();
                         arrCount++;
                     }
-
-                    final String[] ListOfWorkPeriod = {"1年未満", "1年", "2年", "3年", "4年", "5年", "6年", "7年", "8年", "9年", "10年", "11年", "12年",
-                            "13年", "14年", "15年", "16年", "17年", "18年", "19年", "20年", "21年", "22年", "23年", "24年",
-                            "25年", "26年", "27年", "28年", "29年", "30年", "30年以上"};
-                    final String[] ListOfEmploymentType = {"インターン", "年雇い", "正規職"};
 
                     spinnerJob = (Spinner) findViewById(R.id.spinnerOfJobList);  //inputData：ユーザの勤務期間（ラヂオボソンと同じ）。
                     ArrayAdapter adapter1 = new ArrayAdapter(AnnualIncomeRankCalculatorActivity.this, android.R.layout.simple_spinner_item, listOfJob);
@@ -74,23 +131,6 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
                     adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spinnerWorkPeriod.setAdapter(adapter2);
 
-                    spinnerEmployeeType = (Spinner) findViewById(R.id.spinnerOfEmploymentType);    //inputData：ユーザの雇用タイプ（ラヂオボソンと同じ）。
-                    ArrayAdapter adapter3 = new ArrayAdapter(AnnualIncomeRankCalculatorActivity.this, android.R.layout.simple_spinner_item, ListOfEmploymentType);
-                    adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    spinnerEmployeeType.setAdapter(adapter3);
-
-                    //annual_income_rank_calculator.xml画面を構成する要素とコネクト。
-                    textView = (TextView) findViewById(R.id.title);      //テキスト’契約年俸’
-                    textView = (TextView) findViewById(R.id.textView1);  //テキスト’年棒等数計算機’
-                    textView = (TextView) findViewById(R.id.textView2);  //テキスト’賞与金’
-                    textView = (TextView) findViewById(R.id.textView3);  //テキスト’職群’
-                    textView = (TextView) findViewById(R.id.textView4);  //テキスト’総キャリア’
-                    textView = (TextView) findViewById(R.id.textView5);  //テキスト’雇用タイプ’
-                    textView = (TextView) findViewById(R.id.textView9);  //テキスト’円’。
-                    textView = (TextView) findViewById(R.id.textView10); //テキスト’円’。
-
-                    editText = (EditText) findViewById(R.id.editTextAnnualIncome);//inputData：年俸（給料）
-                    editText = (EditText) findViewById(R.id.editTextbonus);       //inputData：賞与金
 
                     button_clear_input.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -110,16 +150,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
                         }
                     });
 
-                    spinnerEmployeeType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            Toast.makeText(getApplicationContext(), "Selected employeeType.", Toast.LENGTH_SHORT).show();
-                        }
 
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-                        }
-                    });
                 } else {
                     Log.d("error", "error");
                 }
