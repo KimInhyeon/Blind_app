@@ -150,6 +150,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="トピックメイン PAGEへ" />
+
+            <Button
+                android:id="@+id/myPageMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MyPage－Main" />
+
+
         </LinearLayout>
 
     </ScrollView>

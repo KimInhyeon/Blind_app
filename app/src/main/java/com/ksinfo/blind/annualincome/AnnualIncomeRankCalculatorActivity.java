@@ -1,5 +1,6 @@
 package com.ksinfo.blind.annualincome;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ksinfo.blind.R;
 import com.ksinfo.blind.annualincome.api.CompanyJobGroupApi;
 import com.ksinfo.blind.annualincome.vo.CompanyJobGroupVO;
+import com.ksinfo.blind.mypage.Mypage;
 import com.ksinfo.blind.util.RetrofitFactory;
 
 import java.util.List;
@@ -97,18 +99,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
                         }
                     });
 
-                    Button move_calculateRank = (Button) findViewById(R.id.buttonCalculateRank);
-                    move_calculateRank.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(AnnualIncomeRankCalculatorActivity.this);
-                            builder.setTitle("年俸のランキング計算が始まります。");
-                            builder.setMessage("ランキングの精度をため、入力した情報は100日間修正ができません。入力した情報でランキング計算を初めてもいいですか。");
-                            builder.setPositiveButton("はい。",null);
-                            builder.setNegativeButton("いいえ。",null);
-                            builder.create().show();
-                        }
-                    });
+
 
                     spinnerWorkPeriod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
@@ -141,5 +132,38 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
+
+
+
+        //「ランキング計算」ボタンを押すと、
+        // (1) サーバーに給料データーを送信。
+        // (2)　AnnualIncomeRankCalculatorActivityShowUserRank.xmlに移動する。
+        Button move_annualIncomeRankCalculatorActivityShowUserRank = (Button)findViewById(R.id.buttonCalculateRank);
+        move_annualIncomeRankCalculatorActivityShowUserRank.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivityShowUserRank.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        /*
+        Button move_calculateRank = (Button) findViewById(R.id.buttonCalculateRank);
+        move_calculateRank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(AnnualIncomeRankCalculatorActivity.this);
+                builder.setTitle("年俸のランキング計算が始まります。");
+                builder.setMessage("ランキングの精度をため、入力した情報は100日間修正ができません。入力した情報でランキング計算を初めてもいいですか。");
+                builder.setPositiveButton("はい。",null);
+                builder.setNegativeButton("いいえ。",null);
+                builder.create().show();
+            }
+        });
+        */
+
     }
 }
