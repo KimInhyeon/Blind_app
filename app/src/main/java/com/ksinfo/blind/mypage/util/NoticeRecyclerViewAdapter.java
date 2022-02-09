@@ -30,7 +30,6 @@ public class NoticeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notice_recycleview_items, parent, false);
-        //메모 에러발생2
         return new ViewHolderNotice(view);
     }
 

@@ -16,8 +16,10 @@ import com.ksinfo.blind.R;
 
 public class ViewHolderNotice extends RecyclerView.ViewHolder {
 
-    TextView title;
-    TextView title2;
+    //notice_recycleview_items
+    TextView noticeTitle;
+    TextView noticeCreateDate;
+    TextView noticeContents;
     LinearLayout linearlayout;
 
     OnViewHolderItemClickListener onViewHolderItemClickListener;
@@ -26,11 +28,11 @@ public class ViewHolderNotice extends RecyclerView.ViewHolder {
     public ViewHolderNotice(@NonNull View itemView) {
         super(itemView);
 
-        title = itemView.findViewById(R.id.title);
-        title2 = itemView.findViewById(R.id.title2);
+        noticeTitle = itemView.findViewById(R.id.notice_title);
+        noticeCreateDate = itemView.findViewById(R.id.notice_create_date);
+        noticeContents = itemView.findViewById(R.id.notice_contents);
         linearlayout = itemView.findViewById(R.id.linearlayout);
 
-        //메모 에러발생 1
         linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,10 +42,9 @@ public class ViewHolderNotice extends RecyclerView.ViewHolder {
     }
 
     public void onBind(NoticeVO data, int position, SparseBooleanArray selectedItems){
-        title.setText(data.getNoticeTitle());
-        //title.setText(data.getNoticeContents());
-        title2.setText(data.getNoticeCreateDate());
-        //title.setText(data.getNoticeTypeName());
+        noticeTitle.setText(data.getNoticeTitle());
+        noticeCreateDate.setText(data.getNoticeCreateDate());
+        noticeContents.setText(data.getNoticeContents());
         changeVisibility(selectedItems.get(position));
     }
 
@@ -51,15 +52,15 @@ public class ViewHolderNotice extends RecyclerView.ViewHolder {
         // ValueAnimator.ofInt(int... values)는 View가 변할 값을 지정, 인자는 int 배열
         ValueAnimator va = isExpanded ? ValueAnimator.ofInt(0, 600) : ValueAnimator.ofInt(600, 0);
         // Animation이 실행되는 시간, n/1000초
-        va.setDuration(500);
+        va.setDuration(100);
         va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 // imageView의 높이 변경
-                title2.getLayoutParams().height = (int) animation.getAnimatedValue();
-                title2.requestLayout();
+                noticeContents.getLayoutParams().height = (int) animation.getAnimatedValue();
+                noticeContents.requestLayout();
                 // imageView가 실제로 사라지게하는 부분
-                title2.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+                noticeContents.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
             }
         });
         // Animation start
