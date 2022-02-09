@@ -259,18 +259,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <Button
-            android:id="@+id/move_invite"
-            android:layout_width="400dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="544dp"
-
-            android:text="招待する"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.545"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+        <!--１．アカウントの情報更新-->
         <TextView
             android:id="@+id/textView45"
             android:layout_width="wrap_content"
@@ -299,7 +288,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/move_annual_incomeCalculator_Btn2"
+            android:id="@+id/move_annual_incomeCalculator_Btn"
             android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="464dp"
@@ -311,15 +300,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- ２．招待、Webログイン -->
         <TextView
             android:id="@+id/textView46"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="520dp"
 
-            android:text="TextView"
+            android:text="招待、Webログイン"
             android:textColor="#ffffff"
-
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.016"
@@ -327,11 +316,60 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/move_notice"
+            android:id="@+id/move_invite_btn"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="544dp"
+
+            android:text="招待する"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/move_web_login_btn"
             android:layout_width="400dp"
             android:layout_height="43dp"
             android:layout_marginTop="592dp"
+            android:text="Webブラウザログイン"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/move_notice_btn"
+            android:layout_width="400dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="635dp"
             android:text="公知事項"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 3.私が書いたポスト、ブックマーク -->
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="690dp"
+
+            android:text="私が書いたポスト、ブックマーク"
+            android:textColor="#ffffff"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.016"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/move_bookmark"
+            android:layout_width="400dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="710dp"
+            android:text="ブックマーク"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.545"
             app:layout_constraintStart_toStartOf="parent"

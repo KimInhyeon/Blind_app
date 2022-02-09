@@ -42,6 +42,13 @@
         //activity宣言_6_公知事項
         <activity android:name=".mypage.NoticeActivity"/>
 
+        //activity宣言_7_WebLogin
+        <activity android:name=".mypage.WebLoginActivity"/>
+        <activity android:name=".mypage.WebLoginAccessActivity"/>
+
+        //activity宣言_8_招待
+        <activity android:name=".mypage.InviteActivity"/>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

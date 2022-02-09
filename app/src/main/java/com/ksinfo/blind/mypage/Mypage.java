@@ -43,6 +43,8 @@ public class Mypage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //１．アカウントの情報更新
         Button move_certification_btn2 = (Button)findViewById(R.id.move_certification_btn2);
         move_certification_btn2.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -52,7 +54,7 @@ public class Mypage extends AppCompatActivity {
             }
         });
 
-        Button move_annualIncomeCalculator = (Button)findViewById(R.id.move_annual_incomeCalculator_Btn2);
+        Button move_annualIncomeCalculator = (Button)findViewById(R.id.move_annual_incomeCalculator_Btn);
         move_annualIncomeCalculator.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -61,7 +63,26 @@ public class Mypage extends AppCompatActivity {
             }
         });
 
-        Button move_notice = (Button)findViewById(R.id.move_notice);
+        //２．招待、Webログイン
+        Button move_invite = (Button)findViewById(R.id.move_invite_btn);
+        move_invite.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), InviteActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button move_web_login = (Button)findViewById(R.id.move_web_login_btn);
+        move_web_login.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), WebLoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button move_notice = (Button)findViewById(R.id.move_notice_btn);
         move_notice.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -69,6 +90,9 @@ public class Mypage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
 
     }
 }
