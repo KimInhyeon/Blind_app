@@ -21,15 +21,4 @@ public final class BoardVO {
 	public String getBoardTopicName() {
 		return boardTopicName;
 	}
-
-	//창주씨 시연시의 코드.
-	@Override
-	public String toString(){
-		return "BoardVO{" +
-				"boardId=" + boardId +
-				", boardTopicName='" + boardTopicName + '\'' +
-				'}';
-	}
-
-
 }

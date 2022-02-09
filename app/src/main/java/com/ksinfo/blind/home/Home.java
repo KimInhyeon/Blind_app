@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.tabs.TabLayout;
 import com.ksinfo.blind.R;
+import com.ksinfo.blind.databinding.HomeBinding;
 import com.ksinfo.blind.mypage.Mypage;
 
 public class Home extends AppCompatActivity {
@@ -23,7 +24,8 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
+        HomeBinding binding = HomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
@@ -31,7 +33,7 @@ public class Home extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
 
-        TabLayout tabs = findViewById(R.id.tabs);
+        TabLayout tabs = binding.tabs;
         tabs.addTab(tabs.newTab().setText("採用"));
         tabs.addTab(tabs.newTab().setText("トピック"));
         tabs.addTab(tabs.newTab().setText("職群ラウンジ"));
@@ -49,16 +51,14 @@ public class Home extends AppCompatActivity {
                     selected = fragment3;
                 }
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, selected).commit();
+                                           .replace(R.id.container, selected).commit();
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
+            public void onTabUnselected(TabLayout.Tab tab) {}
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-            }
+            public void onTabReselected(TabLayout.Tab tab) {}
         });
     }
 }

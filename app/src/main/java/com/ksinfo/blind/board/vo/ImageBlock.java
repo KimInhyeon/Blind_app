@@ -1,5 +1,7 @@
 package com.ksinfo.blind.board.vo;
 
+import androidx.annotation.NonNull;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public final class ImageBlock extends PostBlock {
@@ -43,9 +45,24 @@ public final class ImageBlock extends PostBlock {
 		public boolean isStretched() {
 			return stretched;
 		}
+
+		@NonNull
+		@Override
+		public String toString() {
+			StringBuilder sb = new StringBuilder("<img class=\"ui");
+			if (stretched) {
+				sb.append(" fluid");
+			}
+			sb.append(" image\" src=\"").append(url).append("\" onclick=\"enlargeImage(this.src)\";>");
+
+			return sb.toString();
+		}
 	}
 
-	public ImageBlock(@JsonProperty("type") String type, @JsonProperty("data") ImageData data) {
+	public ImageBlock(
+		@JsonProperty("type") String type,
+		@JsonProperty("data") ImageData data
+	) {
 		super(type, data);
 	}
 }

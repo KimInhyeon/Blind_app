@@ -1,16 +1,18 @@
 package com.ksinfo.blind.board.vo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
 
-public final class PostVO {
+public final class PostVO implements Parcelable {
 	private final long boardId;
 	private final String boardTopicName;
 	private final long postId;
 	private final String postTitle;
-	private final List<PostBlock> postContents;
+	private final String postContents;
 	private final long companyId;
 	private final String companyName;
 	private final String userNickname;
@@ -38,12 +40,21 @@ public final class PostVO {
 		@JsonProperty("bookmarked") boolean bookmarked,
 		@JsonProperty("writer") boolean writer,
 		@JsonProperty("replyCount") int replyCount
-	) throws JsonProcessingException {
+	) {
 		this.boardId = boardId;
 		this.boardTopicName = boardTopicName;
 		this.postId = postId;
 		this.postTitle = postTitle;
-		this.postContents = postContents;
+		if (postContents.isEmpty()) {
+			this.postContents = null;
+		} else {
+			StringBuilder sb = new StringBuilder();
+			sb.append(postContents.get(0).getData());
+			for (int i = 1, size = postContents.size(); i < size; ++i) {
+				sb.append("<br>").append(postContents.get(i).getData());
+			}
+			this.postContents = sb.toString();
+		}
 		this.companyId = companyId;
 		this.companyName = companyName;
 		this.userNickname = userNickname;
@@ -55,6 +66,36 @@ public final class PostVO {
 		this.writer = writer;
 		this.replyCount = replyCount;
 	}
+
+	protected PostVO(Parcel in) {
+		boardId = in.readLong();
+		boardTopicName = in.readString();
+		postId = in.readLong();
+		postTitle = in.readString();
+		postContents = in.readString();
+		companyId = in.readLong();
+		companyName = in.readString();
+		userNickname = in.readString();
+		postCreateDate = in.readString();
+		postCount = in.readInt();
+		postRecommended = in.readByte() != 0;
+		postRecommendCount = in.readInt();
+		bookmarked = in.readByte() != 0;
+		writer = in.readByte() != 0;
+		replyCount = in.readInt();
+	}
+
+	public static final Creator<PostVO> CREATOR = new Creator<PostVO>() {
+		@Override
+		public PostVO createFromParcel(Parcel in) {
+			return new PostVO(in);
+		}
+
+		@Override
+		public PostVO[] newArray(int size) {
+			return new PostVO[size];
+		}
+	};
 
 	public long getBoardId() {
 		return boardId;
@@ -72,7 +113,7 @@ public final class PostVO {
 		return postTitle;
 	}
 
-	public List<PostBlock> getPostContents() {
+	public String getPostContents() {
 		return postContents;
 	}
 
@@ -114,5 +155,29 @@ public final class PostVO {
 
 	public int getReplyCount() {
 		return replyCount;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel parcel, int i) {
+		parcel.writeLong(boardId);
+		parcel.writeString(boardTopicName);
+		parcel.writeLong(postId);
+		parcel.writeString(postTitle);
+		parcel.writeString(postContents);
+		parcel.writeLong(companyId);
+		parcel.writeString(companyName);
+		parcel.writeString(userNickname);
+		parcel.writeString(postCreateDate);
+		parcel.writeInt(postCount);
+		parcel.writeByte((byte) (postRecommended ? 1 : 0));
+		parcel.writeInt(postRecommendCount);
+		parcel.writeByte((byte) (bookmarked ? 1 : 0));
+		parcel.writeByte((byte) (writer ? 1 : 0));
+		parcel.writeInt(replyCount);
 	}
 }
