@@ -14,5 +14,4 @@ public interface CompanyJobGroupApi {
 
     @GET("company/annualIncome/annualIncomeCalculator999")
     Call<Void> requestSample999(@Query("string") String string);
-    //Call<String> requestSample999();
 }
