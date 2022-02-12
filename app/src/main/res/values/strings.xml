@@ -1,11 +1,31 @@
 <resources>
-    <string name="app_name">Blind</string>
-    <string name="base_url">http://220.80.99.247:8282/blind/</string>
-
+    <string name="app_name">Tomodomo</string>
+    <string name="base_url">http://192.168.50.94:8282/blind/</string>
     <!--アプリ始まる時のテキスト。-->
     <string name="a_desc">自分が思っていたアイデアを自由に話すのができます。</string><!--アイデア-->
     <string name="b_desc">知らない人と自由な会話ができます。</string><!--自由な会話-->
     <string name="c_desc">色々なアプリとコネクトが柔らかくて便利です。</string><!--コネクト-->
     <string name="d_desc">自分の趣味を見せてください。</string><!--趣味-->
-    <string name="e_desc">友達ように楽な会話を楽しんでください。</string>
+    <string name="e_desc">友達ように楽な会話を楽しんでください。</string><!--楽な会話-->
+
+    <string name="boardList">トピックリスト</string>
+    <string name="postList">ポストリスト</string>
+    <string name="boardName">トピック名</string>
+    <string name="title">タイトル</string>
+    <string name="thumbnail">サムネイル</string>
+    <string name="contents">コンテンツ</string>
+    <string name="delimiter">・</string>
+    <string name="companyName">企業名</string>
+    <string name="userNickname">ニックネーム</string>
+    <string name="createDate">作成日</string>
+    <string name="like">いいね</string>
+    <string name="recommendCount">いいね数</string>
+    <string name="comment">コメント</string>
+    <string name="replyCount">コメント数</string>
+    <string name="replyList">コメントリスト</string>
+    <string name="replyImage">コメントイメージ</string>
+    <string-array name="sort">
+        <item>新しい順</item>
+        <item>評価順</item>
+    </string-array>
 </resources>

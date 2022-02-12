@@ -1,48 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ksinfo.blind">
+	package="com.ksinfo.blind">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:networkSecurityConfig="@xml/network_security_config"
-        android:theme="@style/Theme.Blind">
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-        //[推定]最初に始める画面を設定。
-        <activity android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+	<application
+		android:name=".TomodomoApplication"
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:networkSecurityConfig="@xml/network_security_config"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:supportsRtl="true"
+		android:theme="@style/Theme.Blind">
+		<activity
+			android:name=".MainActivity"
+			android:exported="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".member.MemberJoinActivity" />
+		<activity android:name=".member.LoginActivity" />
+		<activity android:name=".annualincome.AnnualIncomeRankCalculatorActivity" />
+		<activity android:name=".mypage.Mypage" />
+		<activity android:name=".board.activity.SearchPostActivity" />
+		<activity android:name=".board.activity.PostActivity" />
+	</application>
 
-        //使うactivityを宣言。
-            //activity宣言_1_年俸（給料）
-            <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivity"/>
-            <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivityShowUserRank"/>
-
-            //activity宣言_2_ユーザー関連機能。（会員登録、ログイン、メール認証）
-            <activity android:name=".member.MemberJoinActivity"/>
-            <activity android:name=".member.LoginActivity"/>
-            <activity android:name=".member.certificationActivity"/>
-
-            //activity宣言_3_最初に始まる画面。（slidetypeの画面）
-            <activity android:name=".home.Home"/>
-
-            //activity宣言_４_マイページ関連機能。
-            <activity android:name=".mypage.Mypage"/>
-
-            //activity宣言_5_トピック関連機能。
-            <activity android:name=".board.TopicMainActivity"/>
-
-    </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 </manifest>
