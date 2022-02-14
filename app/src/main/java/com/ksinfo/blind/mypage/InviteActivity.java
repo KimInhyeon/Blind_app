@@ -2,6 +2,7 @@ package com.ksinfo.blind.mypage;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,5 +30,17 @@ public class InviteActivity extends AppCompatActivity {
 
     }
 
+    /*
+    public void sendSMS(View v){
+        String smsNum = smsNumber.getText().toString();
+        String smsText = smsTextContext.getText().toString();
+
+        if (smsNum.length()>0 && smsText.length()>0){
+            sendSMS(smsNum, smsText);
+        }else{
+            Toast.makeText(this, "全部入力してください。", Toast.LENGTH_SHORT).show();
+        }
+    }
+    */
 }
 
