@@ -33,11 +33,13 @@ import retrofit2.Response;
 
 public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
 
+    //메모 유저가 editText, spinner을 통하여 입력한 값들을 임시저장하다가 서버로 전송시 값을 제공한다.
     Integer annualIncome = 0;
     String selectJob;
     Integer selectWorkPeriod = 0;
     Integer selectWorkType = 0;
     Long userId = Long.valueOf(99); //메모 로그인한 유저의 id값을 99으로 가정하여 설정.
+
 
     final String[] ListOfWorkPeriod = {"1年未満", "1年", "2年", "3年", "4年", "5年", "6年", "7年", "8年", "9年", "10年", "11年", "12年",
             "13年", "14年", "15年", "16年", "17年", "18年", "19年", "20年", "21年", "22年", "23年", "24年",
@@ -59,6 +61,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //메모 클리어처리할 xml 대상물들을 입력할 것.
+                inputAnnualIncome.setText(null);
                 Toast.makeText(getApplicationContext(), "リセットを完了しました。", Toast.LENGTH_SHORT).show();
             }
         });

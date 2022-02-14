@@ -62,10 +62,10 @@
             android:layout_marginTop="80dp"
             android:layout_marginEnd="62dp"
             android:ems="10"
-            android:inputType="textPersonName"
             android:textAlignment="textEnd"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:inputType="phone" />
 
         <TextView
             android:id="@+id/annual_text_monetary_unit"

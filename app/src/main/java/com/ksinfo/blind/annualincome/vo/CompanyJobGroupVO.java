@@ -14,9 +14,7 @@ public final class CompanyJobGroupVO {
 		this.jobGroupName = jobGroupName;
 	}
 	public String getJobGroupCode() { return jobGroupCode; }
-	public String getJobGroupName() {
-		return jobGroupName;
-	}
+	public String getJobGroupName() { return jobGroupName; }
 
 	//test code for data received check.
 	@Override
