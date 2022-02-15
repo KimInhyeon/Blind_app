@@ -1,17 +1,17 @@
-package com.ksinfo.blind.member;
+package com.ksinfo.tomodomo.controller.member;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ksinfo.blind.R;
+import com.ksinfo.tomodomo.R;
 
 public class CertificationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.certification);
+        setContentView(R.layout.cf_main);
 
         /*
         Button move_annualIncome = (Button)findViewById(R.id.annualIncomeBtn);
