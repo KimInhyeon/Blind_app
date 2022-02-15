@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/back_image_7f7f7f_rectangle">
+        android:background="@drawable/cf_p_7f7f7f_rectangle">
 
         <!--Title -->
         <ImageView
@@ -23,7 +23,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/back_image_555555" />
+            app:srcCompat="@drawable/cf_p_555555" />
 
             <TextView
                 android:id="@+id/title"
@@ -89,7 +89,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.258"
-            app:srcCompat="@drawable/back_image_333333" />
+            app:srcCompat="@drawable/cf_p_333333" />
 
             <ImageView
                 android:id="@+id/image_lock"
@@ -99,7 +99,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/image_lock" />
+                app:srcCompat="@drawable/cf_p_lock" />
 
             <TextView
                 android:id="@+id/text_lock1"
@@ -136,7 +136,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.258"
-            app:srcCompat="@drawable/back_image_a60014" />
+            app:srcCompat="@drawable/cf_p_a60014" />
 
             <ImageView
                 android:id="@+id/imageView7"
@@ -147,7 +147,7 @@
                 app:layout_constraintHorizontal_bias="0.858"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/image_unlock" />
+                    app:srcCompat="@drawable/cf_p_unlock" />
 
             <TextView
                 android:id="@+id/text_unlock"
@@ -190,7 +190,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.396"
-            app:srcCompat="@drawable/back_image_555555_rectangle" />
+            app:srcCompat="@drawable/cf_p_555555_rectangle" />
 
             <TextView
                     android:id="@+id/textView47"
@@ -219,7 +219,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.396"
-            app:srcCompat="@drawable/back_image_d9001b_rectangle" />
+            app:srcCompat="@drawable/cf_p_d9001b_rectangle" />
 
             <TextView
                     android:id="@+id/textView37"
@@ -264,7 +264,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.439"
-            app:srcCompat="@drawable/back_image_333333_rectangle" />
+            app:srcCompat="@drawable/cf_p_333333_rectangle" />
 
             <TextView
                 android:id="@+id/textView53"
@@ -291,7 +291,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.439"
-            app:srcCompat="@drawable/back_image_d9001b_rectangle" />
+            app:srcCompat="@drawable/cf_p_a60014_rectangle" />
 
             <TextView
                 android:id="@+id/textView54"
@@ -336,7 +336,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.482"
-            app:srcCompat="@drawable/back_image_555555_rectangle" />
+            app:srcCompat="@drawable/cf_p_555555_rectangle" />
 
             <TextView
                     android:id="@+id/textView55"
@@ -363,7 +363,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.482"
-            app:srcCompat="@drawable/back_image_d9001b_rectangle" />
+            app:srcCompat="@drawable/cf_p_d9001b_rectangle" />
 
             <TextView
                     android:id="@+id/textView56"
@@ -407,7 +407,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.525"
-            app:srcCompat="@drawable/back_image_333333_rectangle" />
+            app:srcCompat="@drawable/cf_p_333333_rectangle" />
 
             <TextView
                 android:id="@+id/textView57"
@@ -434,7 +434,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.525"
-            app:srcCompat="@drawable/back_image_d9001b_rectangle" />
+            app:srcCompat="@drawable/cf_p_a60014_rectangle" />
 
         <TextView
             android:id="@+id/textView58"
@@ -479,7 +479,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.568"
-            app:srcCompat="@drawable/back_image_555555_rectangle" />
+            app:srcCompat="@drawable/cf_p_555555_rectangle" />
 
             <TextView
                 android:id="@+id/textView59"
@@ -506,7 +506,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.568"
-            app:srcCompat="@drawable/back_image_d9001b_rectangle" />
+            app:srcCompat="@drawable/cf_p_d9001b_rectangle" />
 
             <TextView
                 android:id="@+id/textView60"
@@ -516,6 +516,7 @@
 
                 android:text="O"
                 android:textSize="10dp"
+                android:textColor="#ffffff"
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.809"
