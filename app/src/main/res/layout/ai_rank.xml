@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layoutSizeCheck"
-    android:background="@drawable/layout_size_check"
+    android:background="@drawable/ai_layout_size_check"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -54,14 +54,14 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="60dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/line_555555"
+            android:background="@drawable/ai_p_555555"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"></View>
         <Spinner
             android:id="@+id/spinner_businessTypeName_showRank"
-            android:layout_width="105dp"
+            android:layout_width="140dp"
             android:layout_height="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,15 +72,16 @@
 
         <Spinner
             android:id="@+id/spinner_jobGroup_showRank"
-            android:layout_width="185dp"
+            android:layout_width="250dp"
             android:layout_height="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintHorizontal_bias="0.92"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.095" />
 
+        <!--
         <Spinner
             android:id="@+id/spinner_work_period_showRank"
             android:layout_width="100dp"
@@ -91,7 +92,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.095" />
-
+        -->
         <View
             android:id="@+id/view_line2"
             android:layout_width="0dp"
@@ -99,7 +100,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="105dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/line_555555"
+            android:background="@drawable/ai_p_555555"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -189,7 +190,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_banner"
+            android:background="@drawable/ai_p_banner"
             android:gravity="center"
 
             android:paddingStart="5dp"
@@ -208,7 +209,7 @@
             android:id="@+id/imageView_annual_rank_percent_tail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_banner_tail"
+            android:background="@drawable/ai_p_banner_tail"
             app:layout_constraintEnd_toEndOf="@+id/textView_annual_rank_percent"
             app:layout_constraintHorizontal_bias="0.534"
             app:layout_constraintStart_toStartOf="@+id/textView_annual_rank_percent"
@@ -224,13 +225,13 @@
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/annual_income_image" />
+            app:srcCompat="@drawable/ai_p_graph" />
 
         <ImageView
             android:id="@+id/annual_rank_pointer"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:background="@drawable/annual_pointer"
+            android:background="@drawable/ai_p_pointer"
             app:layout_constraintBottom_toBottomOf="@+id/imageView_annual_chart"
             app:layout_constraintStart_toStartOf="@+id/imageView_annual_chart"
             app:layout_constraintTop_toTopOf="@+id/imageView_annual_chart" />
@@ -368,7 +369,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="370dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/line_555555"
+            android:background="@drawable/ai_p_555555"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -414,7 +415,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="410dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/line_555555"
+            android:background="@drawable/ai_p_555555"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -508,7 +509,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="450dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/line_555555"
+            android:background="@drawable/ai_p_555555"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -536,7 +537,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="505dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/line_555555"
+            android:background="@drawable/ai_p_555555"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -582,7 +583,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="545dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/line_555555"
+            android:background="@drawable/ai_p_555555"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -676,7 +677,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="585dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/line_555555"
+            android:background="@drawable/ai_p_555555"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
