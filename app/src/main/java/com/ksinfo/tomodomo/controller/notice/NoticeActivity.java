@@ -1,20 +1,17 @@
-package com.ksinfo.blind.mypage;
+package com.ksinfo.tomodomo.controller.notice;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ksinfo.blind.R;
-import com.ksinfo.blind.mypage.api.NoticeApi;
-import com.ksinfo.blind.mypage.util.NoticeRecyclerViewAdapter;
-import com.ksinfo.blind.mypage.vo.NoticeVO;
-import com.ksinfo.blind.util.RetrofitFactory;
+import com.ksinfo.tomodomo.R;
+import com.ksinfo.tomodomo.model.itf.NoticeInterface;
+import com.ksinfo.tomodomo.model.vo.notice.NoticeVO;
+import com.ksinfo.tomodomo.util.RetrofitFactory;
 
 import java.util.List;
 
@@ -27,10 +24,10 @@ public class NoticeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notice_recycleview);
+        setContentView(R.layout.nt_recycleview);
 
-        NoticeApi noticeApi = RetrofitFactory.createJsonRetrofit().create(NoticeApi.class);
-        noticeApi.getNoticeList().enqueue(new Callback<List<NoticeVO>>() {
+        NoticeInterface noticeInterface = RetrofitFactory.createJsonRetrofit().create(NoticeInterface.class);
+        noticeInterface.getNoticeList().enqueue(new Callback<List<NoticeVO>>() {
             @Override
             public void onResponse(@NonNull Call<List<NoticeVO>> call, Response<List<NoticeVO>> response) {
                 System.out.println("start NoticeActivity-getNoticeList-onResponse.");

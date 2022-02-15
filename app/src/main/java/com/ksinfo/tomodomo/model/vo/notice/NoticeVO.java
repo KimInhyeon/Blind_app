@@ -1,4 +1,4 @@
-package com.ksinfo.blind.mypage.vo;
+package com.ksinfo.tomodomo.model.vo.notice;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

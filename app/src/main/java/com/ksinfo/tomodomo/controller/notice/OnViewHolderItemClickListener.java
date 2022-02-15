@@ -1,4 +1,4 @@
-package com.ksinfo.blind.mypage.util;
+package com.ksinfo.tomodomo.controller.notice;
 
 public interface OnViewHolderItemClickListener {
     void onViewHolderItemClick();

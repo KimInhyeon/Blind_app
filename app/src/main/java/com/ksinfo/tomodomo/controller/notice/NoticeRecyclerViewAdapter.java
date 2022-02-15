@@ -1,4 +1,4 @@
-package com.ksinfo.blind.mypage.util;
+package com.ksinfo.tomodomo.controller.notice;
 
 import android.annotation.SuppressLint;
 import android.util.SparseBooleanArray;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ksinfo.blind.R;
-import com.ksinfo.blind.mypage.vo.NoticeVO;
+import com.ksinfo.tomodomo.R;
+import com.ksinfo.tomodomo.model.vo.notice.NoticeVO;
 
 import java.util.ArrayList;
 
@@ -29,15 +29,15 @@ public class NoticeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notice_recycleview_items, parent, false);
-        return new ViewHolderNotice(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.nt_recycleview_items, parent, false);
+        return new NoticeViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-        ViewHolderNotice viewHolderNotice = (ViewHolderNotice)holder;
-        viewHolderNotice.onBind(listData.get(position),position, selectedItems);
-        viewHolderNotice.setOnViewHolderItemClickListener(new OnViewHolderItemClickListener() {
+        NoticeViewHolder noticeViewHolder = (NoticeViewHolder)holder;
+        noticeViewHolder.onBind(listData.get(position),position, selectedItems);
+        noticeViewHolder.setOnViewHolderItemClickListener(new OnViewHolderItemClickListener() {
             @Override
             public void onViewHolderItemClick() {
                 if (selectedItems.get(position)) {

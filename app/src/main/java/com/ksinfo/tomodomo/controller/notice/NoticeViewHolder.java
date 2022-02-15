@@ -1,20 +1,18 @@
-package com.ksinfo.blind.mypage.util;
+package com.ksinfo.tomodomo.controller.notice;
 
 import android.animation.ValueAnimator;
 import android.util.SparseBooleanArray;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ksinfo.blind.mypage.util.OnViewHolderItemClickListener;
-import com.ksinfo.blind.mypage.vo.NoticeVO;
-import com.ksinfo.blind.R;
+import com.ksinfo.tomodomo.model.vo.notice.NoticeVO;
+import com.ksinfo.tomodomo.R;
 
-public class ViewHolderNotice extends RecyclerView.ViewHolder {
+public class NoticeViewHolder extends RecyclerView.ViewHolder {
 
     //notice_recycleview_items
     TextView noticeTitle;
@@ -25,7 +23,7 @@ public class ViewHolderNotice extends RecyclerView.ViewHolder {
     OnViewHolderItemClickListener onViewHolderItemClickListener;
 
 
-    public ViewHolderNotice(@NonNull View itemView) {
+    public NoticeViewHolder(@NonNull View itemView) {
         super(itemView);
 
         noticeTitle = itemView.findViewById(R.id.notice_title);
