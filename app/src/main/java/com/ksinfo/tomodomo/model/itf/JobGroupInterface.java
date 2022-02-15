@@ -1,6 +1,6 @@
-package com.ksinfo.blind.annualincome.api;
+package com.ksinfo.tomodomo.model.itf;
 
-import com.ksinfo.blind.annualincome.vo.CompanyJobGroupVO;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupVO;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface CompanyJobGroupApi {
+public interface JobGroupInterface {
     @GET("company/annualIncome/annualIncomeCalculator")
     Call<List<CompanyJobGroupVO>> getJobGroupListAll();
 
