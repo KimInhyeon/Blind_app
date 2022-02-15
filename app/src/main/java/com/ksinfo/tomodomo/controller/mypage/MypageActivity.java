@@ -1,4 +1,4 @@
-package com.ksinfo.blind.mypage;
+package com.ksinfo.tomodomo.controller.mypage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,24 +9,25 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ksinfo.blind.R;
-import com.ksinfo.blind.annualincome.AnnualIncomeRankCalculatorActivity;
-import com.ksinfo.blind.member.CertificationActivity;
+import com.ksinfo.tomodomo.R;
+import com.ksinfo.tomodomo.controller.annualincome.CalculatorActivity;
+import com.ksinfo.tomodomo.controller.member.CertificationActivity;
+import com.ksinfo.tomodomo.controller.notice.NoticeActivity;
 
 
-public class Mypage extends AppCompatActivity {
+public class MypageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mypage);
+        setContentView(R.layout.mp_main);
 
 
         ImageButton logout = findViewById(R.id.logoutBtn);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Mypage.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MypageActivity.this);
                 builder.setTitle("lログアウトしますか。");
                 builder.setMessage("パスワードを忘れたら、計定の復舊ができないので注意してください。");
                 builder.setPositiveButton("lログアウトする。",null);
@@ -58,7 +59,7 @@ public class Mypage extends AppCompatActivity {
         move_annualIncomeCalculator.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CalculatorActivity.class);
                 startActivity(intent);
             }
         });
