@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ksinfo.blind">
+    package="com.ksinfo.tomodomo">
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Blind">
 
         //[推定]最初に始める画面を設定。
-        <activity android:name=".MainActivity"
+        <activity android:name="com.ksinfo.tomodomo.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,32 +22,31 @@
 
         //使うactivityを宣言。
         //activity宣言_1_年俸（給料）
-        <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivity"/>
-        <activity android:name=".annualincome.AnnualIncomeRankCalculatorActivityShowUserRank"/>
+        <activity android:name=".controller.annualincome.CalculatorActivity"/>
+        <activity android:name=".controller.annualincome.ShowRankActivity"/>
 
         //activity宣言_2_ユーザー関連機能。（会員登録、ログイン、メール認証）
-        <activity android:name=".member.MemberJoinActivity"/>
-        <activity android:name=".member.LoginActivity"/>
-        <activity android:name=".member.CertificationActivity"/>
+        <activity android:name=".controller.member.MemberJoinActivity"/>
+        <activity android:name=".controller.member.LoginActivity"/>
+        <activity android:name=".controller.member.CertificationActivity"/>
 
         //activity宣言_3_最初に始まる画面。（slidetypeの画面）
-        <activity android:name=".home.Home"/>
 
         //activity宣言_４_マイページ関連機能。
-        <activity android:name=".mypage.Mypage"/>
+        <activity android:name=".controller.mypage.MypageActivity"/>
 
         //activity宣言_5_トピック関連機能。
-        <activity android:name=".board.TopicMainActivity"/>
+        <activity android:name=".controller.board.TopicMainActivity"/>
 
         //activity宣言_6_公知事項
-        <activity android:name=".mypage.NoticeActivity"/>
+        <activity android:name=".controller.notice.NoticeActivity"/>
 
         //activity宣言_7_WebLogin
-        <activity android:name=".mypage.WebLoginActivity"/>
-        <activity android:name=".mypage.WebLoginAccessActivity"/>
+        <activity android:name=".controller.mypage.WebLoginActivity"/>
+        <activity android:name=".controller.mypage.WebLoginAccessActivity"/>
 
         //activity宣言_8_招待
-        <activity android:name=".mypage.InviteActivity"/>
+        <activity android:name=".controller.mypage.InviteActivity"/>
 
     </application>
 
