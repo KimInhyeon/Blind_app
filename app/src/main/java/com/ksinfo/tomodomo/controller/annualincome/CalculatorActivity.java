@@ -1,4 +1,4 @@
-package com.ksinfo.blind.annualincome;
+package com.ksinfo.tomodomo.controller.annualincome;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,17 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ksinfo.blind.R;
-import com.ksinfo.blind.annualincome.api.AnnualDataApi;
-import com.ksinfo.blind.annualincome.api.CompanyJobGroupApi;
-import com.ksinfo.blind.annualincome.api.CompanyWorktypeApi;
-import com.ksinfo.blind.annualincome.vo.CompanyJobGroupVO;
-import com.ksinfo.blind.annualincome.vo.CompanyWorkTypeVO;
-import com.ksinfo.blind.mypage.Mypage;
-import com.ksinfo.blind.util.RetrofitFactory;
+import com.ksinfo.tomodomo.R;
+import com.ksinfo.tomodomo.model.itf.AnnualDataInterface;
+import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
+import com.ksinfo.tomodomo.model.itf.WorkTypeInterface;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupVO;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyWorkTypeVO;
+import com.ksinfo.tomodomo.util.RetrofitFactory;
 
 import java.util.List;
 
@@ -31,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
+public class CalculatorActivity extends AppCompatActivity {
 
     //메모 유저가 editText, spinner을 통하여 입력한 값들을 임시저장하다가 서버로 전송시 값을 제공한다.
     Integer annualIncome = 0;
@@ -48,7 +46,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.annual_income_rank_calculator);
+        setContentView(R.layout.ai_calculator);
 
         EditText inputAnnualIncome;
         inputAnnualIncome =  findViewById(R.id.editTextAnnualIncome);
@@ -68,7 +66,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
 
 
         //[메모] 웹서버에게 직군(職群/companyJobGroupApi)을 수신받고 Spinner에 배치하는 Api.
-        CompanyJobGroupApi companyJobGroupApi = RetrofitFactory.createJsonRetrofit().create(CompanyJobGroupApi.class);
+        JobGroupInterface companyJobGroupApi = RetrofitFactory.createJsonRetrofit().create(JobGroupInterface.class);
         companyJobGroupApi.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupVO>>(){
             @Override
             public void onResponse(@NonNull Call<List<CompanyJobGroupVO>> call, Response<List<CompanyJobGroupVO>> response) {
@@ -87,7 +85,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
 
                     Spinner spinnerJob;
                     spinnerJob = (Spinner) findViewById(R.id.spinnerOfJobList);  //inputData：ユーザの勤務期間（ラヂオボソンと同じ）。
-                    ArrayAdapter adapter1 = new ArrayAdapter(AnnualIncomeRankCalculatorActivity.this, android.R.layout.simple_spinner_item, listOfJob);
+                    ArrayAdapter adapter1 = new ArrayAdapter(CalculatorActivity.this, android.R.layout.simple_spinner_item, listOfJob);
                     adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spinnerJob.setAdapter(adapter1);
 
@@ -128,7 +126,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
         Spinner spinnerWorkPeriod;
 
         spinnerWorkPeriod = (Spinner) findViewById(R.id.spinnerOfWorkPeriod);  //inputData：ユーザの勤務期間（ラヂオボソンと同じ）。
-        ArrayAdapter adapter2 = new ArrayAdapter(AnnualIncomeRankCalculatorActivity.this,
+        ArrayAdapter adapter2 = new ArrayAdapter(CalculatorActivity.this,
                                                   android.R.layout.simple_spinner_item, ListOfWorkPeriod);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerWorkPeriod.setAdapter(adapter2);
@@ -147,8 +145,8 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
 
 
         //[메모] 고용유형(雇用タイプ/companyWorktypeApi)을 수신받고 Spinner에 배치하는 Api.
-        CompanyWorktypeApi companyWorktypeApi = RetrofitFactory.createJsonRetrofit().create(CompanyWorktypeApi.class);
-        companyWorktypeApi.getWorkTypeAll().enqueue(new Callback<List<CompanyWorkTypeVO>>() {
+        WorkTypeInterface workTypeInterface = RetrofitFactory.createJsonRetrofit().create(WorkTypeInterface.class);
+        workTypeInterface.getWorkTypeAll().enqueue(new Callback<List<CompanyWorkTypeVO>>() {
             @Override
             public void onResponse(Call<List<CompanyWorkTypeVO>> call, Response<List<CompanyWorkTypeVO>> response) {
 
@@ -165,7 +163,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
                 Spinner spinnerEmployeeType; // spinnerEmployeeType : 雇用タイプ
                 spinnerEmployeeType = (Spinner) findViewById(R.id.spinnerOfEmploymentType);
 
-                ArrayAdapter adapter3 = new ArrayAdapter(AnnualIncomeRankCalculatorActivity.this, android.R.layout.simple_spinner_item, listOfEmploymentType);
+                ArrayAdapter adapter3 = new ArrayAdapter(CalculatorActivity.this, android.R.layout.simple_spinner_item, listOfEmploymentType);
                 adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                 spinnerEmployeeType.setAdapter(adapter3);
@@ -194,7 +192,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
         //「ランキング計算」ボタンを押すと、
         // (1) サーバーに給料データーを送信。
         // (2)　AnnualIncomeRankCalculatorActivityShowUserRank.xmlに移動する。
-        AnnualDataApi annualDataApi = RetrofitFactory.createJsonRetrofit().create(AnnualDataApi.class);
+        AnnualDataInterface annualDataInterface = RetrofitFactory.createJsonRetrofit().create(AnnualDataInterface.class);
         Button move_annualIncomeRankCalculatorActivityShowUserRank = (Button)findViewById(R.id.buttonCalculateRank);
         move_annualIncomeRankCalculatorActivityShowUserRank.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -202,7 +200,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
                 try {
                     annualIncome = Integer.parseInt(inputAnnualIncome.getText().toString());
 
-                    annualDataApi.saveAnnualData(annualIncome, selectJob,selectWorkPeriod,selectWorkType, userId).enqueue(new Callback<Void>() {
+                    annualDataInterface.saveAnnualData(annualIncome, selectJob,selectWorkPeriod,selectWorkType, userId).enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             System.out.println("server send start");
@@ -238,7 +236,7 @@ public class AnnualIncomeRankCalculatorActivity extends AppCompatActivity {
                         }
                     });
 
-                    Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivityShowUserRank.class);
+                    Intent intent = new Intent(getApplicationContext(), ShowRankActivity.class);
                     startActivity(intent);
                 } catch (Exception e) {
                     e.printStackTrace();

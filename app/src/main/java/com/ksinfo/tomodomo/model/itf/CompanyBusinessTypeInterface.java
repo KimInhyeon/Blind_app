@@ -1,13 +1,13 @@
-package com.ksinfo.blind.annualincome.api;
+package com.ksinfo.tomodomo.model.itf;
 
-import com.ksinfo.blind.annualincome.vo.CompanyBusinessTypeVO;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyBusinessTypeVO;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface CompanyBusinessTypeApi {
+public interface CompanyBusinessTypeInterface {
     @GET("company/annualIncome/getBusinessTypeNameList")
     Call<List<CompanyBusinessTypeVO>> getBusinessTypeNameList();
 }

@@ -1,33 +1,29 @@
-package com.ksinfo.blind.annualincome;
+package com.ksinfo.tomodomo.controller.annualincome;
 
 import android.content.Intent;
-import android.graphics.Path;
 import android.graphics.Point;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
-import android.view.animation.PathInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ksinfo.blind.R;
-import com.ksinfo.blind.annualincome.api.CompanyAnnualIncomeApi;
-import com.ksinfo.blind.annualincome.api.CompanyBusinessTypeApi;
-import com.ksinfo.blind.annualincome.api.CompanyJobGroupApi;
-import com.ksinfo.blind.annualincome.vo.CompanyAnnualIncomeForAndroidVO;
-import com.ksinfo.blind.annualincome.vo.CompanyBusinessTypeVO;
-import com.ksinfo.blind.annualincome.vo.CompanyJobGroupVO;
-import com.ksinfo.blind.mypage.Mypage;
-import com.ksinfo.blind.util.RetrofitFactory;
+import com.ksinfo.tomodomo.R;
+import com.ksinfo.tomodomo.model.itf.AnnualIncomeInterface;
+import com.ksinfo.tomodomo.model.itf.CompanyBusinessTypeInterface;
+import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
+import com.ksinfo.tomodomo.model.vo.annualincome.AnnualIncomeRankVO;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyBusinessTypeVO;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupVO;
+import com.ksinfo.tomodomo.controller.mypage.MypageActivity;
+import com.ksinfo.tomodomo.util.RetrofitFactory;
 
 import java.util.List;
 
@@ -38,7 +34,7 @@ import retrofit2.Response;
 import android.widget.TextView;
 import android.widget.ImageView;
 
-public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatActivity {
+public class ShowRankActivity extends AppCompatActivity {
 
     @Override public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -47,7 +43,7 @@ public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatAct
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.annual_income_rank_calculator_show_user_rank);
+        setContentView(R.layout.ai_rank);
 
 
         LinearLayout layoutSizeCheck = (LinearLayout) findViewById(R.id.layoutSizeCheck);
@@ -81,7 +77,7 @@ public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatAct
         ImageView annualRankPercentTail = (ImageView) findViewById(R.id.imageView_annual_rank_percent_tail);
         ImageView annualRankPointer = (ImageView) findViewById(R.id.annual_rank_pointer);
         //[메모] 웹서버에게 업계(業界(businessType))을 수신받고 Spinner에 배치하는 Api.
-        CompanyBusinessTypeApi companyBusinessTypeApi = RetrofitFactory.createJsonRetrofit().create(CompanyBusinessTypeApi.class);
+        CompanyBusinessTypeInterface companyBusinessTypeApi = RetrofitFactory.createJsonRetrofit().create(CompanyBusinessTypeInterface.class);
         companyBusinessTypeApi.getBusinessTypeNameList().enqueue(new Callback<List<CompanyBusinessTypeVO>>() {
             @Override
             public void onResponse(Call<List<CompanyBusinessTypeVO>> call, Response<List<CompanyBusinessTypeVO>> response) {
@@ -100,7 +96,7 @@ public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatAct
 
                     Spinner spinnerBusinessTypeName;
                     spinnerBusinessTypeName = (Spinner) findViewById(R.id.spinner_businessTypeName_showRank);  //inputData：ユーザの勤務期間（ラヂオボソンと同じ）。
-                    ArrayAdapter adapter2 = new ArrayAdapter(AnnualIncomeRankCalculatorActivityShowUserRank.this,
+                    ArrayAdapter adapter2 = new ArrayAdapter(ShowRankActivity.this,
                                                             android.R.layout.simple_spinner_item, listOfBusinessTypeName);
                     adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spinnerBusinessTypeName.setAdapter(adapter2);
@@ -132,7 +128,7 @@ public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatAct
         });
 
         //[메모] 웹서버에게 직군(職群/companyJobGroupApi)을 수신받고 Spinner에 배치하는 Api.
-        CompanyJobGroupApi companyJobGroupApi = RetrofitFactory.createJsonRetrofit().create(CompanyJobGroupApi.class);
+        JobGroupInterface companyJobGroupApi = RetrofitFactory.createJsonRetrofit().create(JobGroupInterface.class);
         companyJobGroupApi.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupVO>>(){
             @Override
             public void onResponse(@NonNull Call<List<CompanyJobGroupVO>> call, Response<List<CompanyJobGroupVO>> response) {
@@ -150,7 +146,7 @@ public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatAct
 
                     Spinner spinnerJob;
                     spinnerJob = (Spinner) findViewById(R.id.spinner_jobGroup_showRank);  //inputData：ユーザの勤務期間（ラヂオボソンと同じ）。
-                    ArrayAdapter adapter1 = new ArrayAdapter(AnnualIncomeRankCalculatorActivityShowUserRank.this, android.R.layout.simple_spinner_item, listOfJob);
+                    ArrayAdapter adapter1 = new ArrayAdapter(ShowRankActivity.this, android.R.layout.simple_spinner_item, listOfJob);
                     adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spinnerJob.setAdapter(adapter1);
 
@@ -180,14 +176,14 @@ public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatAct
         });
 
         //[메모] 연봉정보 텍스트출력 & 그래프의 출력위치를 설정.
-        CompanyAnnualIncomeApi companyAnnualIncomeApi  = RetrofitFactory.createJsonRetrofit().create(CompanyAnnualIncomeApi.class);
+        AnnualIncomeInterface companyAnnualIncomeApi  = RetrofitFactory.createJsonRetrofit().create(AnnualIncomeInterface.class);
         Long testUserId = 1L; //메모 userId값이 1인 유저가 로그인하여 연봉계산기를 들어간것으로 전제.
-        companyAnnualIncomeApi.getAnnualIncomeFristPage(testUserId).enqueue(new Callback<CompanyAnnualIncomeForAndroidVO>() {
+        companyAnnualIncomeApi.getAnnualIncomeFristPage(testUserId).enqueue(new Callback<AnnualIncomeRankVO>() {
             @Override
-            public void onResponse(Call<CompanyAnnualIncomeForAndroidVO> call, Response<CompanyAnnualIncomeForAndroidVO> response) {
+            public void onResponse(Call<AnnualIncomeRankVO> call, Response<AnnualIncomeRankVO> response) {
                 if(response.isSuccessful()){
                     System.out.println("success companyAnnualIncomeApi-getAnnualIncomeFristPage ");
-                    CompanyAnnualIncomeForAndroidVO getAnnualIncomeFristPage = response.body();
+                    AnnualIncomeRankVO getAnnualIncomeFristPage = response.body();
                     Log.d("getAnnualIncomeFristPag", getAnnualIncomeFristPage.toString());
 
 
@@ -227,7 +223,7 @@ public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatAct
             }
 
             @Override
-            public void onFailure(Call<CompanyAnnualIncomeForAndroidVO> call, Throwable t) {
+            public void onFailure(Call<AnnualIncomeRankVO> call, Throwable t) {
 
             }
         });
@@ -236,12 +232,15 @@ public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatAct
         //[메모] 근무년수 spinner 출력설정.
         //메모 근무기간(근무기간은 굳이 DB에서 수신할 필요가 없다고 판단하여 진행
         // 선택된 position값이 0:1년미만/ 1:1년차/ 5:5년차/ 31:30년이상/ 32:모든 연차(全年次) 식으로 처리할 예정.
+
+        /*
+        //働いた期間のSpinner機能は後に追加予定。
         final String[] ListOfWorkPeriod = {"1年未満", "1年", "2年", "3年", "4年", "5年", "6年", "7年", "8年", "9年", "10年", "11年", "12年",
                 "13年", "14年", "15年", "16年", "17年", "18年", "19年", "20年", "21年", "22年", "23年", "24年",
                 "25年", "26年", "27年", "28年", "29年", "30年", "30年以上","全年次"};
         Spinner spinnerWorkPeriod;
         spinnerWorkPeriod = (Spinner) findViewById(R.id.spinner_work_period_showRank);
-        ArrayAdapter adapter3 = new ArrayAdapter(AnnualIncomeRankCalculatorActivityShowUserRank.this,
+        ArrayAdapter adapter3 = new ArrayAdapter(ShowAnnualIncomeRankActivity.this,
                                                    android.R.layout.simple_spinner_item, ListOfWorkPeriod);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerWorkPeriod.setAdapter(adapter3);
@@ -256,13 +255,14 @@ public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatAct
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        */
 
         //[메모] 마이페이지(mypage.xml)로 돌아가는 버튼.
         Button move_mypageMain = (Button)findViewById(R.id.btn_move_mypage);
         move_mypageMain.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Mypage.class);
+                Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
                 startActivity(intent);
             }
         });
@@ -272,7 +272,7 @@ public class AnnualIncomeRankCalculatorActivityShowUserRank extends AppCompatAct
         move_annualIncomeCalculator.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CalculatorActivity.class);
                 startActivity(intent);
             }
         });

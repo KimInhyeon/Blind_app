@@ -1,4 +1,4 @@
-package com.ksinfo.blind.annualincome.vo;
+package com.ksinfo.tomodomo.model.vo.annualincome;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

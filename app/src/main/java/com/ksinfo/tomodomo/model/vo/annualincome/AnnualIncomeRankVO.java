@@ -1,8 +1,8 @@
-package com.ksinfo.blind.annualincome.vo;
+package com.ksinfo.tomodomo.model.vo.annualincome;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-public final class CompanyAnnualIncomeForAndroidVO {
+//CompanyAnnualIncomeForAndroidVO
+public final class AnnualIncomeRankVO {
 	private final int minAnnualIncome;
 	private final int avgAnnualIncome;
 	private final int maxAnnualIncome;
@@ -10,7 +10,7 @@ public final class CompanyAnnualIncomeForAndroidVO {
 	private final int countOfParticipant;
 	private final float userRank;
 
-	public CompanyAnnualIncomeForAndroidVO(
+	public AnnualIncomeRankVO(
 			@JsonProperty("minAnnualIncome") 	int minAnnualIncome,
 			@JsonProperty("avgAnnualIncome") 	int avgAnnualIncome,
 			@JsonProperty("maxAnnualIncome") 	int maxAnnualIncome,
