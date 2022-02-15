@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.board.PostActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/bd_post_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu_post" />
+
+    <TextView
+        android:id="@+id/bd_post_board_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/boardName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_toolbar" />
+
+    <TextView
+        android:id="@+id/bd_post_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_board_name" />
+
+    <TextView
+        android:id="@+id/bd_post_company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/companyName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_title" />
+
+    <TextView
+        android:id="@+id/bd_post_delimiter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delimiter"
+        app:layout_constraintStart_toEndOf="@+id/bd_post_company_name"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_title" />
+
+    <TextView
+        android:id="@+id/bd_post_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/userNickname"
+        app:layout_constraintStart_toEndOf="@+id/bd_post_delimiter"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_title" />
+
+    <TextView
+        android:id="@+id/bd_post_create_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/createDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_company_name" />
+
+    <TextView
+        android:id="@+id/bd_post_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/contents"
+        android:linksClickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_create_date" />
+
+    <ImageView
+        android:id="@+id/bd_post_thumbs_up"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@string/like"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_contents"
+        app:srcCompat="@drawable/bd_p_thumbs_up" />
+
+    <TextView
+        android:id="@+id/bd_post_recommend_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/recommendCount"
+        app:layout_constraintStart_toEndOf="@+id/bd_post_thumbs_up"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_contents" />
+
+    <ImageView
+        android:id="@+id/bd_post_comment"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@string/comment"
+        app:layout_constraintStart_toEndOf="@+id/bd_post_recommend_count"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_contents"
+        app:srcCompat="@drawable/bd_p_comment" />
+
+    <TextView
+        android:id="@+id/bd_post_reply_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/replyCount"
+        app:layout_constraintStart_toEndOf="@+id/bd_post_comment"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_contents" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bd_post_reply_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/replyList"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_post_thumbs_up"
+        tools:listitem="@layout/bd_reply_list" />
+</androidx.constraintlayout.widget.ConstraintLayout>

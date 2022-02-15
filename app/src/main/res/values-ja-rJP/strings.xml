@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Blind</string>
-    <string name="base_url">http://220.80.99.247:8282/blind/</string>
     <!--アプリ始まる時のテキスト。-->
     <string name="a_desc">自分が思っていたアイデアを自由に話すのができます。</string><!--アイデア-->
     <string name="b_desc">知らない人と自由な会話ができます。</string><!--自由な会話-->
     <string name="c_desc">色々なアプリとコネクトが柔らかくて便利です。</string><!--コネクト-->
     <string name="d_desc">自分の趣味を見せてください。</string><!--趣味-->
-    <string name="e_desc">友達ように楽な会話を楽しんでください。</string>
+    <string name="e_desc">友達ように楽な会話を楽しんでください。</string><!--楽な会話-->
 </resources>

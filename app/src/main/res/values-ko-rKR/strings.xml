@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Blind</string>
     <!--アプリ始まる時のテキスト。-->
     <string name="a_desc">당신의 아이디어를 나눠요!</string><!--アイデア-->
     <string name="b_desc">새로운 사람들을 만나세요!</string><!--自由な会話-->
     <string name="c_desc">더욱더 흥미로운 취미를 찾아!</string><!--コネクト-->
     <string name="d_desc">자유를 찾아 그곳으로 떠나요!</string><!--趣味-->
-    <string name="e_desc">친구들과 함께 해보세요!</string>
+    <string name="e_desc">친구들과 함께 해보세요!</string><!--楽な会話-->
 </resources>

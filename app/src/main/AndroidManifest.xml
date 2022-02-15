@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.ksinfo.blind">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ksinfo.tomodomo">
 
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-	<application
-		android:name=".TomodomoApplication"
-		android:allowBackup="true"
-		android:icon="@mipmap/ic_launcher"
-		android:label="@string/app_name"
-		android:networkSecurityConfig="@xml/network_security_config"
-		android:roundIcon="@mipmap/ic_launcher_round"
-		android:supportsRtl="true"
-		android:theme="@style/Theme.Blind">
-		<activity
-			android:name=".MainActivity"
-			android:exported="true">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
-		<activity android:name=".member.MemberJoinActivity" />
-		<activity android:name=".member.LoginActivity" />
-		<activity android:name=".annualincome.AnnualIncomeRankCalculatorActivity" />
-		<activity android:name=".mypage.Mypage" />
-		<activity android:name=".board.activity.SearchPostActivity" />
-		<activity android:name=".board.activity.PostActivity" />
-	</application>
+    <application
+        android:name="com.ksinfo.tomodomo.TomodomoApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Tomodomo">
+        <activity
+            android:name="com.ksinfo.tomodomo.controller.common.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.ksinfo.tomodomo.controller.member.MemberJoinActivity" />
+        <activity android:name="com.ksinfo.tomodomo.controller.member.LoginActivity" />
+        <activity android:name="com.ksinfo.tomodomo.controller.annualincome.AnnualIncomeRankCalculatorActivity" />
+        <activity android:name="com.ksinfo.tomodomo.controller.mypage.Mypage" />
+        <activity android:name="com.ksinfo.tomodomo.controller.board.SearchPostActivity" />
+        <activity android:name="com.ksinfo.tomodomo.controller.board.PostActivity" />
+    </application>
 
 </manifest>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".controller.board.SearchPostActivity">
+
+    <TextView
+        android:id="@+id/bd_search_post_list_board_name"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:contentDescription="@string/boardName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bd_search_post_list_title"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:contentDescription="@string/title"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toStartOf="@+id/bd_search_post_list_image"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_search_post_list_board_name" />
+
+    <ImageView
+        android:id="@+id/bd_search_post_list_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:contentDescription="@string/thumbnail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/bd_search_post_list_title"
+        app:layout_constraintTop_toBottomOf="@+id/bd_search_post_list_board_name" />
+
+    <TextView
+        android:id="@+id/bd_search_post_list_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:contentDescription="@string/contents"
+        app:layout_constraintEnd_toStartOf="@+id/bd_search_post_list_image"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_search_post_list_title" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Blind</string>
-
     <!--アプリ始まる時のテキスト。-->
     <string name="a_desc">IDEA</string><!--アイデア-->
     <string name="b_desc">FREEDOM</string><!--自由な会話-->
     <string name="c_desc">CONNECT</string><!--コネクト-->
     <string name="d_desc">EXITING</string><!--趣味-->
-    <string name="e_desc">FRIENDS</string>
+    <string name="e_desc">FRIENDS</string><!--楽な会話-->
 </resources>
