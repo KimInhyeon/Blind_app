@@ -45,7 +45,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image_social_networking" />
+            app:srcCompat="@drawable/iv_p_social_networking" />
 
 
         <TextView
@@ -73,7 +73,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.35"
-            app:srcCompat="@drawable/back_image_ffffff_rectangle" />
+            app:srcCompat="@drawable/iv_p_ffffff_rectangle" />
 
         <TextView
             android:id="@+id/textView51"
@@ -126,7 +126,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.64"
-            app:srcCompat="@drawable/back_image_a60014_rectangle" />
+            app:srcCompat="@drawable/cf_p_a60014_rectangle" />
 
         <TextView
             android:id="@+id/textView54"
@@ -156,7 +156,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/image_invite_background_2"
             app:layout_constraintVertical_bias="0.48"
-            app:srcCompat="@drawable/image_social_networking" />
+            app:srcCompat="@drawable/iv_p_social_networking" />
 
         <TextView
             android:id="@+id/textView55"
@@ -181,7 +181,7 @@
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image_social_networking" />
+            app:srcCompat="@drawable/iv_p_social_networking" />
 
         <TextView
             android:id="@+id/textView57"
@@ -206,7 +206,7 @@
             app:layout_constraintHorizontal_bias="0.35"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image_social_networking" />
+            app:srcCompat="@drawable/iv_p_social_networking" />
 
         <TextView
             android:id="@+id/textView58"
@@ -231,7 +231,7 @@
             app:layout_constraintHorizontal_bias="0.60"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image_social_networking" />
+            app:srcCompat="@drawable/iv_p_social_networking" />
 
         <TextView
             android:id="@+id/textView59"
@@ -256,7 +256,7 @@
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image_social_networking" />
+            app:srcCompat="@drawable/iv_p_social_networking" />
 
         <TextView
             android:id="@+id/textView60"
