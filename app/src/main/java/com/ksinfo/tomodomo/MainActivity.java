@@ -1,4 +1,4 @@
-package com.ksinfo.blind;
+package com.ksinfo.tomodomo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 
-import com.ksinfo.blind.member.LoginActivity;
+import com.ksinfo.tomodomo.controller.member.LoginActivity;
 
 import java.util.ArrayList;
 
@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.cm_activity_main);
 
         viewPager2 = findViewById(R.id.viewpager);
-        int[] images = {R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d, R.drawable.e};
+        int[] images = {R.drawable.cm_p_start1, R.drawable.cm_p_start2, R.drawable.cm_p_start3, R.drawable.cm_p_start4, R.drawable.cm_p_start5};
         String[] heading = {"アイデア", "自由な会話", "コネクト", "趣味", "楽な会話"};
         String[] desc = {getString(R.string.a_desc),
                 getString(R.string.b_desc),
