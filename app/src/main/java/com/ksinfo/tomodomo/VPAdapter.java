@@ -1,4 +1,4 @@
-package com.ksinfo.blind;
+package com.ksinfo.tomodomo;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +24,7 @@ public class VPAdapter extends RecyclerView.Adapter<VPAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.viewpager_item,parent,false);
+                .inflate(R.layout.cm_viewpager_item,parent,false);
 
         return new ViewHolder(view);
     }
