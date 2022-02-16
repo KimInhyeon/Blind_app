@@ -351,7 +351,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_minStrongPoint"
+                android:id="@+id/cp_review_tv_min_strong"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
@@ -397,7 +397,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_minWeakPoint"
+                android:id="@+id/cp_review_tv_min_weak"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
@@ -441,7 +441,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_minChangeJob"
+                android:id="@+id/cp_review_tv_min_change"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"

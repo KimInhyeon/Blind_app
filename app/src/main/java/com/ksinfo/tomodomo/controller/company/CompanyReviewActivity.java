@@ -62,6 +62,13 @@ public class CompanyReviewActivity extends AppCompatActivity {
         setContentView(R.layout.cp_review_activity);
         TextView textView2 = findViewById(R.id.tv_help4);
         EditText simpleComment = findViewById(R.id.cp_review_et_simple_comment);
+        EditText strongPoint = findViewById(R.id.cp_review_et_strongPoint);
+
+        EditText weakPoint = findViewById(R.id.cp_review_et_weakPoint);
+
+        EditText changeJob = findViewById(R.id.cp_review_et_changeJob);
+
+
         simpleComment.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -74,6 +81,90 @@ public class CompanyReviewActivity extends AppCompatActivity {
 
 
                 String input = simpleComment.getText().toString();
+                int length = input.length();
+                if(length == 0 ){
+                    textView.setText("最小30文字");
+
+
+                }else {
+
+                    textView.setText(length + " 文字/（最小30文字）");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        strongPoint.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                TextView textView = findViewById(R.id.cp_review_tv_min_strong);
+
+
+                String input = strongPoint.getText().toString();
+                int length = input.length();
+                if(length == 0 ){
+                    textView.setText("最小30文字");
+
+
+                }else {
+
+                    textView.setText(length + " 文字/（最小30文字）");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        weakPoint.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                TextView textView = findViewById(R.id.cp_review_tv_min_weak);
+
+
+                String input = weakPoint.getText().toString();
+                int length = input.length();
+                if(length == 0 ){
+                    textView.setText("最小30文字");
+
+
+                }else {
+
+                    textView.setText(length + " 文字/（最小30文字）");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        changeJob.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                TextView textView = findViewById(R.id.cp_review_tv_min_change);
+
+
+                String input = changeJob.getText().toString();
                 int length = input.length();
                 if(length == 0 ){
                     textView.setText("最小30文字");
@@ -148,11 +239,7 @@ public class CompanyReviewActivity extends AppCompatActivity {
 
 
 
-                EditText strongPoint = findViewById(R.id.cp_review_et_strongPoint);
 
-                EditText weakPoint = findViewById(R.id.cp_review_et_weakPoint);
-
-                EditText changeJob = findViewById(R.id.cp_review_et_changeJob);
 
                 Spinner start = findViewById(R.id.sp_startDate);
 
