@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ksinfo.blind.util;
+package com.ksinfo.tomodomo.util;
 
 import android.view.animation.Interpolator;
 

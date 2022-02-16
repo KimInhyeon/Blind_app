@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ksinfo.blind.util;
+package com.ksinfo.tomodomo.util;
 
 /**
  * Interpolator corresponding to {@link android.R.interpolator#fast_out_slow_in}.

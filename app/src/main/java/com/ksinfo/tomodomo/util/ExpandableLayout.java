@@ -1,10 +1,9 @@
-package com.ksinfo.blind.util;
+package com.ksinfo.tomodomo.util;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -12,11 +11,6 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-
-import static com.ksinfo.blind.util.ExpandableLayout.State.COLLAPSED;
-import static com.ksinfo.blind.util.ExpandableLayout.State.COLLAPSING;
-import static com.ksinfo.blind.util.ExpandableLayout.State.EXPANDED;
-import static com.ksinfo.blind.util.ExpandableLayout.State.EXPANDING;
 
 public class ExpandableLayout extends FrameLayout {
     public interface State {

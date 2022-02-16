@@ -1,4 +1,4 @@
-package com.ksinfo.blind.board.vo;
+package com.ksinfo.tomodomo.model.vo.board;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
