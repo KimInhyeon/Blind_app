@@ -48,6 +48,8 @@
         //activity宣言_8_招待
         <activity android:name=".controller.mypage.InviteActivity"/>
 
+        //activity宣言_9_bookmark
+        <activity android:name=".controller.member.bookmark.BookMarkActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

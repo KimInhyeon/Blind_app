@@ -1,24 +1,20 @@
-package com.ksinfo.blind.member;
+package com.ksinfo.tomodomo.controller.member;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ksinfo.blind.R;
-import com.ksinfo.blind.annualincome.AnnualIncomeRankCalculatorActivity;
-import com.ksinfo.blind.board.TopicMainActivity;
-import com.ksinfo.blind.home.Home;
-import com.ksinfo.blind.member.api.MemberApi;
-import com.ksinfo.blind.mypage.Mypage;
-import com.ksinfo.blind.util.RetrofitFactory;
+import com.ksinfo.tomodomo.R;
+import com.ksinfo.tomodomo.controller.board.TopicMainActivity;
+import com.ksinfo.tomodomo.model.itf.MemberInterface;
+import com.ksinfo.tomodomo.controller.mypage.MypageActivity;
+import com.ksinfo.tomodomo.util.RetrofitFactory;
 
 import java.util.HashMap;
 
@@ -28,7 +24,7 @@ import retrofit2.Response;
 
 
 public class LoginActivity extends AppCompatActivity {
-    MemberApi memberApi = RetrofitFactory.createJsonRetrofit().create(MemberApi.class);
+    MemberInterface memberInterface = RetrofitFactory.createJsonRetrofit().create(MemberInterface.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,17 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         move_mypageMain.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Mypage.class);
-                startActivity(intent);
-            }
-        });
-
-
-        Button passAccess = (Button)findViewById(R.id.passBtn);
-        passAccess.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
+                Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
                 startActivity(intent);
             }
         });
@@ -106,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void loginApp(HashMap<String, String> params) {
 
-        memberApi.loginApp(params).enqueue(new Callback<HashMap<String, String>>() {
+        memberInterface.loginApp(params).enqueue(new Callback<HashMap<String, String>>() {
             @Override
             public void onResponse(@NonNull Call<HashMap<String, String>> call, Response<HashMap<String, String>> response) {
 
