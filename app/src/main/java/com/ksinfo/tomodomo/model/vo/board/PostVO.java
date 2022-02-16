@@ -1,7 +1,8 @@
-package com.ksinfo.blind.board.vo;
+package com.ksinfo.tomodomo.model.vo.board;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.ksinfo.tomodomo.model.vo.board.PostBlock;
 
 import java.util.List;
 

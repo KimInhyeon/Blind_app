@@ -1,4 +1,4 @@
-package com.ksinfo.blind;
+package com.ksinfo.tomodomo;
 
 import android.content.Context;
 

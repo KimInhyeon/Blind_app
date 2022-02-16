@@ -1,7 +1,9 @@
-package com.ksinfo.blind.board.vo;
+package com.ksinfo.tomodomo.model.vo.board;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.ksinfo.tomodomo.model.vo.board.ImageBlock;
+import com.ksinfo.tomodomo.model.vo.board.ParagraphBlock;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
 @JsonSubTypes({

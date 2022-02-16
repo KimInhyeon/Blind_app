@@ -1,4 +1,4 @@
-package com.ksinfo.blind.board;
+package com.ksinfo.tomodomo.controller.board;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,10 +6,10 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ksinfo.blind.R;
-import com.ksinfo.blind.board.api.BoardApi;
-import com.ksinfo.blind.board.vo.BoardVO;
-import com.ksinfo.blind.util.RetrofitFactory;
+import com.ksinfo.tomodomo.R;
+import com.ksinfo.tomodomo.model.itf.BoardInterface;
+import com.ksinfo.tomodomo.model.vo.board.BoardVO;
+import com.ksinfo.tomodomo.util.RetrofitFactory;
 
 import java.util.List;
 
@@ -24,9 +24,9 @@ public class TopicMainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.topic_main);
 
-		BoardApi boardApi = RetrofitFactory.createJsonRetrofit().create(BoardApi.class);
+		BoardInterface boardInterface = RetrofitFactory.createJsonRetrofit().create(BoardInterface.class);
 
-		boardApi.getBoardList().enqueue(new Callback<List<BoardVO>>() {
+		boardInterface.getBoardList().enqueue(new Callback<List<BoardVO>>() {
 			@Override
 			public void onResponse(@NonNull Call<List<BoardVO>> call, Response<List<BoardVO>> response) {
 				if (response.isSuccessful()) {
