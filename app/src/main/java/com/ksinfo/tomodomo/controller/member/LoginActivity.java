@@ -9,10 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.tomodomo.TomodomoApplication;
-import com.ksinfo.tomodomo.controller.annualincome.AnnualIncomeRankCalculatorActivity;
+import com.ksinfo.tomodomo.controller.annualincome.CalculatorActivity;
 import com.ksinfo.tomodomo.controller.board.SearchPostActivity;
 import com.ksinfo.tomodomo.controller.company.CompanyReviewActivity;
-import com.ksinfo.tomodomo.controller.home.Home;
+import com.ksinfo.tomodomo.controller.mypage.MypageActivity;
 import com.ksinfo.tomodomo.databinding.MbLoginBinding;
 import com.ksinfo.tomodomo.model.itf.MemberInterface;
 
@@ -49,7 +49,15 @@ public final class LoginActivity extends AppCompatActivity {
         binding.mbLoginAnnualIncomeCalculatorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CalculatorActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.mbLoginMyPageMainBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
                 startActivity(intent);
             }
         });
@@ -58,14 +66,6 @@ public final class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CompanyReviewActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        binding.mbLoginPassBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
             }
         });
@@ -98,8 +98,8 @@ public final class LoginActivity extends AppCompatActivity {
         memberInterface.loginApp(params).enqueue(new Callback<HashMap<String, String>>() {
             @Override
             public void onResponse(
-                @NonNull Call<HashMap<String, String>> call,
-                @NonNull Response<HashMap<String, String>> response
+                    @NonNull Call<HashMap<String, String>> call,
+                    @NonNull Response<HashMap<String, String>> response
             ) {
                 if (response.isSuccessful()) {
                     HashMap<String, String> message = response.body();
@@ -117,8 +117,8 @@ public final class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(
-                @NonNull Call<HashMap<String, String>> call,
-                @NonNull Throwable t
+                    @NonNull Call<HashMap<String, String>> call,
+                    @NonNull Throwable t
             ) {
                 Log.d("fail", "fail");
                 t.printStackTrace();

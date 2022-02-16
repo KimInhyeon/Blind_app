@@ -35,7 +35,7 @@ import com.ksinfo.tomodomo.R;
 import com.ksinfo.tomodomo.TomodomoApplication;
 import com.ksinfo.tomodomo.controller.member.MemberJoinActivity;
 import com.ksinfo.tomodomo.model.itf.CompanyInterface;
-import com.ksinfo.tomodomo.model.itf.CompanyJobGroupInterface;
+import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
 import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupVO;
 import com.ksinfo.tomodomo.model.vo.company.CompanyReviewVO;
 
@@ -53,7 +53,7 @@ import retrofit2.Response;
 
 public class CompanyReviewActivity extends AppCompatActivity {
     @Inject CompanyInterface companyInterface;
-    @Inject CompanyJobGroupInterface companyJobGroupInterface;
+    @Inject JobGroupInterface jobGroupInterface;
     private long companyId;
     TextView textView;
 
@@ -302,7 +302,7 @@ public class CompanyReviewActivity extends AppCompatActivity {
 //        });
 
 
-        companyJobGroupInterface.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupVO>>() {
+        jobGroupInterface.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupVO>>() {
             @Override
             public void onResponse(@NonNull Call<List<CompanyJobGroupVO>> call, Response<List<CompanyJobGroupVO>> response) {
                 if (response.isSuccessful()) {

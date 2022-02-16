@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" >
+    <item android:width="8dp"
+        android:height="8dp"
+       android:gravity="bottom|left">
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+            android:width="10dp"
+            android:height="10dp"
+            android:viewportWidth="10.0"
+            android:viewportHeight="10.0">
+
+            <path android:pathData="M 0,0
+                                    L 10,0
+                                      5,10z"
+                android:fillColor="#000000"/>
+            <!-- M 0,0  : start point -->
+            <!-- L 10,0 : middle point -->
+            <!--  5,10z : End point & connect to start point-->
+        </vector>
+    </item>
+</layer-list>

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.tomodomo.TomodomoApplication;
-import com.ksinfo.tomodomo.controller.annualincome.AnnualIncomeRankCalculatorActivity;
+import com.ksinfo.tomodomo.controller.annualincome.CalculatorActivity;
 import com.ksinfo.tomodomo.databinding.MbJoinBinding;
 import com.ksinfo.tomodomo.model.itf.MemberInterface;
 
@@ -80,7 +80,7 @@ public final class MemberJoinActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("message", message.toString());
                     if (message.get("code").equals("BLIND_SCS_MSG_001")) {
-                        Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), CalculatorActivity.class);
                         startActivity(intent);
                     } else {
                         Log.d("fail", "fail");

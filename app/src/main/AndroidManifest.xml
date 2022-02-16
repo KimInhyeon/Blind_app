@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ksinfo.tomodomo">
 
+    <!-- アプリがSMS(メッセージ)を送信するために権限をあげる宣言。-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.ksinfo.tomodomo.TomodomoApplication"
+        android:name=".TomodomoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,22 +15,50 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tomodomo">
+
+        <!--[推定]最初に始める画面を設定。-->
         <activity
-            android:name="com.ksinfo.tomodomo.controller.common.MainActivity"
+            android:name=".controller.common.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.ksinfo.tomodomo.controller.member.MemberJoinActivity" />
-        <activity android:name="com.ksinfo.tomodomo.controller.member.LoginActivity" />
-        <activity android:name="com.ksinfo.tomodomo.controller.annualincome.AnnualIncomeRankCalculatorActivity" />
-        <activity android:name="com.ksinfo.tomodomo.controller.mypage.Mypage" />
-        <activity android:name="com.ksinfo.tomodomo.controller.board.SearchPostActivity" />
-        <activity android:name="com.ksinfo.tomodomo.controller.board.PostActivity" />
-        <activity android:name="com.ksinfo.tomodomo.controller.company.CompanyReviewActivity"/>
-        <activity android:name="com.ksinfo.tomodomo.controller.company.CompanySearchActivity"/>
+
+        <!--使うactivityを宣言。-->
+        <!--activity宣言_1_年俸（給料）-->
+        <activity android:name=".controller.annualincome.CalculatorActivity" />
+        <activity android:name=".controller.annualincome.ShowRankActivity" />
+
+        <!--activity宣言_2_ユーザー関連機能。（会員登録、ログイン、メール認証）-->
+        <activity android:name=".controller.member.MemberJoinActivity" />
+        <activity android:name=".controller.member.LoginActivity" />
+        <activity android:name=".controller.member.CertificationActivity" />
+        <!--activity宣言_3_最初に始まる画面。（slidetypeの画面）-->
+
+        <!--activity宣言_４_マイページ関連機能。-->
+        <activity android:name=".controller.mypage.MypageActivity" />
+
+        <!--activity宣言_5_トピック関連機能。-->
+        <activity android:name=".controller.board.SearchPostActivity" />
+        <activity android:name=".controller.board.PostActivity" />
+
+        <!--activity宣言_6_公知事項-->
+        <activity android:name=".controller.notice.NoticeActivity" />
+
+        <!--activity宣言_7_WebLogin-->
+        <activity android:name=".controller.mypage.WebLoginActivity" />
+        <activity android:name=".controller.mypage.WebLoginAccessActivity" />
+
+        <!--activity宣言_8_招待-->
+        <activity android:name=".controller.mypage.InviteActivity" />
+
+        <!--activity宣言_9_bookmark-->
+        <activity android:name=".controller.member.bookmark.BookMarkActivity" />
+
+        <activity android:name=".controller.company.CompanyReviewActivity" />
+        <activity android:name=".controller.company.CompanySearchActivity" />
     </application>
 
 </manifest>
