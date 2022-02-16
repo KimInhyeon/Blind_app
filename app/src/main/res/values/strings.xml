@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name" translatable="false">Tomodomo</string>
-    <string name="base_url" translatable="false">http://192.168.0.8:8282/blind/</string>
+    <string name="base_url" translatable="false">http://10.0.2.2:8282/blind/</string>
+
+    <string name="guide_line" translatable="false">
+        <li>レビューに作成された情報は、訂正した事実または本人の経験でなければなりません。\n\n</li>
+        <li>会社に勤めながら経験した個人的な経験と意見に対して話してください。\n\n</li>
+        <li>本人の意見に対する理由と根拠を具体的に説明してください。</li>
+    </string>
+    <string name="guide_line2" translatable="false">
+        <li>我々はどんなに些細な場合でも提出されたレビューを編集したり修正したりしません。\n\n</li>
+        <li>私たちは事実関係を確認する作業は行わず、すべての紛争の状況下で中立を維持します。\n\n</li>
+        <li>我々はすべてのレビューについて同じ検討基準を適用します。</li>
+    </string>
+
     <!--アプリ始まる時のテキスト。-->
     <string name="a_desc">自分が思っていたアイデアを自由に話すのができます。</string><!--アイデア-->
     <string name="b_desc">知らない人と自由な会話ができます。</string><!--自由な会話-->

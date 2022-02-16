@@ -28,6 +28,8 @@
         <activity android:name="com.ksinfo.tomodomo.controller.mypage.Mypage" />
         <activity android:name="com.ksinfo.tomodomo.controller.board.SearchPostActivity" />
         <activity android:name="com.ksinfo.tomodomo.controller.board.PostActivity" />
+        <activity android:name="com.ksinfo.tomodomo.controller.company.CompanyReviewActivity"/>
+        <activity android:name="com.ksinfo.tomodomo.controller.company.CompanySearchActivity"/>
     </application>
 
 </manifest>

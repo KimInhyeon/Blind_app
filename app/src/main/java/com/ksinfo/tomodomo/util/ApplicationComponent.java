@@ -6,6 +6,8 @@ import com.ksinfo.tomodomo.controller.board.ReplyAdapter;
 import com.ksinfo.tomodomo.controller.board.SearchPostActivity;
 import com.ksinfo.tomodomo.controller.board.SearchPostAdapter;
 import com.ksinfo.tomodomo.controller.common.MainActivity;
+import com.ksinfo.tomodomo.controller.company.CompanyReviewActivity;
+import com.ksinfo.tomodomo.controller.company.CompanySearchActivity;
 import com.ksinfo.tomodomo.controller.member.LoginActivity;
 import com.ksinfo.tomodomo.controller.member.MemberJoinActivity;
 import com.ksinfo.tomodomo.module.MainActivityModule;
@@ -36,4 +38,8 @@ public interface ApplicationComponent {
     void inject(ReplyAdapter replyAdapter);
 
     void inject(AnnualIncomeRankCalculatorActivity annualIncomeRankCalculatorActivity);
+
+    void inject(CompanySearchActivity companySearchActivity);
+
+    void inject(CompanyReviewActivity companyReviewActivity);
 }
