@@ -1,6 +1,7 @@
 package com.ksinfo.tomodomo.module;
 
 import com.ksinfo.tomodomo.model.itf.BoardInterface;
+import com.ksinfo.tomodomo.model.itf.CompanyInterface;
 import com.ksinfo.tomodomo.model.itf.CompanyJobGroupInterface;
 import com.ksinfo.tomodomo.model.itf.MemberInterface;
 
@@ -84,5 +85,11 @@ public final class NetworkModule {
     @Singleton
     public CompanyJobGroupInterface provideCompanyJobGroupInterface(@Named("jacksonRetrofit") Retrofit retrofit) {
         return retrofit.create(CompanyJobGroupInterface.class);
+    }
+
+    @Provides
+    @Singleton
+    public CompanyInterface provideCompanyInterface(@Named("jacksonRetrofit") Retrofit retrofit) {
+        return retrofit.create(CompanyInterface.class);
     }
 }

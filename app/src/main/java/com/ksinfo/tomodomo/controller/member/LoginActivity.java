@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ksinfo.tomodomo.TomodomoApplication;
 import com.ksinfo.tomodomo.controller.annualincome.AnnualIncomeRankCalculatorActivity;
 import com.ksinfo.tomodomo.controller.board.SearchPostActivity;
+import com.ksinfo.tomodomo.controller.company.CompanyReviewActivity;
 import com.ksinfo.tomodomo.controller.home.Home;
 import com.ksinfo.tomodomo.databinding.MbLoginBinding;
 import com.ksinfo.tomodomo.model.itf.MemberInterface;
@@ -49,6 +50,14 @@ public final class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.mbLoginReviewWriteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CompanyReviewActivity.class);
                 startActivity(intent);
             }
         });
