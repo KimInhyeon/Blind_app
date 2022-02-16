@@ -26,11 +26,11 @@ public class MainActivityModule {
     @Singleton
     public int[] provideImages() {
         return new int[]{
-            R.drawable.cm_p_a
-          , R.drawable.cm_p_b
-          , R.drawable.cm_p_c
-          , R.drawable.cm_p_d
-          , R.drawable.cm_p_e
+            R.drawable.cm_p_start1
+          , R.drawable.cm_p_start2
+          , R.drawable.cm_p_start3
+          , R.drawable.cm_p_start4
+          , R.drawable.cm_p_start5
         };
     }
 

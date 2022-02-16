@@ -1,9 +1,11 @@
 package com.ksinfo.tomodomo.module;
 
 import com.ksinfo.tomodomo.model.itf.BoardInterface;
+import com.ksinfo.tomodomo.model.itf.CompanyBusinessTypeInterface;
 import com.ksinfo.tomodomo.model.itf.CompanyInterface;
-import com.ksinfo.tomodomo.model.itf.CompanyJobGroupInterface;
+import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
 import com.ksinfo.tomodomo.model.itf.MemberInterface;
+import com.ksinfo.tomodomo.model.itf.NoticeInterface;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -54,9 +56,9 @@ public final class NetworkModule {
     @Named("scalarsRetrofit")
     public Retrofit provideScalarsRetrofit(ScalarsConverterFactory scalarsConverterFactory) {
         return new Retrofit.Builder()
-                           .baseUrl(baseURL)
-                           .addConverterFactory(scalarsConverterFactory)
-                           .build();
+                .baseUrl(baseURL)
+                .addConverterFactory(scalarsConverterFactory)
+                .build();
     }
 
     @Provides
@@ -64,9 +66,9 @@ public final class NetworkModule {
     @Named("jacksonRetrofit")
     public Retrofit provideJacksonRetrofit(JacksonConverterFactory jacksonConverterFactory) {
         return new Retrofit.Builder()
-                           .baseUrl(baseURL)
-                           .addConverterFactory(jacksonConverterFactory)
-                           .build();
+                .baseUrl(baseURL)
+                .addConverterFactory(jacksonConverterFactory)
+                .build();
     }
 
     @Provides
@@ -83,13 +85,25 @@ public final class NetworkModule {
 
     @Provides
     @Singleton
-    public CompanyJobGroupInterface provideCompanyJobGroupInterface(@Named("jacksonRetrofit") Retrofit retrofit) {
-        return retrofit.create(CompanyJobGroupInterface.class);
+    public JobGroupInterface provideCompanyJobGroupInterface(@Named("jacksonRetrofit") Retrofit retrofit) {
+        return retrofit.create(JobGroupInterface.class);
+    }
+
+    @Provides
+    @Singleton
+    public CompanyBusinessTypeInterface provideCompanyBusinessTypeInterface(@Named("jacksonRetrofit") Retrofit retrofit) {
+        return retrofit.create(CompanyBusinessTypeInterface.class);
     }
 
     @Provides
     @Singleton
     public CompanyInterface provideCompanyInterface(@Named("jacksonRetrofit") Retrofit retrofit) {
         return retrofit.create(CompanyInterface.class);
+    }
+
+    @Provides
+    @Singleton
+    public NoticeInterface provideNoticeInterface(@Named("jacksonRetrofit") Retrofit retrofit) {
+        return retrofit.create(NoticeInterface.class);
     }
 }
