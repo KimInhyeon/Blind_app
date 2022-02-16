@@ -1,4 +1,4 @@
-package com.ksinfo.blind.member.api;
+package com.ksinfo.tomodomo.model.itf;
 
 import java.util.HashMap;
 
@@ -8,7 +8,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
-public interface MemberApi {
+public interface MemberInterface {
 	@POST("member/registMemberApp")
 	Call<HashMap<String, String>> registMemberApp(@QueryMap HashMap<String, String> params);
 

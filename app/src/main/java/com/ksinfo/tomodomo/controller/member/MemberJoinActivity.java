@@ -1,4 +1,4 @@
-package com.ksinfo.blind.member;
+package com.ksinfo.tomodomo.controller.member;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import android.widget.RadioGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ksinfo.blind.R;
-import com.ksinfo.blind.annualincome.AnnualIncomeRankCalculatorActivity;
-import com.ksinfo.blind.member.api.MemberApi;
-import com.ksinfo.blind.util.RetrofitFactory;
+import com.ksinfo.tomodomo.R;
+import com.ksinfo.tomodomo.controller.annualincome.CalculatorActivity;
+import com.ksinfo.tomodomo.model.itf.MemberInterface;
+import com.ksinfo.tomodomo.util.RetrofitFactory;
 
 import java.util.HashMap;
 
@@ -73,16 +73,16 @@ public class MemberJoinActivity extends AppCompatActivity {
     }
 
     private void joinMember(HashMap<String, String> params) {
-        MemberApi memberApi = RetrofitFactory.createJsonRetrofit().create(MemberApi.class);
+        MemberInterface memberInterface = RetrofitFactory.createJsonRetrofit().create(MemberInterface.class);
 
-        memberApi.registMemberApp(params).enqueue(new Callback<HashMap<String, String>>() {
+        memberInterface.registMemberApp(params).enqueue(new Callback<HashMap<String, String>>() {
             @Override
             public void onResponse(@NonNull Call<HashMap<String, String>> call, Response<HashMap<String, String>> response) {
                 HashMap<String, String> message = response.body();
                 if (response.isSuccessful()) {
                     Log.d("message", message.toString());
                     if (message.get("code").equals("BLIND_SCS_MSG_001")) {
-                        Intent intent = new Intent(getApplicationContext(), AnnualIncomeRankCalculatorActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), CalculatorActivity.class);
                         startActivity(intent);
                     } else {
                         Log.d("fail", "fail");
