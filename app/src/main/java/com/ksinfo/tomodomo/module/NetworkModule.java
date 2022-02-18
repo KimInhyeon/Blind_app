@@ -1,5 +1,6 @@
 package com.ksinfo.tomodomo.module;
 
+import com.ksinfo.tomodomo.model.itf.AnnualIncomeInterface;
 import com.ksinfo.tomodomo.model.itf.BoardInterface;
 import com.ksinfo.tomodomo.model.itf.CompanyBusinessTypeInterface;
 import com.ksinfo.tomodomo.model.itf.CompanyInterface;
@@ -7,6 +8,7 @@ import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
 import com.ksinfo.tomodomo.model.itf.MemberInterface;
 import com.ksinfo.tomodomo.model.itf.NoticeInterface;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -106,4 +108,13 @@ public final class NetworkModule {
     public NoticeInterface provideNoticeInterface(@Named("jacksonRetrofit") Retrofit retrofit) {
         return retrofit.create(NoticeInterface.class);
     }
+
+    //[메모] 신규itf(구API)를 추가하는 경우 여기 네트워크 모듈에 추가를 해주어야 합니다.
+    //[메모] 그렇지 않으면 무작정 Dagger가 import 안된다고 난리가 남.(Dagger가 그때그때 재로딩하여 작업하는 것이라서....)
+    @Provides
+    @Singleton
+    public AnnualIncomeInterface provideAnnualIncomeInterface(@Named("jacksonRetrofit") Retrofit retrofit) {
+        return retrofit.create(AnnualIncomeInterface.class);
+    }
+
 }

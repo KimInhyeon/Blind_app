@@ -40,7 +40,7 @@ public class CalculatorActivity extends AppCompatActivity {
     String selectJob;
     Integer selectWorkPeriod = 0;
     Integer selectWorkType = 0;
-    Long userId = Long.valueOf(99); //메모 로그인한 유저의 id값을 99으로 가정하여 설정.
+    Long testUserId = Long.valueOf(300); //메모 로그인한 유저의 id값을 300으로 가정하여 설정.
 
 
     final String[] ListOfWorkPeriod = {
@@ -208,7 +208,7 @@ public class CalculatorActivity extends AppCompatActivity {
                 try {
                     annualIncome = Integer.parseInt(inputAnnualIncome.getText().toString());
 
-                    annualDataInterface.saveAnnualData(annualIncome, selectJob, selectWorkPeriod, selectWorkType, userId).enqueue(new Callback<Void>() {
+                    annualDataInterface.saveAnnualData(annualIncome, selectJob, selectWorkPeriod, selectWorkType, testUserId).enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             System.out.println("server send start");
@@ -218,7 +218,7 @@ public class CalculatorActivity extends AppCompatActivity {
                                 System.out.println("server send selectJob : " + selectJob);
                                 System.out.println("server send selectWorkPeriod : " + selectWorkPeriod);
                                 System.out.println("server send selectWorkType : " + selectWorkType);
-                                System.out.println("server send userId : " + userId);
+                                System.out.println("server send userId : " + testUserId);
                             }
                         }
 

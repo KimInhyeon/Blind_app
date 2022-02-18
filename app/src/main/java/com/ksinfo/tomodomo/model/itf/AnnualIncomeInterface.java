@@ -11,9 +11,8 @@ public interface AnnualIncomeInterface {
     Call<AnnualIncomeRankVO> getAnnualIncomeFristPage(@Query("userId") Long userId);
 
     @GET("company/annualIncome/getAnnualIncomeUpdateToSelectedSpinner")
-    Call<AnnualIncomeRankVO> getAnnualIncomeUpdateToSelectedSpinner(@Query("annualIncome") Integer selectBusinessType,
-                                                                    @Query("selectJob") String selectJobGroup,
-                                                                    @Query("selectWorkPeriod") Integer selectWorkPeriod,
+    Call<AnnualIncomeRankVO> getAnnualIncomeUpdateToSelectedSpinner(@Query("selectBusinessType") String selectBusinessType,
+                                                                    @Query("selectWorkPeriod") String selectWorkPeriod,
                                                                     @Query("userId") Long userId);
 
 }
