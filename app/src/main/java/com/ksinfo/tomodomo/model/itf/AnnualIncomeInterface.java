@@ -7,12 +7,11 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface AnnualIncomeInterface {
-    @GET("company/annualIncome/getAnnualIncomeFristPage")
-    Call<AnnualIncomeRankVO> getAnnualIncomeFristPage(@Query("userId") Long userId);
 
-    @GET("company/annualIncome/getAnnualIncomeUpdateToSelectedSpinner")
-    Call<AnnualIncomeRankVO> getAnnualIncomeUpdateToSelectedSpinner(@Query("selectBusinessType") String selectBusinessType,
-                                                                    @Query("selectWorkPeriod") String selectWorkPeriod,
-                                                                    @Query("userId") Long userId);
+//    @GET("company/annualIncome/getAnnualIncomeUpdateToSelectedSpinner")
+    @GET("company/annualIncome/getAnnualIncomeAndRank")
+    Call<AnnualIncomeRankVO> getAnnualIncomeAndRank(@Query("selectBusinessType") String selectBusinessType,
+                                                    @Query("selectWorkPeriod") String selectWorkPeriod,
+                                                    @Query("userId") Long userId);
 
 }

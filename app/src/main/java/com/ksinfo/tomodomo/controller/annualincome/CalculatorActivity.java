@@ -201,8 +201,8 @@ public class CalculatorActivity extends AppCompatActivity {
         // (1) サーバーに給料データーを送信。
         // (2)　AnnualIncomeRankCalculatorActivityShowUserRank.xmlに移動する。
         AnnualDataInterface annualDataInterface = RetrofitFactory.createJsonRetrofit().create(AnnualDataInterface.class);
-        Button move_annualIncomeRankCalculatorActivityShowUserRank = (Button) findViewById(R.id.buttonCalculateRank);
-        move_annualIncomeRankCalculatorActivityShowUserRank.setOnClickListener(new View.OnClickListener() {
+        Button move_buttonCalculateRank = (Button) findViewById(R.id.buttonCalculateRank);
+        move_buttonCalculateRank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
@@ -228,6 +228,7 @@ public class CalculatorActivity extends AppCompatActivity {
                         }
                     });
 
+                    /*
                     String testSendString = "Hello!";
                     jobGroupInterface.requestSample999(testSendString).enqueue(new Callback<Void>() {
                         @Override
@@ -243,6 +244,7 @@ public class CalculatorActivity extends AppCompatActivity {
                             System.out.println("server send fail");
                         }
                     });
+                    */
 
                     Intent intent = new Intent(getApplicationContext(), ShowRankActivity.class);
                     startActivity(intent);

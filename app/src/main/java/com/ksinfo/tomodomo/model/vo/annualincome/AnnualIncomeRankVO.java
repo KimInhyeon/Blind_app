@@ -9,6 +9,9 @@ public final class AnnualIncomeRankVO {
 	private final int userAnnualIncome;
 	private final int countOfParticipant;
 	private final float userRank;
+	private final int businessTypeCode; //메모 시작은 0으로 초기화, 서버에게 받는 처음값은 유저가 일하는 회사의 업계. 이후는 spinner 입력에 따라 변경.
+	private final int jobGroupCode;     //메모 시작은 0으로 초기화, 서버에게 받는 처음값은 유저의 직군. 이후는 spinner 입력에 따라 변경.
+
 
 	public AnnualIncomeRankVO(
 			@JsonProperty("minAnnualIncome") 	int minAnnualIncome,
@@ -16,7 +19,9 @@ public final class AnnualIncomeRankVO {
 			@JsonProperty("maxAnnualIncome") 	int maxAnnualIncome,
 			@JsonProperty("userAnnualIncome")   int userAnnualIncome,
 			@JsonProperty("countOfParticipant") int countOfParticipant,
-			@JsonProperty("userRank") 			float userRank)
+			@JsonProperty("userRank") 			float userRank,
+			@JsonProperty("businessTypeCode")   int businessTypeCode,
+			@JsonProperty("jobGroupCode") 		int jobGroupCode)
 	{
 		this.minAnnualIncome = minAnnualIncome;
 		this.avgAnnualIncome = avgAnnualIncome;
@@ -24,6 +29,8 @@ public final class AnnualIncomeRankVO {
 		this.userAnnualIncome = userAnnualIncome;
 		this.countOfParticipant = countOfParticipant;
 		this.userRank = userRank;
+		this.businessTypeCode = businessTypeCode;
+		this.jobGroupCode = jobGroupCode;
 	}
 
 	public int getMinAnnualIncome() {
@@ -40,4 +47,6 @@ public final class AnnualIncomeRankVO {
 	}
 	public int getCountOfParticipant() { return countOfParticipant; }
 	public float getUserRank() { return userRank; }
+	public int getBusinessTypeCode() { return businessTypeCode; }
+	public int getJobGroupCode() { return jobGroupCode; }
 }

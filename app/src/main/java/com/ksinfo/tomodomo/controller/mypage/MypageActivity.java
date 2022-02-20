@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.tomodomo.R;
 import com.ksinfo.tomodomo.controller.annualincome.CalculatorActivity;
+import com.ksinfo.tomodomo.controller.annualincome.ShowRankActivity;
 import com.ksinfo.tomodomo.controller.member.CertificationActivity;
 import com.ksinfo.tomodomo.controller.member.bookmark.BookMarkActivity;
 import com.ksinfo.tomodomo.controller.notice.NoticeActivity;
@@ -58,10 +59,21 @@ public class MypageActivity extends AppCompatActivity {
         move_annualIncomeCalculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ShowRankActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /*
+        Button move_annualIncomeCalculator = (Button) findViewById(R.id.move_annual_incomeCalculator_Btn);
+        move_annualIncomeCalculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CalculatorActivity.class);
                 startActivity(intent);
             }
         });
+        */
 
         //２．招待、Webログイン
         Button move_invite = (Button) findViewById(R.id.move_invite_btn);
