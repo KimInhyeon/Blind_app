@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".controller.board.PostActivity">
+
+    <TextView
+        android:id="@+id/bd_reply_list_company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:contentDescription="@string/companyName"
+        android:text="@string/companyName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bd_reply_list_delimiter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delimiter"
+        app:layout_constraintStart_toEndOf="@+id/bd_reply_list_company_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bd_reply_list_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/userNickname"
+        android:text="@string/userNickname"
+        app:layout_constraintStart_toEndOf="@+id/bd_reply_list_delimiter"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bd_reply_list_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/replyImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_reply_list_company_name" />
+
+    <TextView
+        android:id="@+id/bd_reply_list_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/contents"
+        android:text="@string/contents"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_reply_list_image" />
+
+    <TextView
+        android:id="@+id/bd_reply_list_create_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/createDate"
+        android:text="@string/createDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bd_reply_list_contents" />
+
+    <ImageView
+        android:id="@+id/bd_reply_list_thumbs_up"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@string/like"
+        app:layout_constraintStart_toEndOf="@+id/bd_reply_list_create_date"
+        app:layout_constraintTop_toBottomOf="@+id/bd_reply_list_contents"
+        app:srcCompat="@drawable/bd_p_thumbs_up" />
+
+    <TextView
+        android:id="@+id/bd_reply_list_recommend_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/recommendCount"
+        android:text="@string/recommendCount"
+        app:layout_constraintStart_toEndOf="@+id/bd_reply_list_thumbs_up"
+        app:layout_constraintTop_toBottomOf="@+id/bd_reply_list_contents" />
+
+    <ImageView
+        android:id="@+id/bd_reply_list_comment"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@string/comment"
+        app:layout_constraintStart_toEndOf="@+id/bd_reply_list_recommend_count"
+        app:layout_constraintTop_toBottomOf="@+id/bd_reply_list_contents"
+        app:srcCompat="@drawable/bd_p_comment" />
+
+    <TextView
+        android:id="@+id/bd_reply_list_nested_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/replyCount"
+        android:text="@string/replyCount"
+        app:layout_constraintStart_toEndOf="@+id/bd_reply_list_comment"
+        app:layout_constraintTop_toBottomOf="@+id/bd_reply_list_contents" />
+</androidx.constraintlayout.widget.ConstraintLayout>

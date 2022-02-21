@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cp_review_sv"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+
+        <!-- title row -->
+        <TextView
+            android:id="@+id/cp_review_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="企業レビュ作成"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cp_review_tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="cancel"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.33dp"
+            android:background="#dfdfdf"
+            app:layout_constraintTop_toBottomOf="@id/cp_review_tv_title" />
+
+        <!-- 회사명 row -->
+        <TextView
+            android:id="@+id/cp_review_tv_company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="会社名"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/cp_review_view_select_box"
+            app:layout_constraintTop_toBottomOf="@id/cp_review_tv_title" />
+
+        <View
+            android:id="@+id/cp_review_view_select_box"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/cp_v_rectangle"
+            app:layout_constraintStart_toEndOf="@id/cp_review_iv_company_logo"
+            app:layout_constraintTop_toTopOf="@id/cp_review_iv_company_logo" />
+
+        <TextView
+            android:id="@+id/cp_review_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="비바리퍼블리카"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/cp_review_view_select_box"
+            app:layout_constraintStart_toStartOf="@id/cp_review_view_select_box"
+            app:layout_constraintTop_toTopOf="@id/cp_review_view_select_box" />
+
+        <ImageView
+            android:id="@+id/cp_review_iv_arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/cp_p_right_arrow"
+            app:layout_constraintBottom_toBottomOf="@id/cp_review_view_select_box"
+            app:layout_constraintEnd_toEndOf="@id/cp_review_view_select_box"
+            app:layout_constraintTop_toTopOf="@id/cp_review_view_select_box" />
+
+        <ImageView
+            android:id="@+id/cp_review_iv_company_logo"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cp_review_tv_company_name" />
+
+        <View
+            android:id="@+id/view_line2"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="30dp"
+            android:background="#dfdfdf"
+            app:layout_constraintTop_toBottomOf="@id/cp_review_view_select_box" />
+
+        <!-- 별점 row -->
+
+        <LinearLayout
+            android:id="@+id/linearlayout_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_line2">
+
+            <TextView
+                android:id="@+id/tv_company_Review"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="会社評価"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/view_line2" />
+
+
+
+
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#dfdfdf"
+                app:layout_constraintTop_toBottomOf="@id/cp_review_tv_title" />
+
+            <TextView
+                android:id="@+id/tv_compnay_career"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="キャリアアップ"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/view_line2" />
+
+            <RatingBar
+                android:id="@+id/cp_review_rb_career_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleX=".9"
+                android:scaleY=".9"
+                android:stepSize="1"
+
+                android:progressBackgroundTint="#666666"
+                android:progressTint="#FDC034"
+                android:secondaryProgressTint="#00000000"
+                />
+
+            <TextView
+                android:id="@+id/tv_company_workAndBalance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="業務と生活のバランス"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/view_line2" />
+
+            <RatingBar
+                android:id="@+id/cp_review_rb_work_and_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleX=".9"
+                android:scaleY=".9"
+                android:stepSize="1"
+                android:progressBackgroundTint="#666666"
+                android:progressTint="#FDC034"
+                android:secondaryProgressTint="#00000000"
+                />
+
+            <TextView
+                android:id="@+id/tv_company_pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="給与および福祉"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/view_line2" />
+
+            <RatingBar
+                android:id="@+id/cp_review_rb_pay_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleX=".9"
+                android:scaleY=".9"
+                android:stepSize="1"
+                android:progressBackgroundTint="#666666"
+                android:progressTint="#FDC034"
+                android:secondaryProgressTint="#00000000"
+                />
+
+            <TextView
+                android:id="@+id/tv_company_culture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="社内文化"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/view_line2" />
+
+            <RatingBar
+                android:id="@+id/cp_review_rb_company_culture_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleX=".9"
+                android:scaleY=".9"
+                android:stepSize="1"
+                android:progressBackgroundTint="#666666"
+                android:progressTint="#FDC034"
+                android:secondaryProgressTint="#00000000"/>
+
+            <TextView
+                android:id="@+id/tv_company_boss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="経営陣"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/view_line2" />
+
+            <RatingBar
+                android:id="@+id/cp_review_rb_head_Point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleX=".9"
+                android:scaleY=".9"
+                android:stepSize="1"
+                android:progressBackgroundTint="#666666"
+                android:progressTint="#FDC034"
+                android:secondaryProgressTint="#00000000"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_line3"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#dfdfdf"
+            app:layout_constraintTop_toBottomOf="@id/linearlayout_rating" />
+
+        <TextView
+            android:id="@+id/tv_reviewWrite"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="レビュー作成"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/view_line3" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_comment"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_reviewWrite">
+
+            <TextView
+                android:id="@+id/tv_oneComment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="一行評"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--        <TextView-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="20dp"-->
+            <!--            android:text="최대30자"-->
+            <!--            </TextView>-->
+            <TextView
+                android:id="@+id/cp_review_tv_min_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="最小30文字"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- 한줄평 row -->
+        <EditText
+            android:id="@+id/cp_review_et_simple_comment"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/cp_v_rectangle"
+
+            android:hint="例）ウォラベルが保障される会社"
+            android:singleLine="true"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintlayout_comment" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_strongPoint"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/cp_review_et_simple_comment">
+
+
+            <TextView
+                android:id="@+id/tv_strongPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="長点"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cp_review_tv_min_strong"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="最小30文字"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 한줄평 row -->
+        <EditText
+            android:id="@+id/cp_review_et_strongPoint"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/cp_v_rectangle"
+            android:gravity="top"
+            android:hint="勤務しながら一番良かった点は何ですか。"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintlayout_strongPoint"
+
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_weakPoint"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/cp_review_et_strongPoint">
+
+            <TextView
+                android:id="@+id/tv_weakPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="短所"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cp_review_tv_min_weak"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="最小30文字"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/cp_review_et_weakPoint"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/cp_v_rectangle"
+            android:gravity="top"
+            android:hint="勤務しながら一番大変だった点は何ですか"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintlayout_weakPoint" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_changeJob"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/cp_review_et_weakPoint">
+
+            <TextView
+                android:id="@+id/tv_changeJob"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="転職理由"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cp_review_tv_min_change"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="最小30文字"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/cp_review_et_changeJob"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/cp_v_rectangle"
+            android:gravity="top"
+            android:hint="勤務しながら転職を決心したきっかけは。"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintlayout_changeJob" />
+
+
+        <View
+            android:id="@+id/view_line4"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="30dp"
+            android:background="#dfdfdf"
+            app:layout_constraintTop_toBottomOf="@id/cp_review_et_changeJob" />
+
+        <TextView
+            android:id="@+id/tv_writerInfo"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="作成者の情報"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/view_line4" />
+
+
+        <TextView
+            android:id="@+id/tv_certificaiton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="認証状態"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_writerInfo" />
+
+        <TextView
+            android:id="@+id/cp_review_tv_certification2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/cp_v_rectangle"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:hint="前の社員"
+            android:padding="20dp"
+
+
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_certificaiton" />
+
+
+
+            <TextView
+                android:id="@+id/tv_startJob"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="勤務開始日"
+                app:layout_constraintTop_toBottomOf="@id/cp_review_tv_certification2"
+                app:layout_constraintStart_toStartOf="parent">
+
+            </TextView>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="250dp"
+                android:layout_marginRight="50dp"
+                android:text="終業日"
+                app:layout_constraintTop_toBottomOf="@id/cp_review_tv_certification2"
+
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_jobArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingHorizontal="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_startJob">
+
+            <Spinner
+                android:id="@+id/sp_startDate"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:alpha="1.0"
+                android:background="@drawable/cp_v_spinner"
+                android:spinnerMode="dialog"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_startJob"
+                tools:ignore="NotSibling"
+
+                />
+
+            <Spinner
+                android:id="@+id/sp_finishDate"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:background="@drawable/cp_v_spinner"
+                android:text="選んでください"
+                android:spinnerMode="dialog"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_startJob"
+
+                tools:ignore="NotSibling"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_jobGroup"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:gravity="center"
+                android:text="職群"
+
+                app:layout_constraintTop_toBottomOf="@+id/sp_startDate"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+
+                />
+
+            <Spinner
+                android:id="@+id/sp_jobGroup"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/cp_v_spinner"
+                android:gravity="center"
+
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_jobGroup"
+                />
+
+            <TextView
+                android:id="@+id/tv_jobArea"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="勤務先"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@+id/sp_jobGroup"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+
+                />
+
+            <EditText
+                android:id="@+id/cp_review_et_jobArea"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/cp_v_rectangle"
+                android:hint="入力してください"
+                android:maxLength="10"
+                android:paddingStart="10dp"
+                android:singleLine="true"
+                app:layout_constraintTop_toBottomOf="@+id/tv_jobArea"
+
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- 작성자정보 row -->
+        <!-- 요 텍스트뷰를 ⬇️ 화살표로 대체 -->
+        <!--        <TextView-->
+        <!--            android:id="@+id/dsfsfd"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="100dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="클릭하면 프래그먼트 띄우기!"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/cp_review_iv_arrow2"-->
+        <!--            tools:ignore="NotSibling"-->
+
+
+        <!--            />-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cp_cl_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#D8D4D4"
+            android:paddingHorizontal="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/constraintlayout_jobArea">
+
+            <TextView
+                android:id="@+id/tv_help"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="会員様のレビューは、求職者が会社を検討するのに役立ちます。"
+                android:textSize="20sp"
+                android:breakStrategy="simple"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_help3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:text="経験した内容をもとに具体的なレビューを\n作成してください"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_help" />
+
+            <LinearLayout
+                android:id="@+id/linear_help"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_help3">
+
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="210dp"
+                    android:background="#818581" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintlayout_help_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="50dp">
+
+                    <TextView
+                        android:id="@+id/tv_advantage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+
+                        android:layout_marginTop="15dp"
+                        android:text="一番良いところ"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_ability"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+
+                        android:layout_marginTop="15dp"
+                        android:text="成長可能性"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_advantage" />
+
+                    <TextView
+                        android:id="@+id/tv_culture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+
+                        android:layout_marginTop="15dp"
+                        android:text="企業文化"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_ability" />
+
+                    <TextView
+                        android:id="@+id/tv_weak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+
+                        android:layout_marginTop="15dp"
+                        android:text="大変なところ"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_culture" />
+
+                    <TextView
+                        android:id="@+id/tv_head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+
+                        android:layout_marginTop="15dp"
+                        android:text="経営陣"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_weak" />
+
+                    <TextView
+                        android:id="@+id/tv_talk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+
+                        android:layout_marginTop="15dp"
+                        android:text="面接の手続き"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_head" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_help4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:text="ブラインドのレビューガイドラインを守ってください。"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:bufferType="spannable"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linear_help" />
+
+
+            <Button
+                android:id="@+id/btn_complete"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+
+                android:layout_marginTop="15dp"
+                android:text="完了"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:bufferType="spannable"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_help4"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--         fragment가 화면에 떴을 때 어둡게 깔기 -->
+        <View
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="10000dp"
+            android:background="#898989"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <!-- fragment를 붙일 컨테이너 역할의 레이아웃 -->
+        <FrameLayout
+            android:layout_margin="30dp"
+            android:id="@+id/frag_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="@id/cp_cl_background"
+            app:layout_constraintStart_toStartOf="parent"
+            android:clickable="true"
+            android:background="@color/white">
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+
+
+    <!--</androidx.core.widget.>-->

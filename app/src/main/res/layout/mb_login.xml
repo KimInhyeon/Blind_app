@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".controller.member.LoginActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mb_login_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF6C92">
+
+        <TextView
+            android:id="@+id/mb_login_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="会社評価匿名コミュニティ(Login Sample)"
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/mb_login_profile_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="#70708E"
+                android:src="@drawable/mb_p_ks_logo" />
+
+            <TextView
+                android:id="@+id/mb_login_message_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#ff0000" />
+
+            <TextView
+                android:id="@+id/mb_login_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:text="XXXXXサービスにようこそ！(loginPage)"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/mb_login_email_et"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="E-Mail"
+                android:inputType="textPersonName"
+                android:maxLength="50"
+                android:paddingLeft="10dp"
+                android:textColor="#231E31"
+                android:textColorHint="#CACACA" />
+
+            <EditText
+                android:id="@+id/mb_login_pw_et"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="パスワード"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:paddingLeft="10dp"
+                android:textColor="#231E31"
+                android:textColorHint="#CACACA" />
+
+            <Button
+                android:id="@+id/mb_login_login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="Login"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/mb_login_join_btn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="join"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/mb_login_annual_income_calculator_btn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="annualIncomeAccess"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/mb_login_review_write_btn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="reviewWrite"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/mb_login_topic_main_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="トピックメイン PAGEへ" />
+
+            <Button
+                android:id="@+id/mb_login_my_page_main_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MyPage－Main" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

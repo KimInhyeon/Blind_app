@@ -1,30 +1,75 @@
 <resources>
-    <string name="app_name">Tomodomo</string>
-    <string name="base_url">http://192.168.50.94:8282/blind/</string>
+    <string name="app_name" translatable="false">Tomodomo</string>
+    <string name="base_url" translatable="false">http://10.0.2.2:8282/blind/</string>
+
+    <string name="guide_line" translatable="false">
+        <li>レビューに作成された情報は、訂正した事実または本人の経験でなければなりません。\n\n</li>
+        <li>会社に勤めながら経験した個人的な経験と意見に対して話してください。\n\n</li>
+        <li>本人の意見に対する理由と根拠を具体的に説明してください。</li>
+    </string>
+    <string name="guide_line2" translatable="false">
+        <li>我々はどんなに些細な場合でも提出されたレビューを編集したり修正したりしません。\n\n</li>
+        <li>私たちは事実関係を確認する作業は行わず、すべての紛争の状況下で中立を維持します。\n\n</li>
+        <li>我々はすべてのレビューについて同じ検討基準を適用します。</li>
+    </string>
+
     <!--アプリ始まる時のテキスト。-->
     <string name="a_desc">自分が思っていたアイデアを自由に話すのができます。</string><!--アイデア-->
     <string name="b_desc">知らない人と自由な会話ができます。</string><!--自由な会話-->
     <string name="c_desc">色々なアプリとコネクトが柔らかくて便利です。</string><!--コネクト-->
     <string name="d_desc">自分の趣味を見せてください。</string><!--趣味-->
     <string name="e_desc">友達ように楽な会話を楽しんでください。</string><!--楽な会話-->
+    <string name="tvHeading">アイデア</string>
 
-    <string name="boardList">トピックリスト</string>
-    <string name="postList">ポストリスト</string>
-    <string name="boardName">トピック名</string>
-    <string name="title">タイトル</string>
-    <string name="thumbnail">サムネイル</string>
-    <string name="contents">コンテンツ</string>
-    <string name="delimiter">・</string>
-    <string name="companyName">企業名</string>
-    <string name="userNickname">ニックネーム</string>
-    <string name="createDate">作成日</string>
-    <string name="like">いいね</string>
-    <string name="recommendCount">いいね数</string>
-    <string name="comment">コメント</string>
-    <string name="replyCount">コメント数</string>
-    <string name="replyList">コメントリスト</string>
-    <string name="replyImage">コメントイメージ</string>
-    <string-array name="sort">
+    <!--マイページ。-->
+    <!--マイページ_メインページ。（0027）-->
+    <string name="title_mypage">マイページ</string>
+    <string name="update_user_data">情報修訂</string>
+    <string name="user_nickname">ユーザーのニックネーム</string>
+    <string name="mypage_introduce_certification1">企業のメールを認証して正会員にならば、</string>
+    <string name="mypage_introduce_certification2">全サービスを利用することができます。</string>
+    <string name="mypage_introduce_certification3">トピックにポストを書く</string>
+    <string name="mypage_introduce_certification4">企業のレビューを読む</string>
+    <string name="mypage_introduce_certification5">企業のレビューを書く</string>
+    <string name="mypage_introduce_certification6">給料のランクに給料登録や確認。</string>
+    <string name="move_certification_btn1">正会員認証を始める</string>
+    <string name="move_certification_btn2">企業メールを認証する</string>
+    <string name="move_annual_income_calculator">私の年齢ランキング</string>
+    <string name="mypage_button_group1">アカウントの情報更新</string>
+    <string name="mypage_button_group2">招待、Webログイン</string>
+    <string name="move_invite">招待する</string>
+    <string name="move_web_login">Webブラウザーログイン</string>
+
+    <!--マイページ_正会員認証ページ。（00）-->
+    <string name="certification_title">正会員認証ページ</string>
+    <string name="certification_explain_postread">トピックのポストを読む</string>
+    <string name="certification_explain_postwrite">トピックにポストを書く</string>
+    <string name="certification_explain_componyreviewread">企業のレビューを読む</string>
+    <string name="certification_explain_componyreview_write">企業のレビューを書く</string>
+    <string name="certification_explain_salary_rank_useable">給料のランク確認</string>
+
+    <string name="boardList" translatable="false">トピックリスト</string>
+    <string name="postList" translatable="false">ポストリスト</string>
+    <string name="boardName" translatable="false">トピック名</string>
+    <string name="title" translatable="false">タイトル</string>
+    <string name="thumbnail" translatable="false">サムネイル</string>
+    <string name="contents" translatable="false">コンテンツ</string>
+    <string name="delimiter" translatable="false">・</string>
+    <string name="companyName" translatable="false">企業名</string>
+    <string name="userNickname" translatable="false">ニックネーム</string>
+    <string name="createDate" translatable="false">作成日</string>
+    <string name="like" translatable="false">いいね</string>
+    <string name="recommendCount" translatable="false">いいね数</string>
+    <string name="comment" translatable="false">コメント</string>
+    <string name="replyCount" translatable="false">コメント数</string>
+    <string name="replyList" translatable="false">コメントリスト</string>
+    <string name="replyImage" translatable="false">コメントイメージ</string>
+    <string name="edit" translatable="false">修正</string>
+    <string name="delete" translatable="false">削除</string>
+    <string name="report" translatable="false">通報</string>
+    <string name="deleteConfirm" translatable="false">削除しますか？</string>
+    <string name="failed" translatable="false">失敗しました</string>
+    <string-array name="sort" translatable="false">
         <item>新しい順</item>
         <item>評価順</item>
     </string-array>
