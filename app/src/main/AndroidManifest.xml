@@ -43,6 +43,7 @@
         <!--activity宣言_5_トピック関連機能。-->
         <activity android:name=".controller.board.SearchPostActivity" />
         <activity android:name=".controller.board.PostActivity" />
+        <activity android:name=".controller.board.PostEditActivity" />
 
         <!--activity宣言_6_公知事項-->
         <activity android:name=".controller.notice.NoticeActivity" />

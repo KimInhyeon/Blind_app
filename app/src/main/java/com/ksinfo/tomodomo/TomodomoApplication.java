@@ -2,6 +2,7 @@ package com.ksinfo.tomodomo;
 
 import android.app.Application;
 
+import com.ksinfo.tomodomo.module.BoardModule;
 import com.ksinfo.tomodomo.module.MainActivityModule;
 import com.ksinfo.tomodomo.module.NetworkModule;
 import com.ksinfo.tomodomo.util.ApplicationComponent;
@@ -16,9 +17,11 @@ public final class TomodomoApplication extends Application {
 
         NetworkModule networkModule = new NetworkModule(getString(R.string.base_url));
         MainActivityModule mainActivityModule = new MainActivityModule(this);
+        BoardModule boardModule = new BoardModule(this);
         applicationComponent = DaggerApplicationComponent.builder()
                                                          .networkModule(networkModule)
                                                          .mainActivityModule(mainActivityModule)
+                                                         .boardModule(boardModule)
                                                          .build();
     }
 

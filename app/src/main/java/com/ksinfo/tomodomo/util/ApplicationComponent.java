@@ -3,15 +3,15 @@ package com.ksinfo.tomodomo.util;
 import com.ksinfo.tomodomo.controller.annualincome.CalculatorActivity;
 import com.ksinfo.tomodomo.controller.annualincome.ShowRankActivity;
 import com.ksinfo.tomodomo.controller.board.PostActivity;
-import com.ksinfo.tomodomo.controller.board.ReplyAdapter;
+import com.ksinfo.tomodomo.controller.board.PostEditActivity;
 import com.ksinfo.tomodomo.controller.board.SearchPostActivity;
-import com.ksinfo.tomodomo.controller.board.SearchPostAdapter;
 import com.ksinfo.tomodomo.controller.common.MainActivity;
 import com.ksinfo.tomodomo.controller.company.CompanyReviewActivity;
 import com.ksinfo.tomodomo.controller.company.CompanySearchActivity;
 import com.ksinfo.tomodomo.controller.member.LoginActivity;
 import com.ksinfo.tomodomo.controller.member.MemberJoinActivity;
 import com.ksinfo.tomodomo.controller.notice.NoticeActivity;
+import com.ksinfo.tomodomo.module.BoardModule;
 import com.ksinfo.tomodomo.module.MainActivityModule;
 import com.ksinfo.tomodomo.module.NetworkModule;
 
@@ -22,7 +22,8 @@ import dagger.Component;
 @Singleton
 @Component(modules = {
     NetworkModule.class,
-    MainActivityModule.class
+    MainActivityModule.class,
+    BoardModule.class
 })
 public interface ApplicationComponent {
     void inject(MainActivity mainActivity);
@@ -38,6 +39,8 @@ public interface ApplicationComponent {
     void inject(SearchPostActivity searchPostActivity);
 
     void inject(PostActivity postActivity);
+
+    void inject(PostEditActivity postEditActivity);
 
     void inject(CompanySearchActivity companySearchActivity);
 

@@ -1,5 +1,6 @@
 package com.ksinfo.tomodomo.controller.board;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -17,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ksinfo.tomodomo.R;
 import com.ksinfo.tomodomo.TomodomoApplication;
+import com.ksinfo.tomodomo.constant.Code;
 import com.ksinfo.tomodomo.databinding.BdPostBinding;
 import com.ksinfo.tomodomo.model.itf.BoardInterface;
 import com.ksinfo.tomodomo.model.vo.board.PostVO;
@@ -42,6 +48,7 @@ public final class PostActivity extends AppCompatActivity {
     private GlideImageGetter glideImageGetter;
     private PostVO post;
     private List<ReplyVO> replyList;
+    private ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +64,7 @@ public final class PostActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 //        setPostView(intent.getParcelableExtra("post"));
+
         post = intent.getParcelableExtra("post");
         setPostView(post);
         setReplyView(intent.getParcelableArrayListExtra("replyList"));
@@ -68,7 +76,17 @@ public final class PostActivity extends AppCompatActivity {
 //        actionBar.setTitle(post.getPostTitle());
 //        actionBar.setTitle("post");
 
+        activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
 
+                    }
+                }
+            }
+        );
     }
 
     @Override
@@ -94,6 +112,10 @@ public final class PostActivity extends AppCompatActivity {
 
                 return true;
             case R.id.editPost:
+                Intent intent = new Intent(getApplicationContext(), PostEditActivity.class);
+                intent.putExtra("post", post);
+                activityResultLauncher.launch(intent);
+
                 return true;
             case R.id.deletePost:
                 new AlertDialog.Builder(this)
@@ -108,6 +130,7 @@ public final class PostActivity extends AppCompatActivity {
                                    }
                                }).create()
                                .show();
+
                 return true;
             case R.id.reportPost:
                 return true;
@@ -128,9 +151,7 @@ public final class PostActivity extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N) {
             postContents = Html.fromHtml(post.getPostContents(), glideImageGetter, null);
         } else {
-            postContents = Html.fromHtml(
-                    post.getPostContents(), Html.FROM_HTML_MODE_LEGACY, glideImageGetter, null
-            );
+            postContents = Html.fromHtml(post.getPostContents(), Html.FROM_HTML_MODE_LEGACY, glideImageGetter, null);
         }
         binding.bdPostContents.setText(postContents);
         binding.bdPostContents.setMovementMethod(LinkMovementMethod.getInstance());
@@ -161,10 +182,9 @@ public final class PostActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 Log.d("isSuccessful", String.valueOf(response.isSuccessful()));
 //                if (response.isSuccessful()) {
-                    final int delete = 3924;
                     Intent intent = new Intent();
                     intent.putExtra("postId", postId);
-                    setResult(delete, intent);
+                    setResult(Code.DELETE.getCode(), intent);
 
                     finish();
 //                } else {

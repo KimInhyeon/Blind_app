@@ -18,18 +18,15 @@ import com.ksinfo.tomodomo.databinding.BdSearchPostBinding;
 import com.ksinfo.tomodomo.model.itf.BoardInterface;
 import com.ksinfo.tomodomo.model.vo.board.BoardVO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import javax.inject.Named;
 
 public final class SearchPostActivity extends AppCompatActivity {
 	private BdSearchPostBinding binding;
 	@Inject BoardInterface boardInterface;
+	@Inject @Named("boardSliderList") List<BoardVO> boardSliderList;
 	private SearchPostAdapter searchPostAdapter;
 
 	@Override
@@ -50,7 +47,7 @@ public final class SearchPostActivity extends AppCompatActivity {
 		);
 		binding.postList.setLayoutManager(linearLayoutManager);
  */
-		getBoardSliderList();
+		createBoardSliderList();
 		setSortSpinner();
 		initScrollListener();
 	}
@@ -62,37 +59,21 @@ public final class SearchPostActivity extends AppCompatActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
-	private void getBoardSliderList() {
-		boardInterface.getBoardSliderList().enqueue(new Callback<ArrayList<BoardVO>>() {
-			@Override
-			public void onResponse(
-				@NonNull Call<ArrayList<BoardVO>> call,
-				@NonNull Response<ArrayList<BoardVO>> response
-			) {
-				if (response.isSuccessful()) {
-					List<BoardVO> boardList = response.body();
-					for (BoardVO board : boardList) {
-						Button boardButton = new Button(getApplicationContext());
-						boardButton.setText(board.getBoardTopicName());
-						binding.bdSearchPostBoardList.addView(boardButton);
+	private void createBoardSliderList() {
+		for (BoardVO board : boardSliderList) {
+			Button boardButton = new Button(getApplicationContext());
+			boardButton.setText(board.getBoardTopicName());
+			binding.bdSearchPostBoardList.addView(boardButton);
 
-						boardButton.setOnClickListener(new View.OnClickListener() {
-							@Override
-							public void onClick(View v) {
-								searchPostAdapter.setBoardId(board.getBoardId());
-								searchPostAdapter.setPostId(0L);
-								searchPostAdapter.getPostList();
-							}
-						});
-					}
+			boardButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					searchPostAdapter.setBoardId(board.getBoardId());
+					searchPostAdapter.setPostId(0L);
+					searchPostAdapter.getPostList();
 				}
-			}
-
-			@Override
-			public void onFailure(@NonNull Call<ArrayList<BoardVO>> call, @NonNull Throwable t) {
-				t.printStackTrace();
-			}
-		});
+			});
+		}
 	}
 
 	private void setSortSpinner() {

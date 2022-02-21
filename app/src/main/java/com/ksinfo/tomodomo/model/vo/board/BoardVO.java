@@ -21,4 +21,9 @@ public final class BoardVO {
 	public String getBoardTopicName() {
 		return boardTopicName;
 	}
+
+	@Override
+	public String toString() {
+		return boardTopicName;
+	}
 }

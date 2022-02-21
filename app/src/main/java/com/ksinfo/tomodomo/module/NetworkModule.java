@@ -56,9 +56,9 @@ public final class NetworkModule {
     @Named("scalarsRetrofit")
     public Retrofit provideScalarsRetrofit(ScalarsConverterFactory scalarsConverterFactory) {
         return new Retrofit.Builder()
-                .baseUrl(baseURL)
-                .addConverterFactory(scalarsConverterFactory)
-                .build();
+                           .baseUrl(baseURL)
+                           .addConverterFactory(scalarsConverterFactory)
+                           .build();
     }
 
     @Provides
@@ -66,9 +66,9 @@ public final class NetworkModule {
     @Named("jacksonRetrofit")
     public Retrofit provideJacksonRetrofit(JacksonConverterFactory jacksonConverterFactory) {
         return new Retrofit.Builder()
-                .baseUrl(baseURL)
-                .addConverterFactory(jacksonConverterFactory)
-                .build();
+                           .baseUrl(baseURL)
+                           .addConverterFactory(jacksonConverterFactory)
+                           .build();
     }
 
     @Provides

@@ -68,7 +68,10 @@
     <string name="delete" translatable="false">削除</string>
     <string name="report" translatable="false">通報</string>
     <string name="deleteConfirm" translatable="false">削除しますか？</string>
+    <string name="saveConfirm" translatable="false">登録しますか？</string>
     <string name="failed" translatable="false">失敗しました</string>
+    <string name="inputTitle" translatable="false">タイトルを入力してください</string>
+    <string name="tooLongTitle" translatable="false">タイトルは２００文字以内にしてください</string>
     <string-array name="sort" translatable="false">
         <item>新しい順</item>
         <item>評価順</item>
