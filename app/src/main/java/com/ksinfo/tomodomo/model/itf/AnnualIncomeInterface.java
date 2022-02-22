@@ -8,10 +8,10 @@ import retrofit2.http.Query;
 
 public interface AnnualIncomeInterface {
 
-//    @GET("company/annualIncome/getAnnualIncomeUpdateToSelectedSpinner")
     @GET("company/annualIncome/getAnnualIncomeAndRank")
-    Call<AnnualIncomeRankVO> getAnnualIncomeAndRank(@Query("selectBusinessType") String selectBusinessType,
-                                                    @Query("selectWorkPeriod") String selectWorkPeriod,
+    Call<AnnualIncomeRankVO> getAnnualIncomeAndRank(@Query("selectBusinessTypeCode") String selectBusinessTypeCode,
+                                                    @Query("selectJobGroupCode") String selectJobGroupCode,
+                                                    //@Query("selectWorkPeriod") String selectWorkPeriod,  //勤務期間Spinner機能を追加する時に使う予定。
                                                     @Query("userId") Long userId);
 
 }
