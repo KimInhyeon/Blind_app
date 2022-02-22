@@ -2,6 +2,7 @@ package com.ksinfo.tomodomo.module;
 
 import com.ksinfo.tomodomo.model.itf.AnnualIncomeInterface;
 import com.ksinfo.tomodomo.model.itf.BoardInterface;
+import com.ksinfo.tomodomo.model.itf.BookMarkInterface;
 import com.ksinfo.tomodomo.model.itf.CompanyBusinessTypeInterface;
 import com.ksinfo.tomodomo.model.itf.CompanyInterface;
 import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
@@ -117,4 +118,10 @@ public final class NetworkModule {
         return retrofit.create(AnnualIncomeInterface.class);
     }
 
+    //메모 필수1 신규itf(구API)를 추가하는 경우 여기에 선언을 추가한다.
+    @Provides
+    @Singleton
+    public BookMarkInterface provideBookMarkInterface(@Named("jacksonRetrofit") Retrofit retrofit) {
+        return retrofit.create(BookMarkInterface.class);
+    }
 }

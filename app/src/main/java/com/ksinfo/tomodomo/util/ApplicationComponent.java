@@ -11,6 +11,7 @@ import com.ksinfo.tomodomo.controller.company.CompanyReviewActivity;
 import com.ksinfo.tomodomo.controller.company.CompanySearchActivity;
 import com.ksinfo.tomodomo.controller.member.LoginActivity;
 import com.ksinfo.tomodomo.controller.member.MemberJoinActivity;
+import com.ksinfo.tomodomo.controller.member.bookmark.BookMarkActivity;
 import com.ksinfo.tomodomo.controller.notice.NoticeActivity;
 import com.ksinfo.tomodomo.module.MainActivityModule;
 import com.ksinfo.tomodomo.module.NetworkModule;
@@ -44,4 +45,10 @@ public interface ApplicationComponent {
     void inject(CompanyReviewActivity companyReviewActivity);
 
     void inject(NoticeActivity noticeActivity);
+
+    //메모 필수2 해당Activity의 oncreate() 내에 아래의 2줄의 코드를 기입해야 한다
+    //        TomodomoApplication tomodomoApplication = (TomodomoApplication) getApplication();
+    //        tomodomoApplication.getApplicationComponent().inject(this);
+    //메모 아래의 코드는 위의 2줄의 코드가 작동하도록 하기 위해 선언하는 코드이다.
+    void inject(BookMarkActivity bookMarkActivity);
 }

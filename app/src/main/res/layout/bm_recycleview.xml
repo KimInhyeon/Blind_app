@@ -9,8 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cardview_dark_background">
+        android:layout_height="match_parent">
 
         <!--title text -->
         <TextView
@@ -27,7 +26,6 @@
             android:textAlignment="center"
             android:textAllCaps="false"
 
-            android:textColor="#ffffff"
             android:textDirection="ltr"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -39,7 +37,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
-        <!-- recyclerView of noticeLists -->
+        <!-- recyclerView -->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewOfBookmarkList"
