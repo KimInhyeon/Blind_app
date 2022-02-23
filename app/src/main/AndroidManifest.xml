@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ksinfo.tomodomo">
 
+    <!--(10:17) 메모 따라하기 ShareDataCoding_3 -->
+    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <!-- アプリがSMS(メッセージ)を送信するために権限をあげる宣言。-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -59,6 +62,18 @@
 
         <activity android:name=".controller.company.CompanyReviewActivity" />
         <activity android:name=".controller.company.CompanySearchActivity" />
+
+        <!--(03:00) 메모 따라하기 SetupFileProvider_4-->
+        <!-- Add file provider with your own package -->
+        <provider
+            android:authorities="com.ksinfo.tomodomo.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files_path"/>
+        </provider>
     </application>
 
 </manifest>

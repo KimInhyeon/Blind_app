@@ -29,6 +29,13 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    //(00:54) 메모 따라하기 SetupFileProvider_1
+    //enable view binding(optional, you may use find view by id)
+    buildFeatures{
+        viewBinding true
+    }
+
 }
 
 dependencies {
@@ -42,7 +49,15 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'org.jetbrains:annotations:15.0'
-    testImplementation 'junit:junit:'
+
+    //tomodomo original testImplementation
+    //testImplementation 'junit:junit:'
+
+
+    //(01:08) 메모 따라하기 SetupFileProvider_2
+    //enable view binding(optional, you may use find view by id)
+    testImplementation 'junit:junit:4.13.2'
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
