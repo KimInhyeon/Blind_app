@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ksinfo.tomodomo">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ksinfo.tomodomo">
 
     <!-- アプリがSMS(メッセージ)を送信するために権限をあげる宣言。-->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -59,6 +61,10 @@
 
         <activity android:name=".controller.company.CompanyReviewActivity" />
         <activity android:name=".controller.company.CompanySearchActivity" />
+        <activity android:name=".controller.company.CompanyAllSearchActivity" />
+        <activity android:name=".controller.company.CompanyReviewListActivity"/>
+
+
     </application>
 
 </manifest>

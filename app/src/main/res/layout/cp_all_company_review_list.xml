@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/cp_all_company_review_company_name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:layout_marginRight="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/cp_all_company_review_company_name1_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="レビュ"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toRightOf="@id/cp_all_company_review_company_name1"
+
+        app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:layout_marginTop="10dp"
+        android:id="@+id/cp_all_company_review_list_line1"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#dfdfdf"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_review_company_name1"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/cp_all_company_review_list_iv_arrow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+
+        android:src="@drawable/cp_p_left_arrow"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <ImageView
+        android:id="@+id/cp_all_company_reveiw_list_logo"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_review_list_line1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/cp_all_company_review_list_all_Point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="356dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cp_all_company_review_list_career_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cp_all_company_review_list_all_Point" />
+
+    <TextView
+
+        android:id="@+id/cp_all_company_review_list_work_life_balance_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cp_all_company_review_list_career_point" />
+
+    <TextView
+
+        android:id="@+id/cp_all_company_review_list_company_culture_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="34dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cp_all_company_review_list_pay_point" />
+
+    <TextView
+
+
+        android:id="@+id/cp_all_company_review_list_pay_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cp_all_company_review_list_work_life_balance_point" />
+
+    <TextView
+
+        android:id="@+id/cp_all_company_review_list_head_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="33dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cp_all_company_review_list_company_culture_point" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

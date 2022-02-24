@@ -28,6 +28,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
@@ -35,9 +36,8 @@ import com.ksinfo.tomodomo.R;
 import com.ksinfo.tomodomo.TomodomoApplication;
 import com.ksinfo.tomodomo.controller.member.MemberJoinActivity;
 import com.ksinfo.tomodomo.model.itf.CompanyInterface;
-import com.ksinfo.tomodomo.model.itf.CompanyJobGroupInterface;
+import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
 import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupVO;
-import com.ksinfo.tomodomo.model.vo.company.CompanyReviewVO;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -53,7 +53,7 @@ import retrofit2.Response;
 
 public class CompanyReviewActivity extends AppCompatActivity {
     @Inject CompanyInterface companyInterface;
-    @Inject CompanyJobGroupInterface companyJobGroupInterface;
+    @Inject JobGroupInterface jobGroupInterface;
     private long companyId;
     TextView textView;
 
@@ -196,11 +196,11 @@ public class CompanyReviewActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View widget) {
-//                NestedScrollView scrollView = findViewById(R.id.sv_review);
-//                scrollView.fullScroll(NestedScrollView.FOCUS);
+                NestedScrollView scrollView = findViewById(R.id.cp_review_sv);
+                scrollView.fullScroll(NestedScrollView.FOCUS_UP);
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 FragmentHelp fragmentHelp = new FragmentHelp();
-                transaction.replace(R.id.frag_container, fragmentHelp);
+                transaction.replace(R.id.cp_review_frag_container, fragmentHelp);
                 View view = findViewById(R.id.background);
                 view.setVisibility(View.VISIBLE);
 
@@ -221,7 +221,7 @@ public class CompanyReviewActivity extends AppCompatActivity {
                 //유효성 검사 필요
                 //activity member f
 
-                CompanyReviewVO companyReviewVO = new CompanyReviewVO();
+              //  CompanyReviewVO companyReviewVO = new CompanyReviewVO();
                 RatingBar careerPoint = findViewById(R.id.cp_review_rb_career_point);
 
                 RatingBar workLifeBalance = findViewById(R.id.cp_review_rb_work_and_balance);
@@ -233,20 +233,86 @@ public class CompanyReviewActivity extends AppCompatActivity {
                 RatingBar headPoint = findViewById(R.id.cp_review_rb_head_Point);
 
 
-                Spinner start = findViewById(R.id.sp_startDate);
+                Spinner start = findViewById(R.id.cp_review_sp_startDate);
 
-                Spinner end = findViewById(R.id.sp_finishDate);
+                Spinner end = findViewById(R.id.cp_review_sp_finishDate);
 
                 EditText workArea = findViewById(R.id.cp_review_et_jobArea);
 
 
                 Map<String, Object> params = new HashMap<>();
+                if(companyId==0){
+                    Toast.makeText(getApplicationContext(), "企業名を入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(start.getSelectedItemPosition()==0){
+                    Toast.makeText(getApplicationContext(), "startを入力してください", Toast.LENGTH_SHORT).show();
+
+                    return;
+                }
+                if(end.getSelectedItemPosition()==0){
+                    Toast.makeText(getApplicationContext(), "endを入力してください", Toast.LENGTH_SHORT).show();
+
+                    return;
+                }
+                if(Math.round(careerPoint.getRating()) == 0 ){
+                    Toast.makeText(getApplicationContext(), "careerpointを入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(Math.round(workLifeBalance.getRating()) == 0 ){
+                    Toast.makeText(getApplicationContext(), "workLifeBalanceを入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(Math.round(companyCulturePoint.getRating()) == 0 ){
+                    Toast.makeText(getApplicationContext(), "companyCulturePointを入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(Math.round(payPoint.getRating()) == 0 ){
+                    Toast.makeText(getApplicationContext(), "payPointを入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(Math.round(headPoint.getRating()) == 0 ){
+                    Toast.makeText(getApplicationContext(), "headPointを入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(simpleComment.getText().toString().length() == 0){
+                    Toast.makeText(getApplicationContext(), "onecommentを入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(simpleComment.getText().toString().length() >100){
+                    Toast.makeText(getApplicationContext(), "onecomment100以内文字を入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(strongPoint.getText().toString().length() == 0 ){
+                    Toast.makeText(getApplicationContext(), "strongPointを入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(strongPoint.getText().toString().length() >100){
+                    Toast.makeText(getApplicationContext(), "strongPoint100以内文字を入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(weakPoint.getText().toString().length() == 0 ){
+                    Toast.makeText(getApplicationContext(), "weakPointを入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(weakPoint.getText().toString().length() >100){
+                    Toast.makeText(getApplicationContext(), "weakPoint100以内を入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(changeJob.getText().toString().length() == 0){
+                    Toast.makeText(getApplicationContext(), "changeJobを入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(changeJob.getText().toString().length() >100){
+                    Toast.makeText(getApplicationContext(), "changeJob100以内文字を入力してください", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 params.put("companyId", companyId);
                 params.put("careerPoint", Math.round(careerPoint.getRating()));//math round 리턴 인티저
-                params.put("workLifeBalancePoint", workLifeBalance.getRating());
-                params.put("companyCulturePoint", companyCulturePoint.getRating());
-                params.put("payPoint", payPoint.getRating());
-                params.put("headPoint", headPoint.getRating());
+                params.put("workLifeBalancePoint", Math.round(workLifeBalance.getRating()));
+                params.put("companyCulturePoint", Math.round(companyCulturePoint.getRating()));
+                params.put("payPoint", Math.round(payPoint.getRating()));
+                params.put("headPoint", Math.round(headPoint.getRating()));
 
 
                 params.put("simpleComment", simpleComment.getText().toString());
@@ -302,7 +368,7 @@ public class CompanyReviewActivity extends AppCompatActivity {
 //        });
 
 
-        companyJobGroupInterface.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupVO>>() {
+        jobGroupInterface.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupVO>>() {
             @Override
             public void onResponse(@NonNull Call<List<CompanyJobGroupVO>> call, Response<List<CompanyJobGroupVO>> response) {
                 if (response.isSuccessful()) {
@@ -402,7 +468,7 @@ public class CompanyReviewActivity extends AppCompatActivity {
 
 
         Spinner startDate;
-        startDate = (Spinner) findViewById(R.id.sp_startDate);
+        startDate = (Spinner) findViewById(R.id.cp_review_sp_startDate);
 
 //        String[] date = {"선택해주세요", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010",
 //                "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998",
@@ -449,7 +515,7 @@ public class CompanyReviewActivity extends AppCompatActivity {
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 
-        Spinner finishDate = (Spinner) findViewById(R.id.sp_finishDate);
+        Spinner finishDate = (Spinner) findViewById(R.id.cp_review_sp_finishDate);
         finishDate.setEnabled(false);
 
         String[] endDate = new String[1];

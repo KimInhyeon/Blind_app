@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cp_all_company_search_nv"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/cp_all_company_search_cl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/cp_all_company_search_search"
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cp_p_radius"
+
+        />
+
+    <View
+        android:layout_marginTop="10dp"
+        android:id="@+id/cp_all_company_view_line"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#dfdfdf"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_search_search"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cp_all_company_cl_recent_search"
+        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cp_all_company_view_line"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cp_all_company_search_rv_query"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/cp_all_company_search_recent_query"
+            />
+
+
+
+
+        <TextView
+            android:id="@+id/cp_all_company_tv_recent_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="最近検索した内容がありません。"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:id="@+id/cp_all_company_search_view_line2"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#dfdfdf"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_cl_recent_search"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/cp_all_company_tv_popular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人気会社"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_search_view_line2"
+
+        app:layout_constraintStart_toStartOf="parent">
+
+    </TextView>
+    <View
+        android:layout_marginTop="10dp"
+        android:id="@+id/cp_all_company_search_view_line3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#dfdfdf"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_tv_popular"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/cp_all_company_search_cl2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/cp_all_company_search_view_line3"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        >-->
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cp_all_company_search_rv_query2"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/cp_all_company_search_popular9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_search_view_line3"
+
+        />
+
+
+    <TextView
+        android:id="@+id/cp_all_company_tv_recent_search2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="人気会社がありません。"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_search_view_line3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

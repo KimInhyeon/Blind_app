@@ -144,16 +144,15 @@
                 android:background="#323151"
                 android:text="reviewWrite"
                 android:textColor="#FFFFFF" />
-
             <Button
-                android:id="@+id/mb_login_review_write_btn"
+                android:id="@+id/mb_login_company_search_btn"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:background="#323151"
-                android:text="reviewWrite"
+                android:text="companysearch"
                 android:textColor="#FFFFFF" />
 
             <Button

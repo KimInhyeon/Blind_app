@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -42,6 +43,12 @@ public class FragmentHelp extends Fragment implements View.OnClickListener {
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             fragmentManager.beginTransaction().remove(FragmentHelp.this).commit();
             fragmentManager.popBackStack();
+
+            NestedScrollView scrollView = ((CompanyReviewActivity) getActivity()).findViewById(R.id.cp_review_sv);
+            scrollView.fullScroll(400);
+//            NestedScrollView view2 = ((CompanyReviewActivity) getActivity()).findViewById(R.id.cp_review_sv);
+//            view2.fullScroll();
+
         }
     }
 

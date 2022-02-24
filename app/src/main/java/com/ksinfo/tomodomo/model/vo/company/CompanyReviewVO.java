@@ -1,147 +1,175 @@
 package com.ksinfo.tomodomo.model.vo.company;
-//미사용중
-public final class CompanyReviewVO {
 
-   // @SerializedName("companyId")
-    private long companyId;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-  //@SerializedName("jobGroupCode")
-    private String jobGroupCode;
-    //@SerializedName("careerPoint")
-    private int careerPoint;
-    //@SerializedName("workLifeBalancePoint")
-    private int workLifeBalancePoint;
-    //@SerializedName("payPoint")
-    private int payPoint;
-//    @SerializedName("companyCulturePoint")
-    private int companyCulturePoint;
-//    @SerializedName("headPoint")
-    private int headPoint;
-//    @SerializedName("workStartDate")
-    private String workStartDate;
-//    @SerializedName("workEndDate")
-    private String workEndDate;
-//    @SerializedName("simpleComment")
-    private String simpleComment;
-//    @SerializedName("resignReason")
-    private String resignReason;
-//    @SerializedName("workArea")
-    private String workArea;
-//    @SerializedName("advantages")
-    private String advantages;
-//    @SerializedName("disadvantages")
-    private String disadvantages;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    public long getCompanyId() {
-        return companyId;
+public final class CompanyReviewVO implements Parcelable {
+    private final long companyReviewId;
+    private final float allPoint;
+    private final byte careerPoint;
+    private final byte workLifeBalancePoint;
+    private final byte companyCulturePoint;
+    private final byte payPoint;
+    private final byte headPoint;
+    private final String simpleComment;
+    private final boolean working;
+    private final String userNickname;
+    private final String jobGroupName;
+    private final String recCreateDate;
+    private final String advantages;
+    private final String disadvantages;
+    private final boolean recommended;
+    private final int helpfulCount;
+
+    public CompanyReviewVO(
+            @JsonProperty("companyReviewId") long companyReviewId, @JsonProperty("allPoint") float allPoint,
+            @JsonProperty("careerPoint") byte careerPoint, @JsonProperty("workLifeBalancePoint") byte workLifeBalancePoint,
+            @JsonProperty("companyCulturePoint") byte companyCulturePoint, @JsonProperty("payPoint") byte payPoint,
+            @JsonProperty("headPoint") byte headPoint, @JsonProperty("simpleComment") String simpleComment,
+            @JsonProperty("working") boolean working, @JsonProperty("userNickname") String userNickname,
+            @JsonProperty("jobGroupName") String jobGroupName,
+            @JsonProperty("recCreateDate") String recCreateDate, @JsonProperty("advantages") String advantages,
+            @JsonProperty("disadvantages") String disadvantages, @JsonProperty("recommended") boolean recommended,
+            @JsonProperty("helpfulCount") int helpfulCount
+    ) {
+        this.companyReviewId = companyReviewId;
+        this.allPoint = allPoint;
+        this.careerPoint = careerPoint;
+        this.workLifeBalancePoint = workLifeBalancePoint;
+        this.companyCulturePoint = companyCulturePoint;
+        this.payPoint = payPoint;
+        this.headPoint = headPoint;
+        this.simpleComment = simpleComment;
+        this.working = working;
+        this.userNickname = userNickname;
+        this.jobGroupName = jobGroupName;
+        this.recCreateDate = recCreateDate;
+        this.advantages = advantages;
+        this.disadvantages = disadvantages;
+        this.recommended = recommended;
+        this.helpfulCount = helpfulCount;
     }
 
-    public void setCompanyId(long companyId) {
-        this.companyId = companyId;
+    private CompanyReviewVO(Parcel in) {
+        companyReviewId = in.readLong();
+        allPoint = in.readFloat();
+        careerPoint = in.readByte();
+        workLifeBalancePoint = in.readByte();
+        companyCulturePoint = in.readByte();
+        payPoint = in.readByte();
+        headPoint = in.readByte();
+        simpleComment = in.readString();
+        working = in.readByte() != 0;
+        userNickname = in.readString();
+        jobGroupName = in.readString();
+        recCreateDate = in.readString();
+        advantages = in.readString();
+        disadvantages = in.readString();
+        recommended = in.readByte() != 0;
+        helpfulCount = in.readInt();
     }
 
-    public String getJobGroupCode() {
-        return jobGroupCode;
+    public static final Creator<CompanyReviewVO> CREATOR = new Creator<CompanyReviewVO>() {
+        @Override
+        public CompanyReviewVO createFromParcel(Parcel in) {
+            return new CompanyReviewVO(in);
+        }
+
+        @Override
+        public CompanyReviewVO[] newArray(int size) {
+            return new CompanyReviewVO[size];
+        }
+    };
+
+    public long getCompanyReviewId() {
+        return companyReviewId;
     }
 
-    public void setJobGroupCode(String jobGroupCode) {
-        this.jobGroupCode = jobGroupCode;
+    public float getAllPoint() {
+        return allPoint;
     }
 
-    public int getCareerPoint() {
+    public byte getCareerPoint() {
         return careerPoint;
     }
 
-    public void setCareerPoint(int careerPoint) {
-        this.careerPoint = careerPoint;
-    }
-
-    public int getWorkLifeBalancePoint() {
+    public byte getWorkLifeBalancePoint() {
         return workLifeBalancePoint;
     }
 
-    public void setWorkLifeBalancePoint(int workLifeBalancePoint) {
-        this.workLifeBalancePoint = workLifeBalancePoint;
-    }
-
-    public int getPayPoint() {
-        return payPoint;
-    }
-
-    public void setPayPoint(int payPoint) {
-        this.payPoint = payPoint;
-    }
-
-    public int getCompanyCulturePoint() {
+    public byte getCompanyCulturePoint() {
         return companyCulturePoint;
     }
 
-    public void setCompanyCulturePoint(int companyCulturePoint) {
-        this.companyCulturePoint = companyCulturePoint;
+    public byte getPayPoint() {
+        return payPoint;
     }
 
-    public int getHeadPoint() {
+    public byte getHeadPoint() {
         return headPoint;
-    }
-
-    public void setHeadPoint(int headPoint) {
-        this.headPoint = headPoint;
-    }
-
-    public String getWorkStartDate() {
-        return workStartDate;
-    }
-
-    public void setWorkStartDate(String workStartDate) {
-        this.workStartDate = workStartDate;
-    }
-
-    public String getWorkEndDate() {
-        return workEndDate;
-    }
-
-    public void setWorkEndDate(String workEndDate) {
-        this.workEndDate = workEndDate;
     }
 
     public String getSimpleComment() {
         return simpleComment;
     }
 
-    public void setSimpleComment(String simpleComment) {
-        this.simpleComment = simpleComment;
+    public boolean isWorking() {
+        return working;
     }
 
-    public String getResignReason() {
-        return resignReason;
+    public String getUserNickname() {
+        return userNickname;
     }
 
-    public void setResignReason(String resignReason) {
-        this.resignReason = resignReason;
+    public String getJobGroupName() {
+        return jobGroupName;
     }
 
-    public String getWorkArea() {
-        return workArea;
-    }
-
-    public void setWorkArea(String workArea) {
-        this.workArea = workArea;
+    public String getRecCreateDate() {
+        return recCreateDate;
     }
 
     public String getAdvantages() {
         return advantages;
     }
 
-    public void setAdvantages(String advantages) {
-        this.advantages = advantages;
-    }
-
     public String getDisadvantages() {
         return disadvantages;
     }
 
-    public void setDisadvantages(String disadvantages) {
-        this.disadvantages = disadvantages;
+    public boolean isRecommended() {
+        return recommended;
+    }
+
+    public int getHelpfulCount() {
+        return helpfulCount;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {//parcl 패키지안에 멤버변수 다씀
+        parcel.writeLong(companyReviewId);
+        parcel.writeFloat(allPoint);
+        parcel.writeByte(careerPoint);
+        parcel.writeByte(workLifeBalancePoint);
+        parcel.writeByte(companyCulturePoint);
+        parcel.writeByte(payPoint);
+        parcel.writeByte(headPoint);
+        parcel.writeString(simpleComment);
+        parcel.writeByte((byte) (working ? 1 : 0));
+        parcel.writeString(userNickname);
+        parcel.writeString(jobGroupName);
+        parcel.writeString(recCreateDate);
+        parcel.writeString(advantages);
+        parcel.writeString(disadvantages);
+        parcel.writeByte((byte) (recommended ? 1 : 0));
+        parcel.writeInt(helpfulCount);
     }
 }
 

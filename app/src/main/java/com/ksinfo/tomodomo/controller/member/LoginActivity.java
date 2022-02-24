@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ksinfo.tomodomo.TomodomoApplication;
 import com.ksinfo.tomodomo.controller.annualincome.CalculatorActivity;
 import com.ksinfo.tomodomo.controller.board.SearchPostActivity;
+import com.ksinfo.tomodomo.controller.company.CompanyAllSearchActivity;
 import com.ksinfo.tomodomo.controller.company.CompanyReviewActivity;
 import com.ksinfo.tomodomo.controller.mypage.MypageActivity;
 import com.ksinfo.tomodomo.databinding.MbLoginBinding;
@@ -66,6 +67,13 @@ public final class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CompanyReviewActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.mbLoginCompanySearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CompanyAllSearchActivity.class);
                 startActivity(intent);
             }
         });

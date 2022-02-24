@@ -3,10 +3,9 @@ package com.ksinfo.tomodomo.util;
 import com.ksinfo.tomodomo.controller.annualincome.CalculatorActivity;
 import com.ksinfo.tomodomo.controller.annualincome.ShowRankActivity;
 import com.ksinfo.tomodomo.controller.board.PostActivity;
-import com.ksinfo.tomodomo.controller.board.ReplyAdapter;
 import com.ksinfo.tomodomo.controller.board.SearchPostActivity;
-import com.ksinfo.tomodomo.controller.board.SearchPostAdapter;
 import com.ksinfo.tomodomo.controller.common.MainActivity;
+import com.ksinfo.tomodomo.controller.company.CompanyAllSearchActivity;
 import com.ksinfo.tomodomo.controller.company.CompanyReviewActivity;
 import com.ksinfo.tomodomo.controller.company.CompanySearchActivity;
 import com.ksinfo.tomodomo.controller.member.LoginActivity;
@@ -44,4 +43,6 @@ public interface ApplicationComponent {
     void inject(CompanyReviewActivity companyReviewActivity);
 
     void inject(NoticeActivity noticeActivity);
+
+    void inject(CompanyAllSearchActivity companyAllSearchActivity);
 }
