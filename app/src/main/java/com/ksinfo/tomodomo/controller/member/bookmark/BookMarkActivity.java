@@ -60,26 +60,26 @@ public class BookMarkActivity extends AppCompatActivity {
                     System.out.println("success BookMarkInterface-getMyPostList ");
                     List<BookmarkPostVO> myPostList = response.body();
 
-                    //메모 RecyclerView단계1 어답터 변수 생성.
+                    //메모 RecyclerView 단계1 : 어답터 변수 생성.
                     //메모 adapter의 역할 : RecyclerView에 출력할 데이터를 받는다. 그리고 이를 1개씩 출력할 수 있도록 넘겨주는 역할같다.
                     BookMarkAdapter adapter = new BookMarkAdapter();
 
                     for (BookmarkPostVO vo : myPostList) {
                         adapter.addItem(vo);
                     }
-
-
-
                     System.out.println("adapter-size check : "+ adapter.getItemCount() );
 
-                    //메모 1단계 : RecyclerView 변수 생성 및 xml R객체와 연결.
+
+                    //메모 RecyclerView 단계2 : RecyclerView 변수 생성 및 xml R객체와 연결.
                     //메모 recyclerViewOfNoticeList : 레이아웃상에서 리스트(목록)형태로 출력해주는 역할.(#그릇 역할)
                     RecyclerView recyclerView = findViewById(R.id.recyclerViewOfBookmarkList);
 
-                    //메모 2단계 LinearLayoutManager : 수평,수직으로 배치시켜주는 레이아웃 매니저. 일반적으로 1개씩 보여주는 스크롤방식을 지원한다.
+                    //메모 RecyclerView 단계3 : LinearLayoutManager 설정
+                    //메모 LinearLayoutManager : 수평,수직으로 배치시켜주는 레이아웃 매니저. 일반적으로 1개씩 보여주는 스크롤방식을 지원한다.
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(BookMarkActivity.this, LinearLayoutManager.VERTICAL, false);
                     recyclerView.setLayoutManager(linearLayoutManager);
-                    //메모 3단계
+
+                    //메모 4단계 : setAdapter를 통해 List 출력.
                     recyclerView.setAdapter(adapter);
 
                 }

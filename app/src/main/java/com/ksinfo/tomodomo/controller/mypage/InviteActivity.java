@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ksinfo.tomodomo.databinding.MpIvMainBinding;
+import com.ksinfo.tomodomo.databinding.IvMainBinding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,7 +29,7 @@ public class InviteActivity extends AppCompatActivity {
 
     // (09:37) 메모 따라하기 ShareDataCoding_1
     //viewbinding
-    private MpIvMainBinding binding;
+    private IvMainBinding binding;
 
     // (10:50) 메모 따라하기 ShareDataCoding_4
     // picked image uri will ber ssaved in it
@@ -43,7 +43,7 @@ public class InviteActivity extends AppCompatActivity {
         // (10:00) 메모 따라하기 ShareDataCoding_2
         // q바인딩으로 해당 xml레이아웃을 선택했기에 setContentView(R.layout.mp_iv_main);가 필요없는 듯 하다.
         //setContentView(R.layout.mp_iv_main);
-        binding = MpIvMainBinding.inflate(getLayoutInflater());
+        binding = IvMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // (11:36~) 메모 따라하기 ShareDataCoding_5

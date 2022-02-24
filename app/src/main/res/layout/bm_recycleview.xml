@@ -38,7 +38,6 @@
             tools:ignore="MissingConstraints" />
 
         <!-- recyclerView -->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewOfBookmarkList"
             android:layout_width="match_parent"

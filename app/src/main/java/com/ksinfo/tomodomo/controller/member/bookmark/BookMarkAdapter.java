@@ -23,9 +23,9 @@ public class BookMarkAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        //View view = inflater.inflate(R.layout.bm_recycleview_items, parent, false);
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bm_recycleview_items, parent, false);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.bm_recycleview_items, parent, false);
+        //View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bm_recycleview_items, parent, false);
         return new BookMarkViewHolder(view);
     }
 
@@ -37,7 +37,11 @@ public class BookMarkAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemCount() {
-        return listData.size();
+        //return listData.size();
+        if (listData != null) {
+            return listData.size();
+        }
+        return 0;
     }
 
     public void addItem(BookmarkPostVO data) {
