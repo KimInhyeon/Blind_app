@@ -8,7 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ksinfo.tomodomo.R;
+import com.ksinfo.tomodomo.model.vo.board.ParagraphBlock;
+import com.ksinfo.tomodomo.model.vo.board.PostBlock;
 import com.ksinfo.tomodomo.model.vo.member.BookmarkPostDto;
+
+import java.util.HashMap;
+import java.util.List;
 
 public class BookMarkViewHolder extends RecyclerView.ViewHolder {
 
@@ -51,15 +56,12 @@ public class BookMarkViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void onBind(BookmarkPostDto data, int position){
-//        boardTopicName = itemView.findViewById(R.id.bookmark_boardTopicName);
         postTitle.setText(data.getPostTitle());
-//        postContents.setText((CharSequence) data.getPostContents());
-//        companyName  = itemView.findViewById(R.id.bookmark_companyName);
-//        userNickName = itemView.findViewById(R.id.bookmark_userNickName);
-//        postCount = itemView.findViewById(R.id.bookmark_postCount);
-//        recommended = itemView.findViewById(R.id.bookmark_recommended);
-//        postRecommendCount = itemView.findViewById(R.id.bookmark_postRecommendCount);
-//        replyCount = itemView.findViewById(R.id.bookmark_replyCount);
+        List<PostBlock>  tempPostBlock = data.getPostContents();
+        //[메모] 본문이 여러줄인 관계로 List형태로 받음.
+        String tempParagraphBlock = tempPostBlock.get(0).getData().toString();
+        //[메모] 여러줄 중에서 1번째만 보여주는 효과.
+        postContents.setText(tempParagraphBlock);
         createDate.setText(data.getPostCreateDate());
     }
 
