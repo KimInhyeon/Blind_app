@@ -1,7 +1,5 @@
 package com.ksinfo.tomodomo.controller.member.bookmark;
 
-import android.animation.ValueAnimator;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -10,12 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ksinfo.tomodomo.R;
-import com.ksinfo.tomodomo.controller.notice.OnViewHolderItemClickListener;
-import com.ksinfo.tomodomo.model.vo.board.PostBlock;
-import com.ksinfo.tomodomo.model.vo.member.BookmarkPostVO;
-import com.ksinfo.tomodomo.model.vo.notice.NoticeVO;
-
-import java.util.List;
+import com.ksinfo.tomodomo.model.vo.member.BookmarkPostDto;
 
 public class BookMarkViewHolder extends RecyclerView.ViewHolder {
 
@@ -57,17 +50,17 @@ public class BookMarkViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void onBind(BookmarkPostVO data, int position){
+    public void onBind(BookmarkPostDto data, int position){
 //        boardTopicName = itemView.findViewById(R.id.bookmark_boardTopicName);
-        postTitle = itemView.findViewById(R.id.bookmark_postTitle);
-        postContents = itemView.findViewById(R.id.bookmark_postContents);
+        postTitle.setText(data.getPostTitle());
+//        postContents.setText((CharSequence) data.getPostContents());
 //        companyName  = itemView.findViewById(R.id.bookmark_companyName);
 //        userNickName = itemView.findViewById(R.id.bookmark_userNickName);
 //        postCount = itemView.findViewById(R.id.bookmark_postCount);
 //        recommended = itemView.findViewById(R.id.bookmark_recommended);
 //        postRecommendCount = itemView.findViewById(R.id.bookmark_postRecommendCount);
 //        replyCount = itemView.findViewById(R.id.bookmark_replyCount);
-        createDate = itemView.findViewById(R.id.bookmark_createDate);
+        createDate.setText(data.getPostCreateDate());
     }
 
 }
