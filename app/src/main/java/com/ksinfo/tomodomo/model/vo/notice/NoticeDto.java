@@ -3,7 +3,7 @@ package com.ksinfo.tomodomo.model.vo.notice;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public final class NoticeVO {
+public final class NoticeDto {
     private final String noticeTitle;
     private final String noticeTypeName;
     private final String userNickname;
@@ -14,7 +14,7 @@ public final class NoticeVO {
     private final String noticeCreateDate;
     private final String noticeUpdateDate;
 
-    public NoticeVO(
+    public NoticeDto(
         @JsonProperty("noticeTitle") String noticeTitle,
         @JsonProperty("noticeTypeName") String noticeTypeName,
         @JsonProperty("noticeContents") String noticeContents,

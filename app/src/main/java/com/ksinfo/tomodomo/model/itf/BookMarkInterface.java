@@ -1,7 +1,6 @@
 package com.ksinfo.tomodomo.model.itf;
 
-import com.ksinfo.tomodomo.model.vo.annualincome.AnnualIncomeRankVO;
-import com.ksinfo.tomodomo.model.vo.member.BookmarkPostVO;
+import com.ksinfo.tomodomo.model.vo.member.BookmarkPostDto;
 
 import java.util.List;
 
@@ -16,6 +15,6 @@ public interface BookMarkInterface {
                                              @Query("offset") Integer offset);
      */
     @GET("bookmark/getMyPostListAndroid")
-    Call<List<BookmarkPostVO>> getMyPostList(@Query("userId") Long userId);
+    Call<List<BookmarkPostDto>> getMyPostList(@Query("userId") Long userId);
 
 }

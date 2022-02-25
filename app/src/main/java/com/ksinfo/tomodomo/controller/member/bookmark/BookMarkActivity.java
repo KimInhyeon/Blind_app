@@ -1,31 +1,15 @@
 package com.ksinfo.tomodomo.controller.member.bookmark;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ksinfo.tomodomo.R;
 import com.ksinfo.tomodomo.TomodomoApplication;
-import com.ksinfo.tomodomo.controller.annualincome.CalculatorActivity;
-import com.ksinfo.tomodomo.controller.member.CertificationActivity;
-import com.ksinfo.tomodomo.controller.notice.NoticeActivity;
-import com.ksinfo.tomodomo.controller.notice.NoticeRecyclerViewAdapter;
-import com.ksinfo.tomodomo.model.itf.AnnualIncomeInterface;
 import com.ksinfo.tomodomo.model.itf.BookMarkInterface;
-import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
-import com.ksinfo.tomodomo.model.vo.annualincome.AnnualIncomeRankVO;
-import com.ksinfo.tomodomo.model.vo.member.BookmarkPostVO;
-import com.ksinfo.tomodomo.model.vo.notice.NoticeVO;
-import com.ksinfo.tomodomo.util.RetrofitFactory;
+import com.ksinfo.tomodomo.model.vo.member.BookmarkPostDto;
 
 import java.util.List;
 
@@ -53,18 +37,18 @@ public class BookMarkActivity extends AppCompatActivity {
         tomodomoApplication.getApplicationComponent().inject(this);
 
         System.out.println("bookMarkInterface - userId : " + userId);
-        bookMarkInterface.getMyPostList(userId).enqueue(new Callback<List<BookmarkPostVO>>() {
+        bookMarkInterface.getMyPostList(userId).enqueue(new Callback<List<BookmarkPostDto>>() {
             @Override
-            public void onResponse(Call<List<BookmarkPostVO>> call, Response<List<BookmarkPostVO>> response) {
+            public void onResponse(Call<List<BookmarkPostDto>> call, Response<List<BookmarkPostDto>> response) {
                 if(response.isSuccessful()){
                     System.out.println("success BookMarkInterface-getMyPostList ");
-                    List<BookmarkPostVO> myPostList = response.body();
+                    List<BookmarkPostDto> myPostList = response.body();
 
                     //메모 RecyclerView 단계1 : 어답터 변수 생성.
                     //메모 adapter의 역할 : RecyclerView에 출력할 데이터를 받는다. 그리고 이를 1개씩 출력할 수 있도록 넘겨주는 역할같다.
                     BookMarkAdapter adapter = new BookMarkAdapter();
 
-                    for (BookmarkPostVO vo : myPostList) {
+                    for (BookmarkPostDto vo : myPostList) {
                         adapter.addItem(vo);
                     }
                     System.out.println("adapter-size check : "+ adapter.getItemCount() );
@@ -85,7 +69,7 @@ public class BookMarkActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<List<BookmarkPostVO>> call, Throwable t) {
+            public void onFailure(Call<List<BookmarkPostDto>> call, Throwable t) {
                 System.out.println("failed BookMarkActivity-getMyPostList ");
             }
         });

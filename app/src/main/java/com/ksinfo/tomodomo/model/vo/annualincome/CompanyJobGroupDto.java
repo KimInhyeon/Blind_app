@@ -2,11 +2,11 @@ package com.ksinfo.tomodomo.model.vo.annualincome;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public final class CompanyJobGroupVO {
+public final class CompanyJobGroupDto {
 	private final String jobGroupCode;
 	private final String jobGroupName;
 
-	public CompanyJobGroupVO(
+	public CompanyJobGroupDto(
 			@JsonProperty("jobGroupCode") String jobGroupCode,
 			@JsonProperty("jobGroupName") String jobGroupName
 	) {

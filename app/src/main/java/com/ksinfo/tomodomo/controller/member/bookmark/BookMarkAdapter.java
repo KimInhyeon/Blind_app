@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ksinfo.tomodomo.R;
-import com.ksinfo.tomodomo.model.vo.member.BookmarkPostVO;
+import com.ksinfo.tomodomo.model.vo.member.BookmarkPostDto;
 
 
 import org.jetbrains.annotations.NotNull;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class BookMarkAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     // adapter에 들어갈 list 입니다.
-    private ArrayList<BookmarkPostVO> listData = new ArrayList<>();
+    private ArrayList<BookmarkPostDto> listData = new ArrayList<>();
 
     @NonNull
     @Override
@@ -44,7 +44,7 @@ public class BookMarkAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return 0;
     }
 
-    public void addItem(BookmarkPostVO data) {
+    public void addItem(BookmarkPostDto data) {
         // 외부에서 item을 추가시킬 함수입니다.
         listData.add(data);
     }

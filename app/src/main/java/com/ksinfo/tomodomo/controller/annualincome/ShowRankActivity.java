@@ -1,7 +1,5 @@
 package com.ksinfo.tomodomo.controller.annualincome;
 
-import static com.ksinfo.tomodomo.util.RetrofitFactory.createJsonRetrofit;
-
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -25,14 +23,12 @@ import com.ksinfo.tomodomo.controller.mypage.MypageActivity;
 import com.ksinfo.tomodomo.model.itf.AnnualIncomeInterface;
 import com.ksinfo.tomodomo.model.itf.CompanyBusinessTypeInterface;
 import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
-import com.ksinfo.tomodomo.model.vo.annualincome.AnnualIncomeRankVO;
-import com.ksinfo.tomodomo.model.vo.annualincome.CompanyBusinessTypeVO;
-import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupVO;
-import com.ksinfo.tomodomo.util.RetrofitFactory;
+import com.ksinfo.tomodomo.model.vo.annualincome.AnnualIncomeRankDto;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyBusinessTypeDto;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupDto;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -119,14 +115,14 @@ public class ShowRankActivity extends AppCompatActivity {
                         //[메모] 3. 연봉정보 텍스트출력 & 그래프의 출력위치를 설정.(최초출력전용)
                         annualIncomeInterface.getAnnualIncomeAndRank(selectBusinessTypeCode.get("userBTC"),
                                 selectJobGroupCode.get("userJGC"),
-                                userId).enqueue(new Callback<AnnualIncomeRankVO>(){
+                                userId).enqueue(new Callback<AnnualIncomeRankDto>(){
                             @Override
-                            public void onResponse(Call<AnnualIncomeRankVO> call, Response<AnnualIncomeRankVO> response){
+                            public void onResponse(Call<AnnualIncomeRankDto> call, Response<AnnualIncomeRankDto> response){
                                 System.out.println("getAnnualIncomeAndRank_selectBusinessTypeCode : "+selectBusinessTypeCode.get("userBTC") );
                                 System.out.println("getAnnualIncomeAndRank_selectJobGroupCode: "+selectJobGroupCode.get("userJGC") );
                                 if (response.isSuccessful()){
                                     System.out.println("success rankInitPage ");
-                                    AnnualIncomeRankVO initOutputRankPage = response.body();
+                                    AnnualIncomeRankDto initOutputRankPage = response.body();
 
                                     annualValueMin1.setText(Integer.toString(initOutputRankPage.getMinAnnualIncome()));
                                     annualValueMin2.setText(Integer.toString(initOutputRankPage.getMinAnnualIncome()));
@@ -163,7 +159,7 @@ public class ShowRankActivity extends AppCompatActivity {
                                 }
                             }
                             @Override
-                            public void onFailure(Call<AnnualIncomeRankVO> call, Throwable t) {
+                            public void onFailure(Call<AnnualIncomeRankDto> call, Throwable t) {
                             }
                         });
 
@@ -192,17 +188,17 @@ public class ShowRankActivity extends AppCompatActivity {
         spinnerJob = (Spinner) findViewById(R.id.spinner_jobGroup_showRank);  //inputData：ユーザの勤務期間（ラヂオボソンと同じ）。
 
         //[메모] 3.업계(業界, businessType)Spinner 설정.
-        companyBusinessTypeInterface.getBusinessTypeListExistAIData().enqueue(new Callback<List<CompanyBusinessTypeVO>>() {
+        companyBusinessTypeInterface.getBusinessTypeListExistAIData().enqueue(new Callback<List<CompanyBusinessTypeDto>>() {
             @Override
-            public void onResponse(Call<List<CompanyBusinessTypeVO>> call, Response<List<CompanyBusinessTypeVO>> response) {
+            public void onResponse(Call<List<CompanyBusinessTypeDto>> call, Response<List<CompanyBusinessTypeDto>> response) {
                 if (response.isSuccessful()) {
-                    List<CompanyBusinessTypeVO> businessTypeList = response.body();
+                    List<CompanyBusinessTypeDto> businessTypeList = response.body();
 
                     //final String[] listOfBusinessTypeName = new String[businessTypeList.size()+1]; //메모 '업계전체'를 맨먼저 추가한다.
                     final String[] listOfBusinessTypeName = new String[businessTypeList.size()];
                     int arrCount = 0;
 
-                    for (CompanyBusinessTypeVO vo : businessTypeList) {
+                    for (CompanyBusinessTypeDto vo : businessTypeList) {
                         listOfBusinessTypeName[arrCount] = vo.getBusinessTypeName();
                         arrCount++;
                     }
@@ -237,23 +233,23 @@ public class ShowRankActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<CompanyBusinessTypeVO>> call, Throwable t) {
+            public void onFailure(Call<List<CompanyBusinessTypeDto>> call, Throwable t) {
 
             }
         });
 
 
         //[메모] 4.직군Spinner에 삽입할 직군(jobGroup) 목록 수신.
-        jobGroupInterface.getJobGroupListExistAIData().enqueue(new Callback<List<CompanyJobGroupVO>>() {
+        jobGroupInterface.getJobGroupListExistAIData().enqueue(new Callback<List<CompanyJobGroupDto>>() {
             @Override
-            public void onResponse(@NonNull Call<List<CompanyJobGroupVO>> call, Response<List<CompanyJobGroupVO>> response) {
+            public void onResponse(@NonNull Call<List<CompanyJobGroupDto>> call, Response<List<CompanyJobGroupDto>> response) {
                 if (response.isSuccessful()) {
-                    List<CompanyJobGroupVO> jobGroupListExistAIData = response.body();
+                    List<CompanyJobGroupDto> jobGroupListExistAIData = response.body();
 
                     final String[] listOfJob = new String[jobGroupListExistAIData.size()];
                     int arrCount = 0;
 
-                    for (CompanyJobGroupVO vo : jobGroupListExistAIData) {
+                    for (CompanyJobGroupDto vo : jobGroupListExistAIData) {
                         listOfJob[arrCount] = vo.getJobGroupName();
                         arrCount++;
                     }
@@ -279,12 +275,12 @@ public class ShowRankActivity extends AppCompatActivity {
 
                             annualIncomeInterface.getAnnualIncomeAndRank(selectBusinessTypeCode.get("userBTC"),
                                                                         selectJobGroupCode.get("userJGC"),
-                                                                        userId).enqueue(new Callback<AnnualIncomeRankVO>(){
+                                                                        userId).enqueue(new Callback<AnnualIncomeRankDto>(){
                                 @Override
-                                public void onResponse(Call<AnnualIncomeRankVO> call, Response<AnnualIncomeRankVO> response){
+                                public void onResponse(Call<AnnualIncomeRankDto> call, Response<AnnualIncomeRankDto> response){
                                     if (response.isSuccessful()){
                                         System.out.println("success companyAnnualIncomeApi-rankInitPage ");
-                                        AnnualIncomeRankVO outputSelectSpinner = response.body();
+                                        AnnualIncomeRankDto outputSelectSpinner = response.body();
 
                                         annualValueMin1.setText(Integer.toString(outputSelectSpinner.getMinAnnualIncome()));
                                         annualValueMin2.setText(Integer.toString(outputSelectSpinner.getMinAnnualIncome()));
@@ -321,7 +317,7 @@ public class ShowRankActivity extends AppCompatActivity {
                                     }
                                 }
                                 @Override
-                                public void onFailure(Call<AnnualIncomeRankVO> call, Throwable t) {
+                                public void onFailure(Call<AnnualIncomeRankDto> call, Throwable t) {
                                 }
                             });
 
@@ -336,7 +332,7 @@ public class ShowRankActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<CompanyJobGroupVO>> call, Throwable t) {
+            public void onFailure(Call<List<CompanyJobGroupDto>> call, Throwable t) {
                 t.printStackTrace();
             }
         });

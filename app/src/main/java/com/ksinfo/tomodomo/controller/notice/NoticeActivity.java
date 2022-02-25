@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ksinfo.tomodomo.R;
 import com.ksinfo.tomodomo.TomodomoApplication;
 import com.ksinfo.tomodomo.model.itf.NoticeInterface;
-import com.ksinfo.tomodomo.model.vo.notice.NoticeVO;
+import com.ksinfo.tomodomo.model.vo.notice.NoticeDto;
 
 import java.util.List;
 
@@ -32,9 +32,9 @@ public class NoticeActivity extends AppCompatActivity {
         TomodomoApplication tomodomoApplication = (TomodomoApplication) getApplication();
         tomodomoApplication.getApplicationComponent().inject(this);
 
-        noticeInterface.getNoticeList().enqueue(new Callback<List<NoticeVO>>() {
+        noticeInterface.getNoticeList().enqueue(new Callback<List<NoticeDto>>() {
             @Override
-            public void onResponse(@NonNull Call<List<NoticeVO>> call, Response<List<NoticeVO>> response) {
+            public void onResponse(@NonNull Call<List<NoticeDto>> call, Response<List<NoticeDto>> response) {
                 System.out.println("start NoticeActivity-getNoticeList-onResponse.");
 
                 //메모 RecyclerView단계1 어답터 변수 생성.
@@ -43,10 +43,10 @@ public class NoticeActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     //메모 서버로부터 공지사항목록을 수신(단, 공지하겠다고 결정한 것들만 수신)
-                    List<NoticeVO> noticeList = response.body();
+                    List<NoticeDto> noticeList = response.body();
                     Log.d("NoticeAct-noticeLists", noticeList.toString());
 
-                    for (NoticeVO vo : noticeList) {
+                    for (NoticeDto vo : noticeList) {
                         adapter.addItem(vo);
                     }
 
@@ -68,7 +68,7 @@ public class NoticeActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<NoticeVO>> call, Throwable t) {
+            public void onFailure(Call<List<NoticeDto>> call, Throwable t) {
 
             }
         });

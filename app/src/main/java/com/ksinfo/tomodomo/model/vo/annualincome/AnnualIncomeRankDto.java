@@ -2,7 +2,7 @@ package com.ksinfo.tomodomo.model.vo.annualincome;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 //CompanyAnnualIncomeForAndroidVO
-public final class AnnualIncomeRankVO {
+public final class AnnualIncomeRankDto {
 	private final int minAnnualIncome;
 	private final int avgAnnualIncome;
 	private final int maxAnnualIncome;
@@ -13,7 +13,7 @@ public final class AnnualIncomeRankVO {
 	private final int jobGroupCode;     //메모 시작은 0으로 초기화, 서버에게 받는 처음값은 유저의 직군. 이후는 spinner 입력에 따라 변경.
 
 
-	public AnnualIncomeRankVO(
+	public AnnualIncomeRankDto(
 			@JsonProperty("minAnnualIncome") 	int minAnnualIncome,
 			@JsonProperty("avgAnnualIncome") 	int avgAnnualIncome,
 			@JsonProperty("maxAnnualIncome") 	int maxAnnualIncome,

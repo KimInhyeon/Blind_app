@@ -14,7 +14,7 @@ public class WebLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mp_wl_main);
+        setContentView(R.layout.wl_main);
 
         Button move_web_login_access = (Button) findViewById(R.id.move_web_login_access_btn);
         move_web_login_access.setOnClickListener(new View.OnClickListener() {

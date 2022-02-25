@@ -10,14 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ksinfo.tomodomo.R;
-import com.ksinfo.tomodomo.model.vo.notice.NoticeVO;
+import com.ksinfo.tomodomo.model.vo.notice.NoticeDto;
 
 import java.util.ArrayList;
 
 public class NoticeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     // adapter에 들어갈 list 입니다.
-    private ArrayList<NoticeVO> listData = new ArrayList<>();
+    private ArrayList<NoticeDto> listData = new ArrayList<>();
 
     // Item의 클릭 상태를 저장할 array 객체
     private SparseBooleanArray selectedItems = new SparseBooleanArray();
@@ -63,7 +63,7 @@ public class NoticeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
         return listData.size();
     }
 
-    public void addItem(NoticeVO data) {
+    public void addItem(NoticeDto data) {
         // 외부에서 item을 추가시킬 함수입니다.
         listData.add(data);
     }

@@ -20,8 +20,8 @@ import com.ksinfo.tomodomo.TomodomoApplication;
 import com.ksinfo.tomodomo.model.itf.AnnualDataInterface;
 import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
 import com.ksinfo.tomodomo.model.itf.WorkTypeInterface;
-import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupVO;
-import com.ksinfo.tomodomo.model.vo.annualincome.CompanyWorkTypeVO;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupDto;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyWorkTypeDto;
 import com.ksinfo.tomodomo.util.RetrofitFactory;
 
 import java.util.List;
@@ -76,18 +76,18 @@ public class CalculatorActivity extends AppCompatActivity {
 
         //[메모] 웹서버에게 직군(職群/companyJobGroupApi)을 수신받고 Spinner에 배치하는 Api.
         jobGroupInterface = RetrofitFactory.createJsonRetrofit().create(JobGroupInterface.class);
-        jobGroupInterface.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupVO>>() {
+        jobGroupInterface.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupDto>>() {
             @Override
-            public void onResponse(@NonNull Call<List<CompanyJobGroupVO>> call, Response<List<CompanyJobGroupVO>> response) {
+            public void onResponse(@NonNull Call<List<CompanyJobGroupDto>> call, Response<List<CompanyJobGroupDto>> response) {
                 if (response.isSuccessful()) {
-                    List<CompanyJobGroupVO> getJobGroupListAll = response.body();
+                    List<CompanyJobGroupDto> getJobGroupListAll = response.body();
                     Log.d("JobGroupListAll", getJobGroupListAll.toString());
 
 
                     final String[] listOfJob = new String[getJobGroupListAll.size()];
                     int arrCount = 0;
 
-                    for (CompanyJobGroupVO vo : getJobGroupListAll) {
+                    for (CompanyJobGroupDto vo : getJobGroupListAll) {
                         listOfJob[arrCount] = vo.getJobGroupName();
                         arrCount++;
                     }
@@ -123,7 +123,7 @@ public class CalculatorActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<CompanyJobGroupVO>> call, Throwable t) {
+            public void onFailure(Call<List<CompanyJobGroupDto>> call, Throwable t) {
                 t.printStackTrace();
             }
         });
@@ -154,17 +154,17 @@ public class CalculatorActivity extends AppCompatActivity {
 
         //[메모] 고용유형(雇用タイプ/companyWorktypeApi)을 수신받고 Spinner에 배치하는 Api.
         WorkTypeInterface workTypeInterface = RetrofitFactory.createJsonRetrofit().create(WorkTypeInterface.class);
-        workTypeInterface.getWorkTypeAll().enqueue(new Callback<List<CompanyWorkTypeVO>>() {
+        workTypeInterface.getWorkTypeAll().enqueue(new Callback<List<CompanyWorkTypeDto>>() {
             @Override
-            public void onResponse(Call<List<CompanyWorkTypeVO>> call, Response<List<CompanyWorkTypeVO>> response) {
+            public void onResponse(Call<List<CompanyWorkTypeDto>> call, Response<List<CompanyWorkTypeDto>> response) {
 
-                List<CompanyWorkTypeVO> getWorkTypeAll = response.body();
+                List<CompanyWorkTypeDto> getWorkTypeAll = response.body();
                 Log.d("WorkTypeAll", getWorkTypeAll.toString());
 
                 final String[] listOfEmploymentType = new String[getWorkTypeAll.size()];
                 int arrCount = 0;
 
-                for (CompanyWorkTypeVO vo : getWorkTypeAll) {
+                for (CompanyWorkTypeDto vo : getWorkTypeAll) {
                     listOfEmploymentType[arrCount] = vo.getWorkTypeName();
                     arrCount++;
                 }
@@ -191,7 +191,7 @@ public class CalculatorActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<CompanyWorkTypeVO>> call, Throwable t) {
+            public void onFailure(Call<List<CompanyWorkTypeDto>> call, Throwable t) {
 
             }
         });

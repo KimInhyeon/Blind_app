@@ -36,7 +36,7 @@ import com.ksinfo.tomodomo.TomodomoApplication;
 import com.ksinfo.tomodomo.controller.member.MemberJoinActivity;
 import com.ksinfo.tomodomo.model.itf.CompanyInterface;
 import com.ksinfo.tomodomo.model.itf.JobGroupInterface;
-import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupVO;
+import com.ksinfo.tomodomo.model.vo.annualincome.CompanyJobGroupDto;
 import com.ksinfo.tomodomo.model.vo.company.CompanyReviewVO;
 
 import java.util.Calendar;
@@ -302,11 +302,11 @@ public class CompanyReviewActivity extends AppCompatActivity {
 //        });
 
 
-        jobGroupInterface.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupVO>>() {
+        jobGroupInterface.getJobGroupListAll().enqueue(new Callback<List<CompanyJobGroupDto>>() {
             @Override
-            public void onResponse(@NonNull Call<List<CompanyJobGroupVO>> call, Response<List<CompanyJobGroupVO>> response) {
+            public void onResponse(@NonNull Call<List<CompanyJobGroupDto>> call, Response<List<CompanyJobGroupDto>> response) {
                 if (response.isSuccessful()) {
-                    List<CompanyJobGroupVO> jobGroupList = response.body();
+                    List<CompanyJobGroupDto> jobGroupList = response.body();
 
                     int listSize = jobGroupList.size() + 1;
 
@@ -350,7 +350,7 @@ public class CompanyReviewActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<CompanyJobGroupVO>> call, Throwable t) {
+            public void onFailure(Call<List<CompanyJobGroupDto>> call, Throwable t) {
                 t.printStackTrace();
             }
         });

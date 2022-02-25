@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ksinfo.tomodomo.R;
-import com.ksinfo.tomodomo.model.vo.notice.NoticeVO;
+import com.ksinfo.tomodomo.model.vo.notice.NoticeDto;
 
 public class NoticeViewHolder extends RecyclerView.ViewHolder {
 
@@ -39,7 +39,7 @@ public class NoticeViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void onBind(NoticeVO data, int position, SparseBooleanArray selectedItems) {
+    public void onBind(NoticeDto data, int position, SparseBooleanArray selectedItems) {
         noticeTitle.setText(data.getNoticeTitle());
         noticeCreateDate.setText(data.getNoticeCreateDate());
         noticeContents.setText(data.getNoticeContents());

@@ -11,6 +11,6 @@ public class WebLoginAccessActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mp_wl_access);
+        setContentView(R.layout.wl_access);
     }
 }

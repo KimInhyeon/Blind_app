@@ -5,7 +5,7 @@ import com.ksinfo.tomodomo.model.vo.board.PostBlock;
 
 import java.util.List;
 
-public final class BookmarkPostVO {
+public final class BookmarkPostDto {
     private final long boardId;
     private final String boardTopicName;
     private final long postId;
@@ -21,20 +21,20 @@ public final class BookmarkPostVO {
     private final int postRecommendCount;
     private final int replyCount;
 
-    public BookmarkPostVO(@JsonProperty("boardId")              long boardId,
-                          @JsonProperty("boardTopicName")       String boardTopicName,
-                          @JsonProperty("postId")               long postId,
-                          @JsonProperty("postTitle")            String postTitle,
-                          @JsonProperty("postContents")         List<PostBlock> postContents,
-                          @JsonProperty("postFileUrl")          String postFileUrl,
-                          @JsonProperty("companyId")            long companyId,
-                          @JsonProperty("companyName")          String companyName,
-                          @JsonProperty("userNickname")         String userNickname,
-                          @JsonProperty("postCreateDate")       String postCreateDate,
-                          @JsonProperty("postCount")            int postCount,
-                          @JsonProperty("recommended")          boolean recommended,
-                          @JsonProperty("postRecommendCount")   int postRecommendCount,
-                          @JsonProperty("replyCount")           int replyCount ){
+    public BookmarkPostDto(@JsonProperty("boardId")              long boardId,
+                           @JsonProperty("boardTopicName")       String boardTopicName,
+                           @JsonProperty("postId")               long postId,
+                           @JsonProperty("postTitle")            String postTitle,
+                           @JsonProperty("postContents")         List<PostBlock> postContents,
+                           @JsonProperty("postFileUrl")          String postFileUrl,
+                           @JsonProperty("companyId")            long companyId,
+                           @JsonProperty("companyName")          String companyName,
+                           @JsonProperty("userNickname")         String userNickname,
+                           @JsonProperty("postCreateDate")       String postCreateDate,
+                           @JsonProperty("postCount")            int postCount,
+                           @JsonProperty("recommended")          boolean recommended,
+                           @JsonProperty("postRecommendCount")   int postRecommendCount,
+                           @JsonProperty("replyCount")           int replyCount ){
 
         this.boardId = boardId;
         this.boardTopicName = boardTopicName;

@@ -2,10 +2,10 @@ package com.ksinfo.tomodomo.model.vo.annualincome;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public final class CompanyWorkTypeVO {
+public final class CompanyWorkTypeDto {
     private final String workTypeName;
 
-    public CompanyWorkTypeVO(
+    public CompanyWorkTypeDto(
         @JsonProperty("workTypeName") String workTypeName)
     {
         this.workTypeName = workTypeName;
