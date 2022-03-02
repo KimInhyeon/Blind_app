@@ -70,6 +70,7 @@ public class CompanySearchPopular9Adapter extends RecyclerView.Adapter<CompanySe
 //                } catch (Exception e) {
 //                    e.printStackTrace();
 //                }
+
                 companyInterface.getCompanyAverage(company.getCompanyId()).enqueue(new Callback<CompanyReviewAverageVO>() {
                     @Override
                     public void onResponse(Call<CompanyReviewAverageVO> call, Response<CompanyReviewAverageVO> response) {
@@ -79,6 +80,37 @@ public class CompanySearchPopular9Adapter extends RecyclerView.Adapter<CompanySe
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             intent.putExtra("companyAverageVO", companyReviewAverageVO);
                             Log.d("feeeeeeee", response.body().toString());
+                            intent.putExtra("companyName",company.getCompanyName());
+                            intent.putExtra("companyId",company.getCompanyId());
+
+
+
+
+                            companyInterface.getCompanyReviewList(company.getCompanyId(), 1).enqueue(new Callback<ArrayList<CompanyReviewVO>>() {
+                                @Override
+                                public void onResponse(Call<ArrayList<CompanyReviewVO>> call, Response<ArrayList<CompanyReviewVO>> response) {
+                                    if (response.isSuccessful()) {
+
+                                        ArrayList<CompanyReviewVO> companyReviewVOArrayList = response.body();
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        intent.putParcelableArrayListExtra("companyReviewVOArrayList", companyReviewVOArrayList);
+                                        holder.itemView.getContext().startActivity(intent);
+                                        Log.d("ㅣㅏㅓㅣㅓㅣㅓ", response.body().toString());
+
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<ArrayList<CompanyReviewVO>> call, Throwable t) {
+
+                                }
+                            });
+
+
+
+
+
+
 
                         }
                     }
@@ -90,25 +122,11 @@ public class CompanySearchPopular9Adapter extends RecyclerView.Adapter<CompanySe
                 });
 
 
-                companyInterface.getCompanyReviewList(company.getCompanyId(), 1).enqueue(new Callback<ArrayList<CompanyReviewVO>>() {
-                    @Override
-                    public void onResponse(Call<ArrayList<CompanyReviewVO>> call, Response<ArrayList<CompanyReviewVO>> response) {
-                        if (response.isSuccessful()) {
-                            Intent intent = new Intent(holder.itemView.getContext(), CompanyReviewListActivity.class);
-                            ArrayList<CompanyReviewVO> companyReviewVOArrayList = response.body();
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            intent.putParcelableArrayListExtra("companyReviewVOArrayList", companyReviewVOArrayList);
-                            holder.itemView.getContext().startActivity(intent);
-                            Log.d("ㅣㅏㅓㅣㅓㅣㅓ", response.body().toString());
 
-                        }
-                    }
 
-                    @Override
-                    public void onFailure(Call<ArrayList<CompanyReviewVO>> call, Throwable t) {
 
-                    }
-                });
+
+
             }
         });
     }

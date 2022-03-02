@@ -55,6 +55,41 @@
         app:layout_constraintTop_toBottomOf="@id/cp_all_company_review_list_line1"
         app:layout_constraintLeft_toLeftOf="parent"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="삼성전자"
+        app:layout_constraintStart_toEndOf="@+id/cp_all_company_reveiw_list_logo"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_review_list_line1"
+        android:layout_marginTop="10dp"
+
+    />
+
+    <Button
+        android:id="@+id/cp_all_company_reveiw_list_btn_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="会社情報"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_reveiw_list_logo"
+        android:layout_marginTop="10dp"
+
+        />
+
+
+    <Button
+        android:id="@+id/cp_all_company_reveiw_list_btn_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="レビュ作成"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintStart_toEndOf="@id/cp_all_company_reveiw_list_btn_info"
+        app:layout_constraintTop_toBottomOf="@id/cp_all_company_reveiw_list_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+
+        />
 
     <TextView
         android:id="@+id/cp_all_company_review_list_all_Point"

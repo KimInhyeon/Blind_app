@@ -4,6 +4,7 @@ import com.ksinfo.tomodomo.model.vo.company.CompanyMainVO;
 import com.ksinfo.tomodomo.model.vo.company.CompanyReviewAverageVO;
 import com.ksinfo.tomodomo.model.vo.company.CompanyReviewVO;
 import com.ksinfo.tomodomo.model.vo.company.CompanySearchVO;
+import com.ksinfo.tomodomo.model.vo.company.CompanyVoteResultDto;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,4 +42,13 @@ public interface CompanyInterface {
 
 	@GET("company/review/{companyId}?averageStar")
 	Call<CompanyReviewAverageVO> getCompanyAverage(@Path("companyId") long companyId);
+
+	@GET("company/{companyId}/recommend")
+	Call<CompanyVoteResultDto> getCompanyRecommendVoteResult(@Path("companyId") long companyId);
+
+	@FormUrlEncoded
+	@POST("company/recommend")
+	Call<CompanyVoteResultDto> companyRecommendPush(
+			@FieldMap Map<String, Object> params
+	);
 }

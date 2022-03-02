@@ -7,6 +7,7 @@ import com.ksinfo.tomodomo.controller.board.SearchPostActivity;
 import com.ksinfo.tomodomo.controller.common.MainActivity;
 import com.ksinfo.tomodomo.controller.company.CompanyAllSearchActivity;
 import com.ksinfo.tomodomo.controller.company.CompanyReviewActivity;
+import com.ksinfo.tomodomo.controller.company.CompanyReviewListActivity;
 import com.ksinfo.tomodomo.controller.company.CompanySearchActivity;
 import com.ksinfo.tomodomo.controller.member.LoginActivity;
 import com.ksinfo.tomodomo.controller.member.MemberJoinActivity;
@@ -45,4 +46,6 @@ public interface ApplicationComponent {
     void inject(NoticeActivity noticeActivity);
 
     void inject(CompanyAllSearchActivity companyAllSearchActivity);
+
+    void inject(CompanyReviewListActivity companyReviewListActivity);
 }
