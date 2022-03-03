@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFFFFF"
-    tools:context=".member.LoginActivity">
+    tools:context=".controller.member.LoginActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -143,6 +143,50 @@
                 android:layout_marginRight="30dp"
                 android:background="#323151"
                 android:text="annualIncomeAccess"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/annualIncomeRcViewSampleBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="annualIncomeRcViewSample"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/pwChange"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="パスワード変更"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/profileChange"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="プロフィール修正"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/myTask"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#323151"
+                android:text="進行中タスク"
                 android:textColor="#FFFFFF" />
 
             <Button
