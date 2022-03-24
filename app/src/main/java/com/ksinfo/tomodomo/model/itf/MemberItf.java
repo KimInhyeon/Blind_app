@@ -29,6 +29,18 @@ public interface MemberItf {
 
 	@FormUrlEncoded
 	@POST("member/checkUpdateProfileApp")
-	Call<MemberVO> checkUpdateProfileApp(@FieldMap HashMap<String, String> params);
+	Call<HashMap<String, String>> checkUpdateProfileApp(@FieldMap HashMap<String, String> params);
+
+	@FormUrlEncoded
+	@POST("member/checkNickNameApp")
+	Call<HashMap<String, String>> checkNickNameApp(@FieldMap HashMap<String, String> params);
+
+	@FormUrlEncoded
+	@POST("member/checkChangePasswordApp")
+	Call<HashMap<String, String>> checkChangePasswordApp(@FieldMap HashMap<String, String> params);
+
+	@FormUrlEncoded
+	@POST("member/checkSamePasswordApp")
+	Call<HashMap<String, String>> checkSamePasswordApp(@FieldMap HashMap<String, String> params);
 
 }

@@ -17,6 +17,7 @@ public class MemberVO {
     private final String userEmail;
     private final String companyId;
     private final String userAuth;
+    private final String companyName;
 
 
 
@@ -29,7 +30,8 @@ public class MemberVO {
                 @JsonProperty("userPassword") String userPassword,
                 @JsonProperty("userEmail") String userEmail,
                 @JsonProperty("companyId") String companyId,
-                @JsonProperty("userAuth") String userAuth
+                @JsonProperty("userAuth") String userAuth,
+                @JsonProperty("companyName") String companyName
 
     ) throws JsonProcessingException {
         this.userId = userId;
@@ -41,6 +43,7 @@ public class MemberVO {
         this.userEmail = userEmail;
         this.companyId = companyId;
         this.userAuth = userAuth;
+        this.companyName = companyName;
 
     }
 
@@ -80,4 +83,7 @@ public class MemberVO {
         return userAuth;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
 }

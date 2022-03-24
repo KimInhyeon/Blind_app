@@ -16,7 +16,7 @@ import com.ksinfo.tomodomo.controller.annualincome.AnnualIncomeRcViewSampleActiv
 import com.ksinfo.tomodomo.controller.board.TopicMainActivity;
 import com.ksinfo.tomodomo.controller.home.Home;
 import com.ksinfo.tomodomo.model.itf.MemberItf;
-import com.ksinfo.tomodomo.controller.mypage.ModifyPassword;
+import com.ksinfo.tomodomo.controller.mypage.ModifyPasswordActivity;
 import com.ksinfo.tomodomo.controller.mypage.ModifyProfileActivity;
 import com.ksinfo.tomodomo.controller.mypage.MyTaskActivity;
 import com.ksinfo.tomodomo.util.RetrofitFactory;
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
         pwChange.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ModifyPassword.class);
+                Intent intent = new Intent(getApplicationContext(), ModifyPasswordActivity.class);
                 startActivity(intent);
             }
         });

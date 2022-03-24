@@ -65,7 +65,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ニックネーム（5回変更可能）"
+        android:text="ニックネーム"
         />
 
     <EditText
@@ -79,10 +79,19 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="現在のニックネームと同様です。"
-            android:paddingBottom="20dp"
-            android:background="@drawable/border_bottom"
+            android:id="@+id/modifyNickNameCheckTextView"
+            android:paddingBottom="10dp"
             />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="3dp"
+            android:background="@drawable/border_bottom"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="20dp"
+            />
+
 
 
 
@@ -97,6 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="新しい会社"
+            android:id="@+id/profileCompanyTextView"
             android:textSize="18sp"
             android:paddingVertical="10dp"
            />
@@ -104,7 +114,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border_bottom"/>
+            android:background="@drawable/border_bottom"
+            android:height="10dp"/>
 
 
 

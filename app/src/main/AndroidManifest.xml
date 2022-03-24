@@ -21,7 +21,7 @@
             android:name=".controller.mypage.ModifyProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".controller.mypage.ModifyPassword"
+            android:name=".controller.mypage.ModifyPasswordActivity"
             android:exported="false" />
         <activity
             android:name="com.ksinfo.tomodomo.MainActivity"
